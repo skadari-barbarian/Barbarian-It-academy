@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIFE Practice</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .code {
+            background: #1e1e1e;
+            color: #eee;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            background: #222;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        .output {
+            margin-top: 15px;
+            padding: 15px;
+            background: #eef6ff;
+            border-left: 4px solid #2674d9;
+            min-height: 40px;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>IIFE Practice Page</h1>
+        <p>Immediately Invoked Function Expression</p>
+    </header>
+
+
+    <main class="container">
+
+        <!-- Example 1 -->
+        <section class="card">
+
+            <h2>1. Basic IIFE</h2>
+
+            <p>
+                An IIFE is a function that executes immediately after it
+                is created.
+            </p>
+
+            <div class="code">
+                <pre>
+(function () {
+    console.log("IIFE executed");
+})();
+                </pre>
+            </div>
+
+            <button onclick="showBasicIIFE()">
+                Run Example
+            </button>
+
+            <div class="output" id="basicOutput">
+                Output will appear here
+            </div>
+
+        </section>
+
+
+        <!-- Example 2 -->
+        <section class="card">
+
+            <h2>2. IIFE with Variables</h2>
+
+            <p>
+                Variables created inside an IIFE are protected from the
+                global scope.
+            </p>
+
+            <div class="code">
+                <pre>
+(function () {
+
+    let name = "Srihitha";
+
+    console.log(name);
+
+})();
+                </pre>
+            </div>
+
+            <button onclick="showVariableIIFE()">
+                Run Example
+            </button>
+
+            <div class="output" id="variableOutput">
+                Output will appear here
+            </div>
+
+        </section>
+
+
+        <!-- Example 3 -->
+        <section class="card">
+
+            <h2>3. IIFE with Parameters</h2>
+
+            <p>
+                An IIFE can also receive arguments just like a normal
+                function.
+            </p>
+
+            <div class="code">
+                <pre>
+(function (name) {
+
+    console.log("Hello " + name);
+
+})("Srihitha");
+                </pre>
+            </div>
+
+            <button onclick="showParameterIIFE()">
+                Run Example
+            </button>
+
+            <div class="output" id="parameterOutput">
+                Output will appear here
+            </div>
+
+        </section>
+
+
+        <!-- Example 4 -->
+        <section class="card">
+
+            <h2>4. IIFE Returning a Value</h2>
+
+            <p>
+                An IIFE can execute immediately and return a value.
+            </p>
+
+            <div class="code">
+                <pre>
+let result = (function () {
+
+    return 10 + 20;
+
+})();
+
+console.log(result);
+                </pre>
+            </div>
+
+            <button onclick="showReturnIIFE()">
+                Run Example
+            </button>
+
+            <div class="output" id="returnOutput">
+                Output will appear here
+            </div>
+
+        </section>
+
+
+        <!-- Example 5 -->
+        <section class="card">
+
+            <h2>5. IIFE for Private Data</h2>
+
+            <p>
+                IIFEs can be used to keep variables private and expose
+                only the required functionality.
+            </p>
+
+            <div class="code">
+                <pre>
+const counter = (function () {
+
+    let count = 0;
+
+    return function () {
+        count++;
+        return count;
+    };
+
+})();
+
+console.log(counter());
+console.log(counter());
+                </pre>
+            </div>
+
+            <button onclick="runCounter()">
+                Increase Counter
+            </button>
+
+            <div class="output" id="counterOutput">
+                Counter: 0
+            </div>
+
+        </section>
+
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function showBasicIIFE() {
+
+            let output = "";
+
+            (function () {
+                output = "IIFE executed immediately!";
+            })();
+
+            document.getElementById("basicOutput").textContent = output;
+        }
+
+
+        function showVariableIIFE() {
+
+            let result = "";
+
+            (function () {
+
+                let name = "Srihitha";
+
+                result = "Hello " + name;
+
+            })();
+
+            document.getElementById("variableOutput").textContent = result;
+        }
+
+
+        function showParameterIIFE() {
+
+            let result = "";
+
+            (function (name) {
+
+                result = "Hello " + name;
+
+            })("Srihitha");
+
+            document.getElementById("parameterOutput").textContent = result;
+        }
+
+
+        function showReturnIIFE() {
+
+            let result = (function () {
+
+                return 10 + 20;
+
+            })();
+
+            document.getElementById("returnOutput").textContent =
+                "Result: " + result;
+        }
+
+
+        let counter = (function () {
+
+            let count = 0;
+
+            return function () {
+
+                count++;
+
+                return count;
+
+            };
+
+        })();
+
+
+        function runCounter() {
+
+            let value = counter();
+
+            document.getElementById("counterOutput").textContent =
+                "Counter: " + value;
+        }
+
+    </script>
+
+</body>
+</html>

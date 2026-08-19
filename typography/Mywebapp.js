@@ -90,7 +90,8 @@
             ["05", "JS OBJECTS", "slides/objects.html"],
             ["06", "JSon", "slides/json.html"],
             ["07", "promises", "slides/promise.js"],
-            ["08", "events", "slides/events.html"]
+            ["08", "events", "slides/events.html"],
+            ["09","IIFE","slides/iife.html"]
           ],
           panelId: 'jsPanel'
         },
