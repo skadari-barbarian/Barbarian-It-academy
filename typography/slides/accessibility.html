@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HTML Accessibility</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1f2937;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #d1d5db;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+            color: #374151;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .example {
+            background: #f8fafc;
+            border-left: 5px solid #2563eb;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+
+        .bad {
+            border-left-color: #dc2626;
+        }
+
+        .good {
+            border-left-color: #16a34a;
+        }
+
+        pre {
+            background: #111827;
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 12px;
+        }
+
+        code {
+            font-family: Consolas, monospace;
+        }
+
+        .demo {
+            margin-top: 15px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .demo label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .demo input {
+            padding: 10px;
+            width: 100%;
+            max-width: 350px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        .demo button {
+            padding: 10px 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .demo button:focus,
+        .demo input:focus {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 10px;
+            background: black;
+            color: white;
+            padding: 10px;
+        }
+
+        .skip-link:focus {
+            left: 10px;
+        }
+
+        ul {
+            margin-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #1f2937;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Skip link for keyboard users -->
+    <a href="#main-content" class="skip-link">
+        Skip to main content
+    </a>
+
+
+    <!-- Header -->
+    <header>
+
+        <h1>HTML Accessibility</h1>
+
+        <p>
+            Building websites that everyone can use
+        </p>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- Introduction -->
+        <section>
+
+            <h2>What is Accessibility?</h2>
+
+            <p>
+                HTML accessibility means creating web pages that can
+                be used by everyone, including people with disabilities.
+            </p>
+
+            <p>
+                Accessible websites work well with assistive technologies
+                such as screen readers and also support keyboard navigation.
+            </p>
+
+            <h3>Accessibility helps people who:</h3>
+
+            <ul>
+                <li>Have difficulty seeing</li>
+                <li>Have difficulty hearing</li>
+                <li>Cannot use a mouse easily</li>
+                <li>Use screen readers</li>
+                <li>Have difficulty understanding complex interfaces</li>
+            </ul>
+
+        </section>
+
+
+        <!-- Semantic HTML -->
+        <section>
+
+            <h2>1. Use Semantic HTML</h2>
+
+            <p>
+                Semantic HTML elements describe the meaning and purpose
+                of the content.
+            </p>
+
+            <div class="example bad">
+
+                <h3>❌ Less Accessible</h3>
+
+                <pre><code>&lt;div&gt;My Website&lt;/div&gt;
+
+&lt;div&gt;
+    Home
+    About
+    Contact
+&lt;/div&gt;
+
+&lt;div&gt;
+    Main content
+&lt;/div&gt;</code></pre>
+
+            </div>
+
+
+            <div class="example good">
+
+                <h3>✅ Better</h3>
+
+                <pre><code>&lt;header&gt;
+    &lt;h1&gt;My Website&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+    Home
+    About
+    Contact
+&lt;/nav&gt;
+
+&lt;main&gt;
+    Main content
+&lt;/main&gt;</code></pre>
+
+            </div>
+
+            <p>
+                Elements such as
+                <code>&lt;header&gt;</code>,
+                <code>&lt;nav&gt;</code>,
+                <code>&lt;main&gt;</code>,
+                <code>&lt;section&gt;</code> and
+                <code>&lt;footer&gt;</code>
+                provide meaning to the page.
+            </p>
+
+        </section>
+
+
+        <!-- Labels -->
+        <section>
+
+            <h2>2. Use Labels with Form Inputs</h2>
+
+            <p>
+                Every form input should have a clear label so users
+                and screen readers know what information is required.
+            </p>
+
+
+            <div class="example bad">
+
+                <h3>❌ Less Accessible</h3>
+
+                <pre><code>&lt;input
+    type="text"
+    placeholder="Enter your name"&gt;</code></pre>
+
+            </div>
+
+
+            <div class="example good">
+
+                <h3>✅ Accessible</h3>
+
+                <pre><code>&lt;label for="name"&gt;
+    Full Name
+&lt;/label&gt;
+
+&lt;input
+    type="text"
+    id="name"
+    name="name"&gt;</code></pre>
+
+            </div>
+
+
+            <div class="demo">
+
+                <label for="demo-name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="demo-name"
+                    placeholder="Enter your name">
+
+            </div>
+
+        </section>
+
+
+        <!-- Images -->
+        <section>
+
+            <h2>3. Use Alt Text for Images</h2>
+
+            <p>
+                The <code>alt</code> attribute provides a text
+                description of an image.
+            </p>
+
+
+            <div class="example bad">
+
+                <h3>❌ Less Accessible</h3>
+
+                <pre><code>&lt;img src="profile.jpg"&gt;</code></pre>
+
+            </div>
+
+
+            <div class="example good">
+
+                <h3>✅ Accessible</h3>
+
+                <pre><code>&lt;img
+    src="profile.jpg"
+    alt="Profile picture of John"&gt;</code></pre>
+
+            </div>
+
+            <p>
+                A screen reader can read the alt text to the user.
+            </p>
+
+        </section>
+
+
+        <!-- Headings -->
+        <section>
+
+            <h2>4. Use Headings Correctly</h2>
+
+            <p>
+                Headings create a logical structure for the page.
+            </p>
+
+
+            <div class="example bad">
+
+                <h3>❌ Incorrect Structure</h3>
+
+                <pre><code>&lt;h1&gt;HTML Accessibility&lt;/h1&gt;
+
+&lt;h4&gt;Semantic HTML&lt;/h4&gt;
+
+&lt;h2&gt;Forms&lt;/h2&gt;</code></pre>
+
+            </div>
+
+
+            <div class="example good">
+
+                <h3>✅ Correct Structure</h3>
+
+                <pre><code>&lt;h1&gt;HTML Accessibility&lt;/h1&gt;
+
+&lt;h2&gt;Semantic HTML&lt;/h2&gt;
+
+&lt;h2&gt;Forms&lt;/h2&gt;
+
+&lt;h3&gt;Form Labels&lt;/h3&gt;</code></pre>
+
+            </div>
+
+        </section>
+
+
+        <!-- Buttons -->
+        <section>
+
+            <h2>5. Use Real Buttons</h2>
+
+            <p>
+                Use the <code>&lt;button&gt;</code> element for actions
+                instead of making a <code>&lt;div&gt;</code> behave like
+                a button.
+            </p>
+
+
+            <div class="example bad">
+
+                <h3>❌ Less Accessible</h3>
+
+                <pre><code>&lt;div onclick="submitForm()"&gt;
+    Submit
+&lt;/div&gt;</code></pre>
+
+            </div>
+
+
+            <div class="example good">
+
+                <h3>✅ Accessible</h3>
+
+                <pre><code>&lt;button type="submit"&gt;
+    Submit
+&lt;/button&gt;</code></pre>
+
+            </div>
+
+
+            <div class="demo">
+
+                <button type="button">
+                    Submit
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Keyboard -->
+        <section>
+
+            <h2>6. Support Keyboard Navigation</h2>
+
+            <p>
+                Some users navigate websites using only a keyboard.
+                They use keys such as:
+            </p>
+
+            <ul>
+                <li>Tab</li>
+                <li>Shift + Tab</li>
+                <li>Enter</li>
+                <li>Space</li>
+                <li>Arrow keys</li>
+            </ul>
+
+            <p>
+                Interactive elements should be reachable and usable
+                using the keyboard.
+            </p>
+
+            <div class="demo">
+
+                <label for="keyboard-demo">
+                    Try pressing Tab:
+                </label>
+
+                <input
+                    id="keyboard-demo"
+                    type="text"
+                    placeholder="Press Tab to focus">
+
+                <br><br>
+
+                <button type="button">
+                    Keyboard Accessible Button
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Color -->
+        <section>
+
+            <h2>7. Don't Rely Only on Color</h2>
+
+            <p>
+                Color should not be the only way to communicate
+                important information.
+            </p>
+
+
+            <div class="example bad">
+
+                <h3>❌ Not Recommended</h3>
+
+                <pre><code>&lt;p style="color: red;"&gt;
+    Error
+&lt;/p&gt;</code></pre>
+
+            </div>
+
+
+            <div class="example good">
+
+                <h3>✅ Better</h3>
+
+                <pre><code>&lt;p&gt;
+    Error: Please enter a valid email address.
+&lt;/p&gt;</code></pre>
+
+            </div>
+
+            <p>
+                The word "Error" communicates the meaning even if
+                the user cannot distinguish the color.
+            </p>
+
+        </section>
+
+
+        <!-- Form Accessibility -->
+        <section>
+
+            <h2>8. Accessible Form Example</h2>
+
+            <p>
+                A good accessible form uses labels, appropriate input
+                types and required fields.
+            </p>
+
+            <div class="demo">
+
+                <form>
+
+                    <div>
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            required>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="user-email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="user-email"
+                            name="email"
+                            required>
+                    </div>
+
+                    <br>
+
+                    <button type="submit">
+                        Register
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- Summary -->
+        <section>
+
+            <h2>Accessibility Checklist</h2>
+
+            <ul>
+                <li>Use semantic HTML elements</li>
+                <li>Use proper heading structure</li>
+                <li>Give images meaningful alt text</li>
+                <li>Use labels for form inputs</li>
+                <li>Use real buttons and links</li>
+                <li>Support keyboard navigation</li>
+                <li>Don't rely only on color</li>
+                <li>Use clear and meaningful text</li>
+                <li>Make forms easy to understand</li>
+            </ul>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            HTML Accessibility Practice
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

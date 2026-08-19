@@ -1,0 +1,64 @@
+body {
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background: #000000;
+
+    font-family: Inter, -apple-system, sans-serif;}
+
+.face{
+    width:300px;
+    height:300px;
+    background:#ffd699;
+    border:3px solid #333;
+    border-radius:50%;
+    position:relative;
+}
+
+.eye{
+    width:60px;
+    height:60px;
+    background:white;
+    border-radius:50%;
+    border:2px solid black;
+    position:absolute;
+    top:70px;
+}
+
+.left{
+    left:55px;
+}
+
+.right{
+    right:55px;
+}
+.pupil{
+    width:22px;
+    height:22px;
+    background:black;
+    border-radius:50%;
+    position:absolute;
+    top:18px;
+    left:18px;
+}
+.nose{
+    width:18px;
+    height:40px;
+    background:#f4b183;
+    position:absolute;
+    top:125px;
+    left:141px;
+    border-radius:10px;
+}
+
+.mouth{
+    width:120px;
+    height:60px;
+    border-bottom:5px solid red;
+    border-radius:0 0 100px 100px;
+    position:absolute;
+    bottom:60px;
+    left:90px;
+}

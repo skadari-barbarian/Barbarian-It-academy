@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Font Weight</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+    margin-bottom:15px;
+}
+
+.definition{
+    text-align:center;
+    color:#555;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    text-align:center;
+}
+
+.card h2{
+    color:#0077cc;
+    margin-bottom:20px;
+}
+
+.demo{
+    font-size:28px;
+    margin:15px 0;
+}
+
+/* Font Weight Values */
+.w100{
+    font-weight:100;
+}
+
+.w300{
+    font-weight:300;
+}
+
+.w400{
+    font-weight:400;
+}
+
+.w500{
+    font-weight:500;
+}
+
+.w700{
+    font-weight:700;
+}
+
+.w900{
+    font-weight:900;
+}
+
+.note{
+    margin-top:40px;
+    background:#eef7ff;
+    padding:20px;
+    border-left:5px solid #0077cc;
+    border-radius:6px;
+}
+
+code{
+    color:#d63384;
+    font-size:17px;
+}
+
+ul{
+    margin-top:10px;
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+</style>
+
+  <link id="barbarian-font" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Barbarian Brand Overrides -->
+    <style id="barbarian-styles">
+      body {
+        background: #000000 !important;
+        color: #ffffff !important;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      }
+      .container {
+        background: #121212 !important;
+        border: 1px solid #222222 !important;
+        color: #ffffff !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Inter, sans-serif !important;
+      }
+      h1 { color: #ff4400 !important; }
+      h2 { color: #c23030 !important; }
+      p, li, td { color: #7f2525 !important; }
+      a { color: #1a73e8 !important; }
+      code, pre, .code, .number, .file, .tag {
+        font-family: 'Fira Code', monospace !important;
+      }
+      .highlight, strong, b {
+        color: #ff4400 !important;
+      }
+      footer {
+        color: #777777 !important;
+      }
+    </style>
+
+</head>
+<body>
+
+<h1>CSS Font Weight</h1>
+
+<p class="definition">
+<b>font-weight</b> specifies the thickness (boldness) of text. Higher values make the text appear bolder.
+</p>
+
+<div class="container">
+
+    <div class="card">
+        <h2>100 - Thin</h2>
+        <p class="demo w100">Hello CSS</p>
+    </div>
+
+    <div class="card">
+        <h2>300 - Light</h2>
+        <p class="demo w300">Hello CSS</p>
+    </div>
+
+    <div class="card">
+        <h2>400 - Normal</h2>
+        <p class="demo w400">Hello CSS</p>
+    </div>
+
+    <div class="card">
+        <h2>500 - Medium</h2>
+        <p class="demo w500">Hello CSS</p>
+    </div>
+
+    <div class="card">
+        <h2>700 - Bold</h2>
+        <p class="demo w700">Hello CSS</p>
+    </div>
+
+    <div class="card">
+        <h2>900 - Extra Bold</h2>
+        <p class="demo w900">Hello CSS</p>
+    </div>
+
+</div>
+
+<div class="note">
+
+<h3>Syntax</h3>
+
+<p><code>font-weight: 700;</code></p>
+
+<p><code>font-weight: bold;</code></p>
+
+<br>
+
+<h3>Explanation</h3>
+
+<ul>
+    <li><b>100</b> → Thin</li>
+    <li><b>300</b> → Light</li>
+    <li><b>400</b> → Normal (Default)</li>
+    <li><b>500</b> → Medium</li>
+    <li><b>700</b> → Bold</li>
+    <li><b>900</b> → Extra Bold (Black)</li>
+</ul>
+
+</div>
+
+</body>
+</html>

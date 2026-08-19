@@ -1,0 +1,28 @@
+
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items:start;
+        color: #e50a0a;
+    }
+    h1{
+        text-align: center;
+    }
+    .block{
+        display: block;
+        margin-top:30%;
+        color: #e50a0a;
+    }
+    body{
+        background-color: #f7f2f2;
+        font-family: Arial,sans-serif;
+        padding: 20px;
+    }
+    button{
+        padding: 10px 20px;
+        background-color: #ef0b0b;
+        color: white;
+        border-style: solid;
+        border-color: #030603;
+        cursor: pointer;
+    }

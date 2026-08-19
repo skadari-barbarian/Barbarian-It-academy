@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "MyFont";
+    src: url("./fonts/Poppins/Poppins-ExtraLight.ttf");
+}
+
+h1 {
+    
+    font-family: "MyFont";
+    color: black;
+    background-color: aliceblue;
+    text-shadow: 2px 2px 1px red;
+}
+
+p {
+    font-family: "MyFont";
+    color: black;
+    background-color: aliceblue;
+}

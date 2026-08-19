@@ -1,0 +1,179 @@
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 40px 20px;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #222;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Radio and Checkbox */
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-item,
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .radio-item label,
+        .checkbox-item label {
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .radio-item input,
+        .checkbox-item input {
+            width: auto;
+        }
+
+        /* Range */
+
+        input[type="range"] {
+            padding: 0;
+        }
+
+        /* Color */
+
+        input[type="color"] {
+            height: 45px;
+            padding: 3px;
+        }
+
+        /* File */
+
+        input[type="file"] {
+            padding: 8px;
+        }
+
+        /* Fieldset */
+
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+            color: #4a90e2;
+        }
+
+        /* Buttons */
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button,
+        input[type="submit"],
+        input[type="reset"] {
+            width: auto;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        input[type="submit"] {
+            background: #4a90e2;
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background: #357abd;
+        }
+
+        input[type="reset"] {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        input[type="reset"]:hover {
+            background: #ccc;
+        }
+
+        button {
+            background: #333;
+            color: white;
+        }
+
+        button:hover {
+            background: #111;
+        }
+
+        /* Two-column layout */
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        

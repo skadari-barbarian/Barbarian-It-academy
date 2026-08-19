@@ -1,0 +1,2519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbarian IT Academy</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="Mywebapp.css">
+  
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand">barbarian<span>.</span> <small>it academy</small></div>
+      <div class="course-switcher">
+        <button class="course-btn active" id="btnHTML" onclick="switchCourse('html')">HTML</button>
+        <button class="course-btn" id="btnCSS" onclick="switchCourse('css')">CSS</button>
+        <button class="course-btn" id="btnExpress" onclick="switchCourse('express')">Express.js</button>
+        <button class="course-btn" id="btnJS" onclick="switchCourse('js')">JavaScript</button>
+        <button class="course-btn" id="btnExamples" onclick="switchCourse('examples')">Examples</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <div class="header-title"><b id="topTitle">Opening</b></div>
+        <div id="countTop">01 / 01</div>
+      </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="side-head">
+        <h2 id="sideTitle">Topics</h2>
+        <p id="sideDesc">HTML basics — coming soon</p>
+      </div>
+      <div id="nav"></div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+      <div id="tool">
+        <div id="tool-title">Theory Slide: <b id="toolTitle">Opening</b></div>
+        <button id="exampleButton">⊕ Open My Example</button>
+      </div>
+      <div id="workspace">
+
+        
+          <!-- HTML INTRO SLIDE -->
+<section id="htmlPanel" class="theory-panel active-course">
+
+    <!-- SLIDE 1: HTML INTRODUCTION -->
+    <article class="slide active hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">01 · HTML FUNDAMENTALS</div>
+
+            <h1>HTML</h1>
+
+            <h2>HyperText Markup Language</h2>
+
+            <div class="badge">
+                Barbarian IT Academy
+            </div>
+
+            <div class="tags" style="margin-top:25px">
+                <span>Structure</span>
+                <span>Elements</span>
+                <span>Tags</span>
+                <span>Attributes</span>
+                <span>Semantic HTML</span>
+            </div>
+
+            <p style="
+                margin-top:30px;
+                max-width:850px;
+                margin-left:auto;
+                margin-right:auto;
+                color:#ccc;
+                font-size:1rem;
+                line-height:1.8;
+            ">
+                HTML is the standard markup language used to create and
+                structure content on web pages. It defines the structure
+                of a webpage using elements such as headings, paragraphs,
+                links, images, lists, tables, forms, and other components.
+            </p>
+
+        </div>
+
+    </article>
+    <article class="slide">
+
+    <div class="eyebrow">03 · HTML ELEMENTS</div>
+
+    <h1 class="title">Block-Level Elements</h1>
+
+    <div class="divider"></div>
+
+    <div class="definition">
+        Block-level elements start on a new line and usually take up the
+        full available width of their parent container.
+    </div>
+
+    <div class="example">
+        <h3>Examples</h3>
+
+        <p>&lt;div&gt;</p>
+        <p>&lt;p&gt;</p>
+        <p>&lt;h1&gt; – &lt;h6&gt;</p>
+        <p>&lt;section&gt;</p>
+        <p>&lt;article&gt;</p>
+        <p>&lt;header&gt;</p>
+        <p>&lt;footer&gt;</p>
+        <p>&lt;ul&gt; / &lt;ol&gt;</p>
+    </div>
+
+    <div class="definition">
+        <strong>Key Point:</strong>
+        Each block-level element normally appears on a new line, creating
+        a separate block of content.
+    </div>
+
+</article>
+<article class="slide">
+
+    <div class="eyebrow">04 · HTML ELEMENTS</div>
+
+    <h1 class="title">Inline Elements</h1>
+
+    <div class="divider"></div>
+
+    <div class="definition">
+        Inline elements stay within the same line and take up only the
+        space required by their content.
+    </div>
+
+    <div class="example">
+        <h3>Examples</h3>
+
+        <p>&lt;span&gt;</p>
+        <p>&lt;a&gt;</p>
+        <p>&lt;strong&gt;</p>
+        <p>&lt;em&gt;</p>
+        <p>&lt;small&gt;</p>
+        <p>&lt;mark&gt;</p>
+        <p>&lt;label&gt;</p>
+    </div>
+
+    <div class="definition">
+        <strong>Key Point:</strong>
+        Inline elements do not normally create a new line and can appear
+        alongside other inline elements.
+    </div>
+
+</article>
+
+   <article class="slide">
+
+    <div class="eyebrow"> HTML FORMS</div>
+
+    <h1 class="title">HTML Forms</h1>
+
+    <div class="divider"></div>
+
+    <div class="definition">
+        HTML forms are used to collect information from users and send
+        that data to a server for processing.
+    </div>
+
+    <div class="example">
+        <h3>Common Form Elements</h3>
+
+        <p>&lt;form&gt; — Defines the form</p>
+        <p>&lt;label&gt; — Describes a form control</p>
+        <p>&lt;input&gt; — Accepts different types of user input</p>
+        <p>&lt;textarea&gt; — Accepts multi-line text</p>
+        <p>&lt;select&gt; — Creates a drop-down list</p>
+        <p>&lt;option&gt; — Defines an option in a list</p>
+        <p>&lt;button&gt; — Creates a clickable button</p>
+    </div>
+
+    <div class="definition">
+        <strong>Key Point:</strong>
+        Forms provide a structured way for users to enter and submit
+        information such as names, email addresses, passwords, and messages.
+    </div>
+
+</article>
+
+
+    <!-- SLIDE : ACCESSIBILITY -->
+<article class="slide">
+
+    <div class="eyebrow"> · HTML ACCESSIBILITY</div>
+
+    <h1 class="title">HTML Accessibility</h1>
+
+    <div class="divider"></div>
+
+    <div class="definition">
+        Accessibility makes webpages usable by people with different
+        abilities and assistive technologies.
+    </div>
+
+    <div class="example">
+        <h3>Important Accessibility Practices</h3>
+
+        <p>
+            <strong>Semantic HTML</strong> — Use meaningful elements such as
+            <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+            <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code>.
+        </p>
+
+        <p>
+            <strong>Alt Text</strong> — Provide descriptive
+            <code>alt</code> text for images.
+        </p>
+
+        <p>
+            <strong>Labels</strong> — Associate labels with form controls
+            using <code>&lt;label&gt;</code>.
+        </p>
+
+        <p>
+            <strong>Headings</strong> — Use headings in a logical order,
+            such as <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>,
+            and <code>&lt;h3&gt;</code>.
+        </p>
+
+        <p>
+            <strong>Keyboard Access</strong> — Make interactive elements
+            usable with a keyboard.
+        </p>
+    </div>
+
+    <div class="definition">
+        <strong>Key Point:</strong>
+        Good HTML structure and semantic elements help screen readers
+        and other assistive technologies understand and navigate a webpage.
+    </div>
+
+</article>
+
+
+          <!-- HTML FORMS — INTRO SLIDE -->
+
+<article class="slide hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">HTML · Forms</div>
+
+    <h1>HTML<br>FORMS</h1>
+
+    <h2>Collecting User Information</h2>
+
+    <div class="badge">Barbarian IT Academy</div>
+
+    <div class="tags" style="margin-top:20px">
+
+      <span>&lt;form&gt;</span>
+      <span>&lt;input&gt;</span>
+      <span>&lt;label&gt;</span>
+      <span>&lt;select&gt;</span>
+      <span>&lt;textarea&gt;</span>
+      <span>&lt;button&gt;</span>
+
+    </div>
+
+    <div class="definition" style="margin-top:30px">
+
+      <b>HTML Forms</b> are used to collect information from users.
+      Forms can contain different controls such as text fields,
+      email fields, passwords, checkboxes, radio buttons, dropdowns,
+      text areas, and submit buttons.
+
+    </div>
+
+  </div>
+
+</article>
+<!-- HTML ACCESSIBILITY — INTRO SLIDE -->
+
+<article class="slide hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">HTML · Accessibility</div>
+
+    <h1>HTML<br>ACCESSIBILITY</h1>
+
+    <h2>Building Websites That Everyone Can Use</h2>
+
+    <div class="badge">Barbarian IT Academy</div>
+
+    <div class="tags" style="margin-top:20px">
+
+      <span>Semantic HTML</span>
+      <span>Alt Text</span>
+      <span>Labels</span>
+      <span>Keyboard Navigation</span>
+      <span>ARIA</span>
+
+    </div>
+
+    <div class="definition" style="margin-top:30px">
+
+      <b>HTML Accessibility</b> means creating webpages that can be
+      used by as many people as possible, including people who use
+      keyboards, screen readers, and other assistive technologies.
+
+    </div>
+
+  </div>
+
+</article>
+
+        </section>
+
+        <!-- CSS PANEL (Typography + Position + z-index + Border + Flexbox + Grid) -->
+        <section id="cssPanel" class="theory-panel">
+
+          <!-- SLIDE 1: OPENING -->
+          <article class="slide active hero">
+            <div class="hero-content">
+              <h1>CSS<br>TYPOGRAPHY</h1>
+              <h2>Styling the Voice of the Web</h2>
+              <div class="badge">Barbarian IT Academy</div>
+              <div class="tags">
+                <span>font-family</span><span>font-size</span><span>font-weight</span><span>text-shadow</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 2 -->
+          <article class="slide">
+            <div class="eyebrow">01 · Foundation</div>
+            <h1 class="title">What is CSS Typography?</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>CSS Typography</b> is the styling of text on a web page. It controls the font,
+              size, thickness, spacing, alignment, color, and more — making text readable and visually attractive.</div>
+            <div class="two">
+              <div class="demo">
+                <div class="label">Before — browser default</div>
+                <p>This is plain text with no visual personality. It is readable, but it does not create a strong
+                  design.</p>
+              </div>
+              <div class="demo">
+                <div class="label" style="color:var(--gold)">After — styled with CSS</div>
+                <p style="font-family:'Playfair Display';font-size:1.25rem;color:var(--gold);letter-spacing:1px">
+                  Typography turns words into an experience with a clear visual voice.</p>
+              </div>
+            </div>
+            <div class="code"><span class="prop">font-family</span>: <span class="value">'Poppins', sans-serif</span>;
+              <span class="prop">font-size</span>: <span class="value">18px</span>;
+              <span class="prop">color</span>: <span class="value">#ffd700</span>;
+            </div>
+          </article>
+
+          <!-- SLIDE 3 -->
+          <article class="slide">
+            <div class="eyebrow">02 · Typeface</div>
+            <h1 class="title">Font Family</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>font-family</b> chooses the typeface for an element. Use fallback fonts so the
+              browser can use another font if your first choice is unavailable.</div>
+            <div class="card">
+              <div class="label">Same sentence, different font families</div>
+              <p style="font-family:Georgia,serif;font-size:1.6rem;color:var(--gold);margin:12px 0">Serif — The quick
+                brown fox</p>
+              <p style="font-family:Poppins,sans-serif;font-size:1.6rem;color:var(--blue);margin:12px 0">Sans-serif —
+                The quick brown fox</p>
+              <p style="font-family:'Fira Code',monospace;font-size:1.3rem;color:#a8e6a1;margin:12px 0">Monospace — The
+                quick brown fox</p>
+              <p style="font-family:cursive;font-size:1.7rem;color:var(--red);margin:12px 0">Cursive — The quick brown
+                fox</p>
+            </div>
+            <div class="code"><span class="prop">font-family</span>: <span class="value">Arial, sans-serif</span>;</div>
+          </article>
+
+          <!-- SLIDE 4 -->
+          <article class="slide">
+            <div class="eyebrow">03 · Scale</div>
+            <h1 class="title">Font Size</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>font-size</b> controls how big text appears. Common units are <b>px</b>,
+              <b>rem</b>, <b>em</b>, and <b>%</b>.</div>
+            <div class="card">
+              <div style="color:#777;font-size:12px;margin:8px 0">Typography — 12px</div>
+              <div style="color:#999;font-size:18px;margin:8px 0">Typography — 18px</div>
+              <div style="color:#bbb;font-size:28px;margin:8px 0">Typography — 28px</div>
+              <div style="color:var(--gold);font-size:38px;margin:8px 0">Typography — 38px</div>
+              <div style="color:var(--red);font-size:55px;font-weight:900;line-height:1.2;margin:8px 0">Typography —
+                55px</div>
+            </div>
+            <div class="code"><span class="prop">font-size</span>: <span class="value">32px</span>;</div>
+          </article>
+
+          <!-- SLIDE 5 -->
+          <article class="slide">
+            <div class="eyebrow">04 · Thickness</div>
+            <h1 class="title">Font Weight</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>font-weight</b> controls how thin or bold text is. Values range from <b>100</b>
+              (thin) to <b>900</b> (black).</div>
+            <div class="three">
+              <div class="demo" style="text-align:center">
+                <div style="font-size:1.55rem;font-weight:300;margin-bottom:8px">Barbarian</div>
+                <div class="label">300 · Light</div>
+              </div>
+              <div class="demo" style="text-align:center">
+                <div style="font-size:1.55rem;font-weight:600;color:var(--gold);margin-bottom:8px">Barbarian</div>
+                <div class="label">600 · Semi-bold</div>
+              </div>
+              <div class="demo" style="text-align:center">
+                <div style="font-size:1.55rem;font-weight:900;color:var(--red);margin-bottom:8px">Barbarian</div>
+                <div class="label">900 · Black</div>
+              </div>
+            </div>
+            <div class="code"><span class="prop">font-weight</span>: <span class="value">700</span>; <span
+                class="comment">/* bold */</span></div>
+          </article>
+
+          <!-- SLIDE 6 -->
+          <article class="slide">
+            <div class="eyebrow">05 · Slant</div>
+            <h1 class="title">Font Style</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>font-style</b> displays text as normal, italic, or oblique. Italic normally uses
+              a dedicated italic version of the font.</div>
+            <div class="card">
+              <p style="font-size:1.5rem;margin:10px 0">Normal: The quick brown fox jumps.</p>
+              <p style="font-size:1.5rem;font-style:italic;color:var(--gold);margin:10px 0">Italic: The quick brown fox
+                jumps.</p>
+              <p style="font-size:1.5rem;font-style:oblique;color:var(--red);margin:10px 0">Oblique: The quick brown fox
+                jumps.</p>
+            </div>
+            <div class="code"><span class="prop">font-style</span>: <span class="value">italic</span>;</div>
+          </article>
+
+          <!-- SLIDE 7 -->
+          <article class="slide">
+            <div class="eyebrow">06 · Lines</div>
+            <h1 class="title">Text Decoration</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>text-decoration</b> adds visual lines to text such as underline, overline, and
+              line-through.</div>
+            <div class="card">
+              <p style="font-size:1.4rem;text-decoration:underline;color:var(--gold);margin:14px 0">Underlined text</p>
+              <p style="font-size:1.4rem;text-decoration:overline;color:var(--blue);margin:14px 0">Overlined text</p>
+              <p style="font-size:1.4rem;text-decoration:line-through;color:var(--red);margin:14px 0">Line-through text
+              </p>
+              <p style="font-size:1.4rem;text-decoration:underline wavy var(--red);margin:14px 0">Wavy underline</p>
+            </div>
+            <div class="code"><span class="prop">text-decoration</span>: <span class="value">underline wavy red</span>;
+            </div>
+          </article>
+
+          <!-- SLIDE 8 -->
+          <article class="slide">
+            <div class="eyebrow">07 · Case</div>
+            <h1 class="title">Text Transform</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>text-transform</b> changes capitalization through CSS without changing the HTML
+              text itself.</div>
+            <div class="card">
+              <p style="font-size:1.35rem;margin:13px 0">none: barbarian it academy</p>
+              <p style="font-size:1.35rem;text-transform:uppercase;color:var(--red);margin:13px 0">uppercase: barbarian
+                it academy</p>
+              <p style="font-size:1.35rem;text-transform:lowercase;color:var(--gold);margin:13px 0">lowercase: BARBARIAN
+                IT ACADEMY</p>
+              <p style="font-size:1.35rem;text-transform:capitalize;color:var(--blue);margin:13px 0">capitalize:
+                barbarian it academy</p>
+            </div>
+            <div class="code"><span class="prop">text-transform</span>: <span class="value">uppercase</span>;</div>
+          </article>
+
+          <!-- SLIDE 9 -->
+          <article class="slide">
+            <div class="eyebrow">08 · Vertical Rhythm</div>
+            <h1 class="title">Line Height</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>line-height</b> controls the vertical space between text lines. It is important
+              for comfortable reading.</div>
+            <div class="three">
+              <div class="demo">
+                <div class="label">line-height: 1</div>
+                <p style="line-height:1">Typography controls how text looks on the web. It affects reading and design.
+                </p>
+              </div>
+              <div class="demo">
+                <div class="label">line-height: 1.6</div>
+                <p style="line-height:1.6;color:var(--gold)">Typography controls how text looks on the web. It affects
+                  reading and design.</p>
+              </div>
+              <div class="demo">
+                <div class="label">line-height: 2.2</div>
+                <p style="line-height:2.2;color:var(--red)">Typography controls how text looks on the web. It affects
+                  reading and design.</p>
+              </div>
+            </div>
+            <div class="code"><span class="prop">line-height</span>: <span class="value">1.6</span>;</div>
+          </article>
+
+          <!-- SLIDE 10 -->
+          <article class="slide">
+            <div class="eyebrow">09 · Horizontal Rhythm</div>
+            <h1 class="title">Letter & Word Spacing</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>letter-spacing</b> changes the gap between characters. <b>word-spacing</b>
+              changes the gap between words.</div>
+            <div class="card">
+              <p style="font-size:1.45rem;margin:14px 0">Barbarian IT Academy — default</p>
+              <p style="font-size:1.45rem;letter-spacing:5px;color:var(--gold);margin:14px 0">Barbarian IT Academy —
+                letter-spacing: 5px</p>
+              <p style="font-size:1.45rem;word-spacing:20px;color:var(--blue);margin:14px 0">Barbarian IT Academy —
+                word-spacing: 20px</p>
+            </div>
+            <div class="code"><span class="prop">letter-spacing</span>: <span class="value">4px</span>;
+              <span class="prop">word-spacing</span>: <span class="value">20px</span>;
+            </div>
+          </article>
+
+          <!-- SLIDE 11 -->
+          <article class="slide">
+            <div class="eyebrow">10 · Position</div>
+            <h1 class="title">Text Align</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>text-align</b> positions inline text inside its container: left, center, right,
+              or justify.</div>
+            <div class="card">
+              <p style="text-align:left;margin:12px 0">Left aligned text</p>
+              <p style="text-align:center;color:var(--gold);margin:12px 0">Center aligned text</p>
+              <p style="text-align:right;color:var(--red);margin:12px 0">Right aligned text</p>
+              <p style="text-align:justify;color:var(--blue);margin:12px 0">Justified text spreads spaces so both left
+                and right edges are aligned in the container.</p>
+            </div>
+            <div class="code"><span class="prop">text-align</span>: <span class="value">center</span>;</div>
+          </article>
+
+          <!-- SLIDE 12 -->
+          <article class="slide">
+            <div class="eyebrow">11 · Depth</div>
+            <h1 class="title">Text Shadow</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>text-shadow</b> adds a shadow behind text. Format: horizontal offset, vertical
+              offset, blur, and color.</div>
+            <div class="two">
+              <div class="demo" style="text-align:center">
+                <p style="font-size:2rem;font-weight:800;color:white;text-shadow:6px 6px 5px #941111">Shadow</p>
+                <div class="label" style="margin-top:8px">6px 6px 5px black</div>
+              </div>
+              <div class="demo" style="text-align:center">
+                <p style="font-size:2rem;font-weight:800;color:white;text-shadow:0 0 20px var(--red)">Glow</p>
+                <div class="label" style="margin-top:8px">0 0 20px red</div>
+              </div>
+            </div>
+            <div class="code"><span class="prop">text-shadow</span>: <span class="value">0 0 20px #e63946</span>;</div>
+          </article>
+
+          <!-- SLIDE 13 -->
+          <article class="slide">
+            <div class="eyebrow">12 · Custom Asset</div>
+            <h1 class="title">@font-face</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>@font-face</b> lets your project load a custom font file stored inside your own
+              folder.</div>
+            <div class="card">
+              <div class="label">Simple custom-font setup</div>
+              <p style="color:#ccc;font-size:.86rem;line-height:1.8;margin-top:10px">
+                1. Place <b style="color:var(--gold)">Poppins-Regular.ttf</b> inside your <b
+                  style="color:var(--gold)">fonts</b> folder.<br>
+                2. Register it with <b style="color:var(--gold)">@font-face</b>.<br>
+                3. Use the font name in <b style="color:var(--gold)">font-family</b>.
+              </p>
+            </div>
+            <div class="code"><span class="prop">@font-face</span> {
+              <span class="prop">font-family</span>: <span class="value">"MyFont"</span>;
+              <span class="prop">src</span>: <span class="value">url("./fonts/Poppins-Regular.ttf")</span>;
+              }
+
+              <span class="prop">h1</span> { <span class="prop">font-family</span>: <span class="value">"MyFont"</span>;
+              }
+            </div>
+          </article>
+
+          <!-- SLIDE 14 -->
+          <article class="slide">
+            <div class="eyebrow">13 · Text Flow</div>
+            <h1 class="title" style="font-size:clamp(1.7rem,3.5vw,3rem)">White-space & Overflow</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>white-space</b>, <b>text-overflow</b>, <b>overflow-wrap</b>, and
+              <b>text-indent</b> control how text wraps, breaks, or is displayed when there is not enough room.</div>
+            <div class="two">
+              <div class="demo">
+                <div class="label">text-overflow: ellipsis</div>
+                <p style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:8px">This is a long
+                  sentence which will be cut with dots when it has no room.</p>
+              </div>
+              <div class="demo">
+                <div class="label">overflow-wrap: break-word</div>
+                <p style="overflow-wrap:break-word;margin-top:8px">
+                  Superlongwordwithnospacesthatwillbreakinsteadofoverflowing.</p>
+              </div>
+              <div class="demo">
+                <div class="label">white-space: pre-wrap</div>
+                <p style="white-space:pre-wrap;margin-top:8px">First line
+                  Indented second line</p>
+              </div>
+              <div class="demo">
+                <div class="label">text-indent: 40px</div>
+                <p style="text-indent:40px;margin-top:8px">This paragraph begins with an indent just like a paragraph in
+                  a printed book.</p>
+              </div>
+            </div>
+            <div class="code"><span class="prop">white-space</span>: <span class="value">nowrap</span>;
+              <span class="prop">text-overflow</span>: <span class="value">ellipsis</span>;
+              <span class="prop">overflow-wrap</span>: <span class="value">break-word</span>;
+              <span class="prop">text-indent</span>: <span class="value">40px</span>;
+            </div>
+          </article>
+
+          <!-- SLIDE 15: POSITION SECTION-BREAK HERO -->
+          <article class="slide hero pos-hero">
+            <div class="hero-content">
+              <h1>CSS<br>POSITION</h1>
+              <h2>Position · z-index · Border</h2>
+              <div class="badge">Barbarian IT Academy</div>
+              <div class="tags">
+                <span>static</span><span>relative</span><span>absolute</span><span>fixed</span><span>sticky</span><span>z-index</span><span>border</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 16 -->
+          <article class="slide">
+            <div class="eyebrow">01 · Foundation</div>
+            <h1 class="title">What is CSS Position?</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>CSS position</b> controls how an element is placed on a page. It lets you move
+              elements, overlap them, keep them visible while scrolling, or attach them to a specific location.</div>
+            <div class="three">
+              <div class="demo">
+                <div class="label">Why it is used</div>
+                <p>Create menus, floating buttons, badges, overlays, popups, sticky headers, and custom layouts.</p>
+              </div>
+              <div class="demo">
+                <div class="label">Basic Syntax</div>
+                <p style="font-family:'Fira Code';color:var(--blue)">position: relative;<br>top: 20px;<br>left: 10px;
+                </p>
+              </div>
+              <div class="demo">
+                <div class="label">Position values</div>
+                <p><span style="color:var(--gold)">static</span>, relative, absolute, fixed, and sticky.</p>
+              </div>
+            </div>
+            <div class="code"><span class="prop">.box</span> {
+              <span class="prop">position</span>: <span class="value">relative</span>;
+              <span class="prop">top</span>: <span class="value">20px</span>;
+              <span class="prop">left</span>: <span class="value">10px</span>;
+              }
+            </div>
+          </article>
+
+          <!-- SLIDE 17 -->
+          <article class="slide">
+            <div class="eyebrow">02 · Default Value</div>
+            <h1 class="title">Position: Static</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>position: static</b> is the default value for every HTML element. Static elements
+              follow the normal document flow and do not respond to <b>top</b>, <b>right</b>, <b>bottom</b>, or
+              <b>left</b>.</div>
+            <div class="two">
+              <div class="demo">
+                <div class="label">Characteristics</div>
+                <p>✓ Default position value<br>✓ Stays in normal page flow<br>✓ Cannot be moved using top, left, right,
+                  or bottom<br>✓ Does not create a positioning reference for children</p>
+              </div>
+              <div class="demo">
+                <div class="label">Output</div>
+                <div class="position-stage">
+                  <div class="pos-box static-box">STATIC BOX</div>
+                  <p style="padding:0 22px;color:var(--muted);font-size:.75rem">This box remains where normal page flow
+                    puts it.</p>
+                </div>
+              </div>
+            </div>
+            <div class="code"><span class="prop">.box</span> {
+              <span class="prop">position</span>: <span class="value">static</span>;
+              <span class="prop">top</span>: <span class="value">50px</span>; <span class="comment">/* Has no effect
+                */</span>
+              }
+            </div>
+          </article>
+
+          <!-- SLIDE 18 -->
+          <article class="slide">
+            <div class="eyebrow">03 · Offset from Original Place</div>
+            <h1 class="title">Position: Relative</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>position: relative</b> keeps an element in the normal document flow, but allows
+              you to move it visually from its original position using top, right, bottom, or left.</div>
+            <div class="two">
+              <div class="demo">
+                <div class="label">How it moves</div>
+                <p>The original space remains reserved. The element shifts visually, but surrounding elements behave as
+                  though it is still in its original location.</p>
+              </div>
+              <div class="demo">
+                <div class="label">Live Demonstration</div>
+                <div class="position-stage">
+                  <div class="pos-box relative-box">RELATIVE</div>
+                </div>
+              </div>
+            </div>
+            <div class="code"><span class="prop">.box</span> {
+              <span class="prop">position</span>: <span class="value">relative</span>;
+              <span class="prop">top</span>: <span class="value">28px</span>;
+              <span class="prop">left</span>: <span class="value">55px</span>;
+              }
+            </div>
+          </article>
+
+          <!-- SLIDE 19 -->
+          <article class="slide">
+            <div class="eyebrow">04 · Positioned Parent</div>
+            <h1 class="title">Position: Absolute</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>position: absolute</b> removes an element from the normal document flow. It is
+              positioned relative to its nearest ancestor that has a position value other than static.</div>
+            <div class="two">
+              <div class="demo">
+                <div class="label">Parent positioning</div>
+                <p>Set the parent to <span style="color:var(--gold)">position: relative</span>. Then the absolute child
+                  can use top, right, bottom, and left values inside that parent.</p>
+              </div>
+              <div class="demo">
+                <div class="label">Output</div>
+                <div class="absolute-parent">PARENT: position: relative<div class="pos-box absolute-box">ABSOLUTE</div>
+                </div>
+              </div>
+            </div>
+            <div class="code"><span class="prop">.parent</span> {
+              <span class="prop">position</span>: <span class="value">relative</span>;
+              }
+              <span class="prop">.child</span> {
+              <span class="prop">position</span>: <span class="value">absolute</span>;
+              <span class="prop">right</span>: <span class="value">18px</span>;
+              <span class="prop">bottom</span>: <span class="value">18px</span>;
+              }
+            </div>
+          </article>
+
+          <!-- SLIDE 20 -->
+          <article class="slide">
+            <div class="eyebrow">05 · Viewport Positioning</div>
+            <h1 class="title">Position: Fixed</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>position: fixed</b> removes an element from normal flow and positions it relative
+              to the browser viewport. It stays in the same place even when the page scrolls.</div>
+            <div class="two">
+              <div class="demo">
+                <div class="label">Scroll behavior</div>
+                <p>A fixed element does not move with the document. Common examples are chat buttons, "back to top"
+                  buttons, navigation bars, and alerts.</p>
+              </div>
+              <div class="demo">
+                <div class="label">Floating Button Example</div>
+                <div class="position-stage">
+                  <p style="padding:18px;color:var(--muted);font-size:.78rem">Imagine this area is a scrollable web
+                    page.</p><button
+                    style="position:absolute;right:16px;bottom:16px;border:none;border-radius:50%;width:52px;height:52px;background:var(--red);color:white;font-weight:900;box-shadow:0 0 18px #e6394677">↑</button>
+                </div>
+              </div>
+            </div>
+            <div class="code"><span class="prop">.floating-button</span> {
+              <span class="prop">position</span>: <span class="value">fixed</span>;
+              <span class="prop">right</span>: <span class="value">20px</span>;
+              <span class="prop">bottom</span>: <span class="value">20px</span>;
+              }
+            </div>
+            <div class="live-demo">
+              <h4>▶ Live Demonstration</h4>
+              <button class="demo-btn" onclick="toggleFloatingButton()">Toggle Floating Button</button>
+              <p style="color:var(--muted);font-size:.78rem;margin-top:10px">Click to create a fixed "back to top" style
+                button on screen.</p>
+            </div>
+          </article>
+
+          <!-- SLIDE 21 -->
+          <article class="slide">
+            <div class="eyebrow">06 · Smart Scroll Position</div>
+            <h1 class="title">Position: Sticky</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>position: sticky</b> behaves like relative positioning until an element reaches a
+              specified scroll position. It then sticks in place like a fixed element within its scrolling container.
+            </div>
+            <div class="two">
+              <div class="demo">
+                <div class="label">Sticky Header Example</div>
+                <p>A sticky navigation bar scrolls normally at first, then stays at the top after it reaches <span
+                    style="color:var(--gold)">top: 0</span>.</p>
+              </div>
+              <div class="demo">
+                <div class="label">Live Demonstration</div>
+                <div class="sticky-scroll">
+                  <div class="sticky-header">STICKY HEADER — TOP: 0</div>
+                  <p>Scroll inside this box. The red header stays attached to the top of the scroll area.<br><br>Sticky
+                    elements are useful for table headings, section menus, category filters, and navigation
+                    bars.<br><br>Continue scrolling to see the sticky effect in action.<br><br>The header remains
+                    visible while the rest of this content moves beneath it.</p>
+                </div>
+              </div>
+            </div>
+            <div class="code"><span class="prop">.header</span> {
+              <span class="prop">position</span>: <span class="value">sticky</span>;
+              <span class="prop">top</span>: <span class="value">0</span>;
+              }
+            </div>
+          </article>
+
+          <!-- SLIDE 22 -->
+          <article class="slide">
+            <div class="eyebrow">07 · Stacking Order</div>
+            <h1 class="title">z-index</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>z-index</b> controls the stacking order of overlapping elements. An element with
+              a higher z-index appears in front of an element with a lower z-index.</div>
+            <div class="three">
+              <div class="demo">
+                <div class="label">Why use it?</div>
+                <p>Useful for modals, dropdown menus, overlays, popups, tooltips, and layered designs.</p>
+              </div>
+              <div class="demo">
+                <div class="label">Stacking Order</div>
+                <p><span style="color:var(--gold)">z-index: 1</span> is behind <span style="color:var(--gold)">z-index:
+                    2</span>, which is behind <span style="color:var(--gold)">z-index: 3</span>.</p>
+              </div>
+              <div class="demo">
+                <div class="label">Important Rule</div>
+                <p>z-index works most reliably on positioned elements: relative, absolute, fixed, or sticky.</p>
+              </div>
+            </div>
+            <div class="live-demo">
+              <h4>▶ Overlapping Boxes Demonstration</h4>
+              <div class="stack-area">
+                <div class="stack-box stack-one">z-index: 1</div>
+                <div class="stack-box stack-two">z-index: 2</div>
+                <div class="stack-box stack-three">z-index: 3</div>
+              </div>
+            </div>
+            <div class="code"><span class="prop">.blue-box</span> { <span class="prop">position</span>: <span
+                class="value">absolute</span>; <span class="prop">z-index</span>: <span class="value">1</span>; }
+              <span class="prop">.red-box</span> { <span class="prop">position</span>: <span
+                class="value">absolute</span>; <span class="prop">z-index</span>: <span class="value">3</span>; }
+            </div>
+          </article>
+
+          <!-- SLIDE 23 -->
+          <article class="slide">
+            <div class="eyebrow">08 · Border Size</div>
+            <h1 class="title">Border Width</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>border-width</b> sets the thickness of an element's border. You can use keywords
+              such as thin, medium, and thick, or use exact pixel values.</div>
+            <div class="border-preview">
+              <div class="border-sample" style="border:1px solid var(--blue)">border-width: 1px</div>
+              <div class="border-sample" style="border:3px solid var(--gold)">border-width: 3px</div>
+              <div class="border-sample" style="border:6px solid var(--red)">border-width: 6px</div>
+              <div class="border-sample" style="border:10px solid var(--green)">border-width: 10px</div>
+            </div>
+            <div class="code"><span class="prop">.box</span> {
+              <span class="prop">border-width</span>: <span class="value">3px</span>;
+              <span class="prop">border-style</span>: <span class="value">solid</span>;
+              <span class="prop">border-color</span>: <span class="value">#e63946</span>;
+              }
+            </div>
+          </article>
+
+          <!-- SLIDE 24 -->
+          <article class="slide">
+            <div class="eyebrow">09 · Border Appearance</div>
+            <h1 class="title">Border Style</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>border-style</b> defines the visual design of a border. CSS provides solid,
+              dashed, dotted, double, groove, ridge, inset, and outset.</div>
+            <div class="two">
+              <div class="border-preview">
+                <div class="border-sample" style="border:4px solid var(--red)">solid</div>
+                <div class="border-sample" style="border:4px dashed var(--gold)">dashed</div>
+                <div class="border-sample" style="border:4px dotted var(--blue)">dotted</div>
+                <div class="border-sample" style="border:6px double var(--green)">double</div>
+              </div>
+              <div class="border-preview">
+                <div class="border-sample" style="border:7px groove var(--red)">groove</div>
+                <div class="border-sample" style="border:7px ridge var(--gold)">ridge</div>
+                <div class="border-sample" style="border:7px inset var(--blue)">inset</div>
+                <div class="border-sample" style="border:7px outset var(--green)">outset</div>
+              </div>
+            </div>
+            <div class="code"><span class="prop">.card</span> { <span class="prop">border</span>: <span
+                class="value">4px dashed #ffd700</span>; }</div>
+          </article>
+
+          <!-- SLIDE 25 -->
+          <article class="slide">
+            <div class="eyebrow">10 · Border Color</div>
+            <h1 class="title">Border Color</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>border-color</b> controls the color of an element's border. You can use named
+              colors, HEX values, RGB values, and transparent.</div>
+            <div class="three">
+              <div class="demo" style="border:4px solid crimson">
+                <div class="label">Named Color</div>
+                <p style="color:crimson;font-family:'Fira Code'">border-color: crimson;</p>
+              </div>
+              <div class="demo" style="border:4px solid #ffd700">
+                <div class="label">HEX Color</div>
+                <p style="color:#ffd700;font-family:'Fira Code'">border-color: #ffd700;</p>
+              </div>
+              <div class="demo" style="border:4px solid rgb(126,214,255)">
+                <div class="label">RGB Color</div>
+                <p style="color:rgb(126,214,255);font-family:'Fira Code'">rgb(126, 214, 255)</p>
+              </div>
+            </div>
+            <div class="code"><span class="prop">.named</span> { <span class="prop">border-color</span>: <span
+                class="value">crimson</span>; }
+              <span class="prop">.hex</span> { <span class="prop">border-color</span>: <span
+                class="value">#ffd700</span>; }
+              <span class="prop">.rgb</span> { <span class="prop">border-color</span>: <span class="value">rgb(126, 214,
+                255)</span>; }
+            </div>
+          </article>
+
+          <!-- SLIDE 26 -->
+          <article class="slide">
+            <div class="eyebrow">11 · Border Radius</div>
+            <h1 class="title">Border Radius</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>border-radius</b> controls the roundness of an element's corners. You can use pixels, percentages, or the <b>border-radius</b> property.</div>
+            <div class="three">
+              <div class="demo" style="border:4px solid crimson;border-radius:0px">
+                <div class="label">Sharp Corners</div>
+                <p style="color:crimson;font-family:'Fira Code'">border-radius: 0px;</p>
+              </div>
+              <div class="demo" style="border:4px solid #ffd700;border-radius:10px">
+                <div class="label">Rounded Corners</div>
+                <p style="color:#ffd700;font-family:'Fira Code'">border-radius: 10px;</p>
+              </div>
+              <div class="demo" style="border:4px solid rgb(126,214,255);border-radius:50%">
+                <div class="label">Circle</div>
+                <p style="color:rgb(126,214,255);font-family:'Fira Code'">border-radius: 50%;</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 27: Display Flex -->
+          <article class="slide">
+            <div class="eyebrow">display: flex</div>
+            <h1 class="title">Display Flex</h1>
+            <div class="divider"></div>
+            <div class="definition">This is an example of using CSS display: flex to create a flexible layout.</div>
+            <div class="live-demo">
+              <h4>Definitions</h4>
+              <div class="flex-container" id="flexContainer">
+                <div>
+                  <p style="color:#ccc;font-size:.82rem;line-height:2">
+                    <span style="color:var(--gold)">display: flex</span> = Turns a container into a flex container.<br>
+                    <span style="color:var(--gold)">flex-direction</span> = Sets the direction of flex items (row or column).<br>
+                    <span style="color:var(--gold)">justify-content</span> = Aligns items along the <b>main axis</b>.<br>
+                    <span style="color:var(--gold)">align-items</span> = Aligns items along the <b>cross axis</b>.<br>
+                    <span style="color:var(--gold)">flex-wrap</span> = Allows items to move to the next line if needed.<br>
+                    <span style="color:var(--gold)">flex-flow</span> = Shorthand for flex-direction and flex-wrap.<br>
+                    <span style="color:var(--gold)">gap</span> = Adds equal space between rows and columns.<br>
+                    <span style="color:var(--gold)">row-gap</span> = Adds vertical space between rows.<br>
+                    <span style="color:var(--gold)">column-gap</span> = Adds horizontal space between columns.<br>
+                    <span style="color:var(--gold)">align-content</span> = Aligns multiple rows inside the container.<br>
+                    <span style="color:var(--gold)">order</span> = Changes the display order of a flex item.<br>
+                    <span style="color:var(--gold)">flex-grow</span> = Lets an item grow to fill extra space.<br>
+                    <span style="color:var(--gold)">flex-shrink</span> = Lets an item shrink when there isn't enough space.<br>
+                    <span style="color:var(--gold)">flex-basis</span> = Sets the initial size of a flex item before growing or shrinking.<br>
+                    <span style="color:var(--gold)">flex</span> = Shorthand for flex-grow, flex-shrink, and flex-basis.<br>
+                    <span style="color:var(--gold)">align-self</span> = Overrides align-items for a single flex item.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 28: Teaser Using Flex -->
+          <article class="slide">
+            <div class="eyebrow">Teaser Componet using Flex</div>
+            <h1 class="title">Teaser Componet using flex</h1>
+            <div class="divider"></div>
+            <div class="definition">This is an Example of Teaser Componet Using Flex.</div>
+          </article>
+
+          <!-- SLIDE 29: Grid Layout (placeholder — original content unrecoverable) -->
+          <article class="slide">
+            <div class="eyebrow">Grid</div>
+            <h1 class="title">Grid Layout</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>CSS Grid</b> is a two-dimensional layout system that lets you arrange elements
+              into rows and columns at the same time. <i style="color:var(--muted)">(Placeholder content — please
+                share the original slide text if you'd like this replaced.)</i></div>
+            <div class="code"><span class="prop">.container</span> {
+              <span class="prop">display</span>: <span class="value">grid</span>;
+              <span class="prop">grid-template-columns</span>: <span class="value">repeat(3, 1fr)</span>;
+              <span class="prop">gap</span>: <span class="value">16px</span>;
+              }
+            </div>
+          </article>
+
+          <!-- SLIDE 30: Teaser using grid -->
+          <article class="slide">
+            <div class="eyebrow">Teaser Componet using Grid</div>
+            <h1 class="title">Teaser Componet using Grid</h1>
+            <div class="divider"></div>
+            <div class="definition">This is an Example of Teaser Componet Using Grid.</div>
+          </article>
+
+          <!-- SLIDE 31: grid-task -->
+          <article class="slide hero">
+            <div class="hero-content">
+              <div class="eyebrow">grid task</div>
+              <h1 style="font-size:clamp(3rem,8vw,6rem)">Grid layout</h1><br>
+              <p>we have created a grid layout for an simple page<br> in which we have also have used modefires for the
+                reuseability of the code<br>which means single card is reused multiple times it helps us to write code
+                or css properties in less lines <br></p>
+              <div class="badge">Barbarian IT Academy</div>
+            </div>
+          </article>
+
+        </section>
+
+        <!-- EXPRESS.JS PANEL -->
+        <section id="expressPanel" class="theory-panel">
+
+          <!-- SLIDE 1: HERO -->
+          <article class="slide active hero">
+            <div class="hero-content">
+              <h1>EXPRESS<br>.JS</h1>
+              <h2>Backend Web Framework for Node.js</h2>
+              <div class="badge">Barbarian IT Academy</div>
+              <div class="tags">
+                <span>app.get()</span><span>app.listen()</span><span>res.send()</span><span>middleware</span><span>routing</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 2 -->
+          <article class="slide">
+            <div class="eyebrow">01 · Introduction</div>
+            <h1 class="title">What is Express.js?</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>Express.js</b> is a fast, minimal, and flexible <b>Node.js web framework</b>. It
+              provides a robust set of features for building web and mobile applications. Express makes it easy to
+              create servers, define routes, handle HTTP requests and responses, and use middleware.</div>
+            <div class="two">
+              <div class="demo">
+                <div class="label">Why Express?</div>
+                <p>✅ Minimal and unopinionated<br>✅ Fast routing system<br>✅ Huge middleware ecosystem<br>✅ Easy to
+                  learn and use<br>✅ Powers millions of apps</p>
+              </div>
+              <div class="demo">
+                <div class="label">Install Express</div>
+                <p style="font-family:'Fira Code';color:var(--green);font-size:.85rem;margin-top:6px">npm init -y<br>npm
+                  install express</p>
+              </div>
+            </div>
+            <div class="code" id="code2"><button class="copy-btn" onclick="copyCode('code2')">Copy</button><span
+                class="cmt">// Your first Express server</span>
+              <span class="kw">const</span> <span class="prop">express</span> = <span class="fn">require</span>(<span
+                class="str">'express'</span>);
+              <span class="kw">const</span> <span class="prop">app</span> = <span class="fn">express</span>();
+
+              <span class="prop">app</span>.<span class="fn">listen</span>(<span class="val">3000</span>, () => <span
+                class="prop">console</span>.<span class="fn">log</span>(<span class="str">'Server running!'</span>));
+            </div>
+          </article>
+
+          <!-- SLIDE 3 -->
+          <article class="slide">
+            <div class="eyebrow">02 · Basics</div>
+            <h1 class="title">Express Basics</h1>
+            <div class="divider"></div>
+            <div class="definition">An Express server needs three things: <b>require express</b>, <b>create the app</b>,
+              and <b>listen on a port</b>. Routes define what happens when a user visits a URL.</div>
+            <div class="card">
+              <div class="label" style="color:var(--gold)">⚡ Your Practiced Code</div>
+              <p style="color:#ccc;font-size:.82rem;margin-top:8px">This is the exact code you wrote — a server on port
+                3000 with a GET route.</p>
+            </div>
+            <div class="code" id="code3"><button class="copy-btn" onclick="copyCode('code3')">Copy</button><span
+                class="kw">const</span> <span class="prop">app</span> = <span class="fn">require</span>(<span
+                class="str">'express'</span>)();
+
+              <span class="kw">const</span> <span class="prop">PORT</span> = <span class="val">3000</span>;
+              <span class="prop">app</span>.<span class="fn">listen</span>(<span class="prop">PORT</span>, () => <span
+                class="prop">console</span>.<span class="fn">log</span>(<span class="str">`Server is running on port
+                ${PORT}`</span>));
+
+              <span class="prop">app</span>.<span class="fn">get</span>(<span class="str">'/getRequest'</span>, (<span
+                class="prop">req</span>, <span class="prop">res</span>) => {
+              <span class="prop">res</span>.<span class="fn">send</span>(<span class="str">'Hello this is a GET
+                Method'</span>);
+              });
+            </div>
+            <div class="three" style="margin-top:18px">
+              <div class="demo">
+                <div class="label">app.get()</div>
+                <p>Handles HTTP GET requests at a specific route path.</p>
+              </div>
+              <div class="demo">
+                <div class="label">req</div>
+                <p>The request object — contains URL, headers, body, params.</p>
+              </div>
+              <div class="demo">
+                <div class="label">res.send()</div>
+                <p>Sends a response back to the client (text, HTML, JSON).</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 4 -->
+          <article class="slide">
+            <div class="eyebrow">03 · Networking</div>
+            <h1 class="title">Localhost & 127.0.0.1</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>localhost</b> is a hostname that refers to your own computer. <b>127.0.0.1</b> is
+              the IP address of localhost — the loopback address. They are functionally identical for development.</div>
+            <table>
+              <tr>
+                <th>Feature</th>
+                <th>localhost</th>
+                <th>127.0.0.1</th>
+              </tr>
+              <tr>
+                <td>Type</td>
+                <td><span class="tag blue">Hostname</span></td>
+                <td><span class="tag green">IP Address</span></td>
+              </tr>
+              <tr>
+                <td>Resolved by</td>
+                <td>DNS / hosts file</td>
+                <td>Directly by OS</td>
+              </tr>
+              <tr>
+                <td>Speed</td>
+                <td>Slightly slower (DNS lookup)</td>
+                <td>Faster (direct)</td>
+              </tr>
+              <tr>
+                <td>Usage</td>
+                <td>Human-friendly</td>
+                <td>Explicit / scripts</td>
+              </tr>
+              <tr>
+                <td>Example</td>
+                <td>http://localhost:3000</td>
+                <td>http://127.0.0.1:3000</td>
+              </tr>
+            </table>
+            <div class="code" id="code4"><button class="copy-btn" onclick="copyCode('code4')">Copy</button><span
+                class="cmt">// Both of these reach the same server:</span>
+              <span class="cmt">// http://localhost:3000/getRequest</span>
+              <span class="cmt">// http://127.0.0.1:3000/getRequest</span>
+
+              <span class="prop">app</span>.<span class="fn">listen</span>(<span class="val">3000</span>, () => {
+              <span class="prop">console</span>.<span class="fn">log</span>(<span class="str">'Visit:
+                http://localhost:3000'</span>);
+              });
+            </div>
+          </article>
+
+          <!-- SLIDE 5 -->
+          <article class="slide">
+            <div class="eyebrow">04 · Multi-Server</div>
+            <h1 class="title">Running Two Servers</h1>
+            <div class="divider"></div>
+            <div class="definition">You can run <b>multiple Express servers</b> on different ports at the same time.
+              Each port is a separate "door" into your machine. This is useful for microservices or separating frontend
+              and backend.</div>
+            <div class="two">
+              <div class="code" id="code5a"><button class="copy-btn" onclick="copyCode('code5a')">Copy</button><span
+                  class="cmt">// server1.js — Port 3000</span>
+                <span class="kw">const</span> <span class="prop">app1</span> = <span class="fn">require</span>(<span
+                  class="str">'express'</span>)();
+
+                <span class="prop">app1</span>.<span class="fn">get</span>(<span class="str">'/'</span>, (<span
+                  class="prop">req</span>, <span class="prop">res</span>) => {
+                <span class="prop">res</span>.<span class="fn">send</span>(<span class="str">'Server 1 — Port
+                  3000'</span>);
+                });
+
+                <span class="prop">app1</span>.<span class="fn">listen</span>(<span class="val">3000</span>, () =>
+                <span class="prop">console</span>.<span class="fn">log</span>(<span class="str">'Server 1 on
+                  :3000'</span>)
+                );
+              </div>
+              <div class="code" id="code5b"><button class="copy-btn" onclick="copyCode('code5b')">Copy</button><span
+                  class="cmt">// server2.js — Port 3001</span>
+                <span class="kw">const</span> <span class="prop">app2</span> = <span class="fn">require</span>(<span
+                  class="str">'express'</span>)();
+
+                <span class="prop">app2</span>.<span class="fn">get</span>(<span class="str">'/'</span>, (<span
+                  class="prop">req</span>, <span class="prop">res</span>) => {
+                <span class="prop">res</span>.<span class="fn">send</span>(<span class="str">'Server 2 — Port
+                  3001'</span>);
+                });
+
+                <span class="prop">app2</span>.<span class="fn">listen</span>(<span class="val">3001</span>, () =>
+                <span class="prop">console</span>.<span class="fn">log</span>(<span class="str">'Server 2 on
+                  :3001'</span>)
+                );
+              </div>
+            </div>
+            <div class="demo" style="margin-top:18px">
+              <div class="label">Run both at once (two terminals)</div>
+              <p style="font-family:'Fira Code';color:var(--green);margin-top:8px">node server1.js <span
+                  style="color:var(--muted)"># Terminal 1</span><br>node server2.js <span style="color:var(--muted)">#
+                  Terminal 2</span></p>
+            </div>
+          </article>
+
+          <!-- SLIDE 6 -->
+          <article class="slide">
+            <div class="eyebrow">05 · Browser API</div>
+            <h1 class="title">Location API</h1>
+            <div class="divider"></div>
+            <div class="definition">The <b>window.location</b> object gives you information about the current URL in the
+              browser. It is useful for reading the current page URL, redirecting users, or extracting parts of the URL.
+            </div>
+            <div class="live-demo">
+              <h4>▶ Live Demo — Click to inspect</h4>
+              <div>
+                <button class="demo-btn" onclick="showLoc('href')">location.href</button>
+                <button class="demo-btn" onclick="showLoc('origin')">location.origin</button>
+                <button class="demo-btn" onclick="showLoc('host')">location.host</button>
+                <button class="demo-btn" onclick="showLoc('hostname')">location.hostname</button>
+                <button class="demo-btn" onclick="showLoc('port')">location.port</button>
+                <button class="demo-btn" onclick="showLoc('protocol')">location.protocol</button>
+                <button class="demo-btn" onclick="showLoc('pathname')">location.pathname</button>
+              </div>
+              <div class="demo-output" id="locOutput">Click a button above to see the value ↑</div>
+            </div>
+            <div class="code" id="code6"><button class="copy-btn" onclick="copyCode('code6')">Copy</button><span
+                class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span
+                class="fn">href</span>); <span class="cmt">// full URL</span>
+              <span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span
+                class="fn">origin</span>); <span class="cmt">// protocol + host</span>
+              <span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span
+                class="fn">host</span>); <span class="cmt">// hostname + port</span>
+              <span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span
+                class="fn">hostname</span>); <span class="cmt">// just hostname</span>
+              <span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span
+                class="fn">port</span>); <span class="cmt">// port number</span>
+              <span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span
+                class="fn">protocol</span>); <span class="cmt">// http: or https:</span>
+              <span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span
+                class="fn">pathname</span>); <span class="cmt">// /path/to/page</span>
+            </div>
+          </article>
+
+          <!-- SLIDE 7 -->
+          <article class="slide">
+            <div class="eyebrow">06 · Embedding</div>
+            <h1 class="title">Iframes in Express</h1>
+            <div class="divider"></div>
+            <div class="definition">An <b>iframe</b> (inline frame) embeds another HTML page inside your current page.
+              You can load <b>localhost:3001</b> inside a page served by <b>localhost:3000</b> — as long as the target
+              server allows it.</div>
+            <div class="two">
+              <div class="demo">
+                <div class="label">Parent Page (localhost:3000)</div>
+                <p style="margin-top:8px;font-size:.82rem">Serves the main HTML page that contains the &lt;iframe&gt; tag
+                  pointing to port 3001.</p>
+              </div>
+              <div class="demo">
+                <div class="label">Child Page (localhost:3001)</div>
+                <p style="margin-top:8px;font-size:.82rem">A separate Express server whose content is loaded inside the
+                  iframe on port 3000.</p>
+              </div>
+            </div>
+            <div class="code" id="code7"><button class="copy-btn" onclick="copyCode('code7')">Copy</button><span
+                class="cmt">&lt;!-- Parent page on localhost:3000 --&gt;</span>
+              <span class="prop">&lt;iframe</span>
+                <span class="fn">src</span>=<span class="str">"http://localhost:3001"</span>
+                <span class="fn">width</span>=<span class="str">"100%"</span>
+                <span class="fn">height</span>=<span class="str">"400px"</span>
+                <span class="fn">frameborder</span>=<span class="str">"0"</span>
+              <span class="prop">&gt;&lt;/iframe&gt;</span>
+
+              <span class="cmt">// Express server on port 3001 (child)</span>
+              <span class="kw">const</span> <span class="prop">app</span> = <span class="fn">require</span>(<span
+                class="str">'express'</span>)();
+              <span class="prop">app</span>.<span class="fn">get</span>(<span class="str">'/'</span>, (<span
+                class="prop">req</span>, <span class="prop">res</span>) =>
+              <span class="prop">res</span>.<span class="fn">send</span>(<span class="str">'&lt;h1&gt;I am the child page!&lt;/h1&gt;'</span>)
+              );
+              <span class="prop">app</span>.<span class="fn">listen</span>(<span class="val">3001</span>);
+            </div>
+          </article>
+
+          <!-- SLIDE 8 -->
+          <article class="slide">
+            <div class="eyebrow">07 · Security</div>
+            <h1 class="title">Browser Security</h1>
+            <div class="divider"></div>
+            <div class="definition">Browsers enforce the <b>Same-Origin Policy (SOP)</b> — a page can only freely access
+              resources from the same origin (protocol + hostname + port). This prevents malicious sites from reading
+              your data. Iframes from different origins are restricted.</div>
+            <div class="three">
+              <div class="demo">
+                <div class="label" style="color:var(--green)">Same Origin ✅</div>
+                <p style="font-family:'Fira Code';font-size:.75rem;margin-top:8px;color:var(--green)">localhost:3000 →
+                  localhost:3000</p>
+                <p style="font-size:.8rem;margin-top:8px">Same protocol, host, and port. Full access allowed.</p>
+              </div>
+              <div class="demo">
+                <div class="label" style="color:var(--red)">Cross Origin ❌</div>
+                <p style="font-family:'Fira Code';font-size:.75rem;margin-top:8px;color:var(--red)">localhost:3000 →
+                  localhost:3001</p>
+                <p style="font-size:.8rem;margin-top:8px">Different port = different origin. Restricted by browser.</p>
+              </div>
+              <div class="demo">
+                <div class="label" style="color:var(--gold)">Clickjacking ⚠️</div>
+                <p style="font-size:.8rem;margin-top:8px">Attacker embeds your site in an invisible iframe to trick
+                  users into clicking hidden buttons.</p>
+              </div>
+            </div>
+            <div class="code" id="code8"><button class="copy-btn" onclick="copyCode('code8')">Copy</button><span
+                class="cmt">// Origins compared:</span>
+              <span class="cmt">// http://localhost:3000 ← protocol: http, host: localhost, port: 3000</span>
+              <span class="cmt">// http://localhost:3001 ← DIFFERENT PORT = different origin</span>
+              <span class="cmt">// https://localhost:3000 ← DIFFERENT PROTOCOL = different origin</span>
+            </div>
+          </article>
+
+          <!-- SLIDE 9 -->
+          <article class="slide">
+            <div class="eyebrow">08 · Protection</div>
+            <h1 class="title">Preventing Iframes</h1>
+            <div class="divider"></div>
+            <div class="definition">You can stop other websites from embedding your Express app in an iframe using
+              <b>X-Frame-Options</b> or <b>Content-Security-Policy</b> headers. This protects against clickjacking
+              attacks.</div>
+            <div class="two">
+              <div class="demo">
+                <div class="label">X-Frame-Options values</div>
+                <p style="margin-top:8px;font-size:.82rem"><span class="tag red">DENY</span> — Nobody can embed this
+                  page<br><br><span class="tag blue">SAMEORIGIN</span> — Only same origin can embed<br><br><span
+                    class="tag green">ALLOW-FROM uri</span> — Only specific URL (deprecated)</p>
+              </div>
+              <div class="demo">
+                <div class="label">CSP frame-ancestors</div>
+                <p style="margin-top:8px;font-size:.82rem">Modern replacement for X-Frame-Options. More flexible —
+                  allows multiple origins to be whitelisted.</p>
+              </div>
+            </div>
+            <div class="code" id="code9"><button class="copy-btn" onclick="copyCode('code9')">Copy</button><span
+                class="kw">const</span> <span class="prop">app</span> = <span class="fn">require</span>(<span
+                class="str">'express'</span>)();
+
+              <span class="cmt">// Option 1: X-Frame-Options — DENY</span>
+              <span class="prop">app</span>.<span class="fn">use</span>((<span class="prop">req</span>, <span
+                class="prop">res</span>, <span class="prop">next</span>) => {
+              <span class="prop">res</span>.<span class="fn">setHeader</span>(<span
+                class="str">'X-Frame-Options'</span>, <span class="str">'DENY'</span>);
+              <span class="fn">next</span>();
+              });
+
+              <span class="cmt">// Option 2: CSP frame-ancestors (modern)</span>
+              <span class="prop">app</span>.<span class="fn">use</span>((<span class="prop">req</span>, <span
+                class="prop">res</span>, <span class="prop">next</span>) => {
+              <span class="prop">res</span>.<span class="fn">setHeader</span>(
+              <span class="str">'Content-Security-Policy'</span>,
+              <span class="str">"frame-ancestors 'none'"</span>
+              );
+              <span class="fn">next</span>();
+              });
+            </div>
+          </article>
+
+          <!-- SLIDE 10 -->
+          <article class="slide">
+            <div class="eyebrow">09 · Middleware</div>
+            <h1 class="title">Helmet.js</h1>
+            <div class="divider"></div>
+            <div class="definition"><b>Helmet</b> is an Express middleware that automatically sets many security-related
+              HTTP headers for you — including X-Frame-Options, CSP, HSTS, and more. It is the recommended way to secure
+              Express apps.</div>
+            <div class="card">
+              <div class="label">What Helmet sets automatically</div>
+              <div class="two" style="margin-top:12px">
+                <div>
+                  <p style="font-size:.82rem;color:#ccc;line-height:2">
+                    ✅ <span style="color:var(--gold)">X-Frame-Options</span>: SAMEORIGIN<br>
+                    ✅ <span style="color:var(--gold)">X-Content-Type-Options</span>: nosniff<br>
+                    ✅ <span style="color:var(--gold)">Strict-Transport-Security</span><br>
+                    ✅ <span style="color:var(--gold)">X-XSS-Protection</span>
+                  </p>
+                </div>
+                <div>
+                  <p style="font-size:.82rem;color:#ccc;line-height:2">
+                    ✅ <span style="color:var(--gold)">Content-Security-Policy</span><br>
+                    ✅ <span style="color:var(--gold)">Referrer-Policy</span><br>
+                    ✅ <span style="color:var(--gold)">Permissions-Policy</span><br>
+                    ✅ <span style="color:var(--gold)">Cross-Origin headers</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="code" id="code10"><button class="copy-btn" onclick="copyCode('code10')">Copy</button><span
+                class="cmt">// Install: npm install helmet</span>
+
+              <span class="kw">const</span> <span class="prop">express</span> = <span class="fn">require</span>(<span
+                class="str">'express'</span>);
+              <span class="kw">const</span> <span class="prop">helmet</span> = <span class="fn">require</span>(<span
+                class="str">'helmet'</span>);
+
+              <span class="kw">const</span> <span class="prop">app</span> = <span class="fn">express</span>();
+
+              <span class="cmt">// One line adds all security headers!</span>
+              <span class="prop">app</span>.<span class="fn">use</span>(<span class="fn">helmet</span>());
+
+              <span class="prop">app</span>.<span class="fn">get</span>(<span class="str">'/'</span>, (<span
+                class="prop">req</span>, <span class="prop">res</span>) => {
+              <span class="prop">res</span>.<span class="fn">send</span>(<span class="str">'Secured with
+                Helmet!'</span>);
+              });
+
+              <span class="prop">app</span>.<span class="fn">listen</span>(<span class="val">3000</span>);
+            </div>
+          </article>
+
+        </section>
+
+        <!-- JAVASCRIPT PANEL -->
+        <section id="jsPanel" class="theory-panel">
+
+          <!-- SLIDE 1: JS Variables -->
+          <article class="slide active">
+
+            <div class="eyebrow">01 · JavaScript Fundamentals</div>
+
+            <h1 class="title">JavaScript Variables</h1>
+
+            <div class="divider"></div>
+
+            <div class="definition">
+              <b>Variables</b> are containers used to store data in JavaScript.
+              A variable can store values such as strings, numbers, booleans,
+              arrays, objects, and more.
+              JavaScript provides three keywords for declaring variables:
+              <b>var</b>, <b>let</b>, and <b>const</b>.
+            </div>
+
+            <div class="three">
+
+              <div class="demo">
+                <div class="label">let</div>
+                <p>
+                  Used when the value of a variable may change later.
+                </p>
+
+                <div class="code">
+                  let age = 22;<br>
+                  age = 23;
+                </div>
+              </div>
+
+              <div class="demo">
+                <div class="label">const</div>
+                <p>
+                  Used when the variable should not be reassigned after declaration.
+                </p>
+
+                <div class="code">
+                  const name = "Srihitha";
+                </div>
+              </div>
+
+              <div class="demo">
+                <div class="label">var</div>
+                <p>
+                  The older way of declaring variables in JavaScript.
+                  Modern JavaScript generally prefers <b>let</b> and <b>const</b>.
+                </p>
+
+                <div class="code">
+                  var city = "Hyderabad";
+                </div>
+              </div>
+
+            </div>
+
+            <div class="two">
+
+              <div class="demo">
+                <div class="label">Variable Syntax</div>
+
+                <div class="code">
+                  let variableName = value;
+                </div>
+
+                <p style="margin-top:12px;">
+                  <b>let</b> → declaration keyword<br>
+                  <b>variableName</b> → name of the variable<br>
+                  <b>value</b> → data stored in the variable
+                </p>
+              </div>
+
+              <div class="demo">
+                <div class="label">Example</div>
+
+                <div class="code">
+                  let studentName = "Srihitha";<br>
+                  let age = 22;<br>
+                  let isStudent = true;
+                </div>
+
+                <p style="margin-top:12px;">
+                  A variable can store different types of values.
+                </p>
+              </div>
+
+            </div>
+
+            <div class="definition">
+
+              <b>Important Points:</b><br><br>
+
+              • <b>let</b> → value can be reassigned<br>
+              • <b>const</b> → variable cannot be reassigned<br>
+              • <b>var</b> → older variable declaration keyword<br>
+              • Variable names should be meaningful<br>
+              • Variables are used throughout JavaScript programs to store and work with data
+
+            </div>
+
+          </article>
+
+          <!-- SLIDE 2: JavaScript task -->
+          <article class="slide hero">
+            <div class="hero-content">
+              <div class="eyebrow">js Task</div>
+              <h1>js Task</h1>
+              <h2>js Practice — Barbarian IT</h2>
+              <div class="badge">Barbarian IT Academy</div>
+              <div class="tags" style="margin-top:20px">
+                <p>This is an page created using
+                  This requirement.<br>
+
+                  The page should have a form with one field and one submit button.<br>
+                  The page should show a 6 digit random code at the bottom left corner <br>
+                  that updates every minute.
+                  The code that is generated must be put in the form and submitted - manually.<br>
+                  When that is submitted, if the code submitted is the same code that it generated a while ago,<br>
+                  the page should show a "thank you" message. If the submitted code is not the same code that it
+                  generated<br>
+                  or if the code changed to a different one after submission, it should show "error" message.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 3: Sync and Async -->
+          <article class="slide hero">
+            <div class="hero-content">
+              <div class="eyebrow">Synchronous and Asynchronous Functions</div>
+              <h1 style="font-size:clamp(3rem,8vw,6rem)">Sync and Async</h1>
+              <h2>js Practice — Barbarian IT</h2>
+              <div class="badge">Barbarian IT Academy</div>
+              <div class="tags" style="margin-top:20px">
+                <span>This is the page where we know about synchronous and asynchronous java script Functions</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 4: JavaScript Arrays -->
+          <article class="slide">
+            <div class="eyebrow">01 · JavaScript Fundamentals</div>
+
+            <h1 class="title">JavaScript Arrays</h1>
+
+            <div class="divider"></div>
+
+            <div class="definition">
+              <b>Arrays</b> are used to store multiple values in a single variable.
+              Each value in an array has an index, starting from <b>0</b>.
+              Arrays can store strings, numbers, objects, and other types of data.
+            </div>
+
+            <div class="three">
+
+              <div class="demo">
+                <div class="label">What is an Array?</div>
+                <p>
+                  An array is an ordered collection of values stored together in a
+                  single variable.
+                </p>
+              </div>
+
+              <div class="demo">
+                <div class="label">Index</div>
+                <p>
+                  Array elements are accessed using their index.
+                  The first element starts at <b>index 0</b>.
+                </p>
+              </div>
+
+              <div class="demo">
+                <div class="label">Why use Arrays?</div>
+                <p>
+                  Arrays make it easier to store, access, update, search, and
+                  process multiple values.
+                </p>
+              </div>
+
+            </div>
+
+            <div class="two">
+
+              <div class="demo">
+                <div class="label">Basic Syntax</div>
+                <p style="font-family:'Fira Code';color:var(--blue)">
+                  let fruits = ["Apple", "Mango", "Banana"];
+                </p>
+              </div>
+
+              <div class="demo">
+                <div class="label">Accessing Values</div>
+                <p style="font-family:'Fira Code';color:var(--gold)">
+                  fruits[0] → "Apple"<br>
+                  fruits[1] → "Mango"
+                </p>
+              </div>
+
+            </div>
+
+            <div class="code">
+              <span class="prop">let</span>
+              <span class="value">fruits</span> =
+              [
+              <span class="value">"Apple"</span>,
+              <span class="value">"Mango"</span>,
+              <span class="value">"Banana"</span>
+              ];
+            </div>
+
+          </article>
+
+          <!-- SLIDE 5: JavaScript Objects -->
+          <article class="slide">
+
+            <div class="eyebrow">01 · JavaScript Fundamentals</div>
+
+            <h1 class="title">JavaScript Objects</h1>
+
+            <div class="divider"></div>
+
+            <div class="definition">
+              <b>Objects</b> are used to store related information using
+              <b>key-value pairs</b>. An object can contain different types of
+              data such as strings, numbers, booleans, arrays, and other objects.
+            </div>
+
+            <div class="three">
+
+              <div class="demo">
+                <div class="label">What is an Object?</div>
+                <p>
+                  An object is a collection of related data stored using
+                  <b>key-value pairs</b>. It can represent real-world things
+                  such as a student, user, product, or car.
+                </p>
+              </div>
+
+              <div class="demo">
+                <div class="label">Properties</div>
+                <p>
+                  Properties are the information stored inside an object.
+                  Each property has a <b>key</b> and a <b>value</b>.
+                </p>
+              </div>
+
+              <div class="demo">
+                <div class="label">Why use Objects?</div>
+                <p>
+                  Objects make it easier to group related information,
+                  access data, update values, and represent real-world entities.
+                </p>
+              </div>
+
+            </div>
+
+            <div class="two">
+
+              <div class="demo">
+                <div class="label">Accessing Properties</div>
+                <p style="font-family:'Fira Code';color:var(--blue)">
+                  student.name<br>
+                  student["name"]
+                </p>
+                <p>
+                  Properties can be accessed using <b>dot notation</b> or
+                  <b>bracket notation</b>.
+                </p>
+              </div>
+
+              <div class="demo">
+                <div class="label">Modifying Objects</div>
+                <p style="font-family:'Fira Code';color:var(--gold)">
+                  student.age = 23;<br>
+                  student.city = "Hyderabad";<br>
+                  delete student.city;
+                </p>
+                <p>
+                  Properties can be changed, added, or deleted.
+                </p>
+              </div>
+
+            </div>
+
+            <div class="code">
+              <span class="prop">let</span>
+              <span class="value">student</span> = {
+              <span class="prop">name</span>:
+              <span class="value">"Srihitha"</span>,
+              <span class="prop">age</span>:
+              <span class="value">22</span>,
+              <span class="prop">course</span>:
+              <span class="value">"JavaScript"</span>
+              };
+            </div>
+
+          </article>
+
+          <!-- SLIDE 6: JSON -->
+          <article class="slide">
+
+            <div class="eyebrow">01 · JavaScript Data Format</div>
+
+            <h1 class="title">JSON Objects</h1>
+
+            <div class="divider"></div>
+
+            <div class="definition">
+
+              <h3>What is JSON?</h3>
+
+              <p>
+                <b>JSON (JavaScript Object Notation)</b> is a text-based format
+                used to store and exchange data. It is commonly used when
+                sending data between frontend and backend or when working with APIs.
+              </p>
+
+              <h3>Basic JSON Object</h3>
+
+              <pre>
+{
+  "name": "Srihitha",
+  "age": 22,
+  "isStudent": true
+}
+              </pre>
+
+              <h3>JSON Data Types</h3>
+
+              <p>
+                JSON supports <b>strings</b>, <b>numbers</b>, <b>booleans</b>,
+                <b>arrays</b>, <b>objects</b>, and <b>null</b>.
+              </p>
+
+              <pre>
+{
+  "name": "Srihitha",
+  "age": 22,
+  "isStudent": true,
+  "skills": ["HTML", "CSS", "JavaScript"],
+  "address": {
+    "city": "Hyderabad"
+  },
+  "middleName": null
+}
+              </pre>
+
+              <h3>JSON.parse()</h3>
+
+              <p>
+                <b>JSON.parse()</b> converts a JSON string into a JavaScript object.
+              </p>
+
+              <pre>
+let jsonData = '{"name":"Srihitha","age":22}';
+
+let student = JSON.parse(jsonData);
+
+console.log(student.name);
+              </pre>
+
+              <h3>JSON.stringify()</h3>
+
+              <p>
+                <b>JSON.stringify()</b> converts a JavaScript object into a JSON string.
+              </p>
+
+              <pre>
+let student = {
+  name: "Srihitha",
+  age: 22
+};
+
+let jsonData = JSON.stringify(student);
+
+console.log(jsonData);
+              </pre>
+
+              <h3>Nested JSON</h3>
+
+              <p>
+                A JSON object can contain another object. This is called a
+                <b>nested object</b>.
+              </p>
+
+              <pre>
+{
+  "name": "Srihitha",
+  "address": {
+    "city": "Hyderabad",
+    "state": "Telangana"
+  }
+}
+              </pre>
+
+              <p>
+                Accessing the city:
+              </p>
+
+              <pre>
+student.address.city
+              </pre>
+
+              <h3>Array of Objects</h3>
+
+              <p>
+                A JSON array can contain multiple objects. This is commonly used
+                when an API returns a list of students, users, products, or other data.
+              </p>
+
+              <pre>
+[
+  {
+    "name": "Srihitha",
+    "marks": 90
+  },
+  {
+    "name": "Rahul",
+    "marks": 75
+  },
+  {
+    "name": "Anu",
+    "marks": 85
+  }
+]
+              </pre>
+
+              <h3>Looping Through JSON</h3>
+
+              <p>
+                JavaScript can loop through an array of JSON objects and access
+                each object's properties.
+              </p>
+
+              <pre>
+for (let student of students) {
+
+  console.log(student.name);
+  console.log(student.marks);
+
+}
+              </pre>
+
+              <h3>JSON vs JavaScript Object</h3>
+
+              <p>
+                JSON and JavaScript objects look similar, but they are different.
+                JSON is a data format, while a JavaScript object is a JavaScript value.
+              </p>
+
+              <pre>
+JavaScript Object:
+
+{
+  name: "Srihitha",
+  age: 22
+}
+
+
+JSON:
+
+{
+  "name": "Srihitha",
+  "age": 22
+}
+              </pre>
+
+              <p>
+                In JSON, property names must use <b>double quotes</b>.
+                JSON also does not support functions.
+              </p>
+
+              <h3>JSON and APIs</h3>
+
+              <p>
+                JSON is commonly used when the frontend communicates with a backend
+                through an API. The server sends data in JSON format, and JavaScript
+                can read that data and display it on the webpage.
+              </p>
+
+              <pre>
+API
+ ↓
+JSON Response
+ ↓
+JavaScript
+ ↓
+Webpage
+              </pre>
+
+              <h3>Important Points</h3>
+
+              <ul>
+                <li>JSON stands for JavaScript Object Notation.</li>
+                <li>JSON is used to store and exchange data.</li>
+                <li>JSON uses key-value pairs.</li>
+                <li>JSON can contain objects and arrays.</li>
+                <li>JSON.parse() converts JSON into a JavaScript object.</li>
+                <li>JSON.stringify() converts an object into JSON.</li>
+                <li>JSON can contain nested objects.</li>
+                <li>JSON arrays can contain multiple objects.</li>
+                <li>JSON is commonly used with APIs.</li>
+              </ul>
+
+            </div>
+
+          </article>
+
+          <!-- SLIDE 7: JavaScript Promises -->
+          <article class="slide">
+
+            <div class="eyebrow">JavaScript · Asynchronous Programming</div>
+
+            <h1 class="title">JavaScript Promises</h1>
+
+            <div class="divider"></div>
+
+            <div class="definition">
+              A <b>Promise</b> is an object that represents the eventual result of
+              an asynchronous operation. It allows JavaScript to handle operations
+              that take time, such as API requests, timers, database operations,
+              file operations, and login requests.
+            </div>
+
+
+            <div class="demo">
+
+              <div class="label">Promise States</div>
+
+              <p>
+                A Promise has three states:
+                <br><br>
+
+                <b>Pending</b> → The operation is still running.
+                <br><br>
+
+                <b>Fulfilled</b> → The operation completed successfully.
+                <br><br>
+
+                <b>Rejected</b> → The operation failed.
+              </p>
+
+            </div>
+
+
+            <div class="demo">
+
+              <div class="label">Creating a Promise</div>
+
+              <p>
+                A Promise is created using the <b>Promise</b> constructor.
+                <b>resolve()</b> is used for success and <b>reject()</b> is used
+                when the operation fails.
+              </p>
+
+            </div>
+
+
+            <div class="code">
+
+              const promise = new Promise(function(resolve, reject) {
+
+              <br>
+
+              &nbsp;&nbsp;let success = true;
+
+              <br><br>
+
+              &nbsp;&nbsp;if (success) {
+
+              <br>
+
+              &nbsp;&nbsp;&nbsp;&nbsp;resolve("Operation successful");
+
+              <br>
+
+              &nbsp;&nbsp;} else {
+
+              <br>
+
+              &nbsp;&nbsp;&nbsp;&nbsp;reject("Operation failed");
+
+              <br>
+
+              &nbsp;&nbsp;}
+
+              <br>
+
+              });
+
+            </div>
+
+
+            <div class="demo">
+
+              <div class="label">Handling a Promise</div>
+
+              <p>
+                <b>then()</b> handles the successful result.
+                <br><br>
+
+                <b>catch()</b> handles errors.
+                <br><br>
+
+                <b>finally()</b> runs after the Promise finishes, whether it
+                succeeds or fails.
+              </p>
+
+            </div>
+
+
+            <div class="code">
+
+              promise
+
+              <br>
+
+              .then(function(result) {
+
+              <br>
+
+              &nbsp;&nbsp;console.log(result);
+
+              <br>
+
+              })
+
+              <br>
+
+              .catch(function(error) {
+
+              <br>
+
+              &nbsp;&nbsp;console.log(error);
+
+              <br>
+
+              })
+
+              <br>
+
+              .finally(function() {
+
+              <br>
+
+              &nbsp;&nbsp;console.log("Finished");
+
+              <br>
+
+              });
+
+            </div>
+
+
+            <div class="demo">
+
+              <div class="label">Promise Chaining</div>
+
+              <p>
+                Multiple <b>then()</b> methods can be connected together.
+                The result returned from one <b>then()</b> can be passed to
+                the next <b>then()</b>.
+              </p>
+
+            </div>
+
+
+            <div class="demo">
+
+              <div class="label">async and await</div>
+
+              <p>
+                <b>async</b> and <b>await</b> provide a cleaner way to work
+                with Promises. <b>await</b> waits for the Promise result inside
+                an <b>async</b> function.
+              </p>
+
+            </div>
+
+
+            <div class="code">
+
+              async function getData() {
+
+              &nbsp;&nbsp;try {
+
+              <br>
+
+              &nbsp;&nbsp;&nbsp;&nbsp;const result = await promise;
+
+              <br>
+
+              &nbsp;&nbsp;&nbsp;&nbsp;console.log(result);
+
+              <br>
+
+              &nbsp;&nbsp;} catch(error) {
+
+              <br>
+
+              &nbsp;&nbsp;&nbsp;&nbsp;console.log(error);
+
+              <br>
+
+              &nbsp;&nbsp;}
+
+              <br>
+
+              }
+
+            </div>
+
+
+            <div class="demo">
+
+              <div class="label">Multiple Promises</div>
+
+              <p>
+                <b>Promise.all()</b> waits for all Promises to complete.
+                <br><br>
+
+                <b>Promise.race()</b> returns the result of the first Promise
+                that settles.
+              </p>
+
+            </div>
+
+
+            <div class="demo">
+
+              <div class="label">Real-World Usage</div>
+
+              <p>
+                Promises are commonly used with <b>APIs</b>, network requests,
+                timers, database operations, file operations, login requests,
+                and other asynchronous tasks.
+              </p>
+
+            </div>
+
+
+            <div class="code">
+
+              Request → Promise → Pending → Fulfilled / Rejected
+
+            </div>
+
+
+          </article>
+
+          <!-- SLIDE 8: JavaScript Events -->
+          <article class="slide">
+
+            <div class="eyebrow">JavaScript · Events</div>
+
+            <h1 class="title">JavaScript Events</h1>
+
+            <div class="divider"></div>
+
+            <div class="definition">
+              <b>Events</b> are actions or occurrences that happen in a web page.
+              JavaScript can detect these actions and execute a function when they occur.
+              Events are commonly used to make web pages interactive.
+            </div>
+
+
+            <div class="three">
+
+              <!-- Mouse Events -->
+              <div class="demo">
+
+                <div class="label">Mouse Events</div>
+
+                <p>
+                  Mouse events occur when the user interacts with an element using
+                  the mouse.
+                </p>
+
+                <p>
+                  <b>click</b> → element is clicked<br>
+                  <b>dblclick</b> → element is double-clicked<br>
+                  <b>mouseover</b> → mouse moves over an element<br>
+                  <b>mouseout</b> → mouse leaves an element
+                </p>
+
+              </div>
+
+
+              <!-- Keyboard Events -->
+              <div class="demo">
+
+                <div class="label">Keyboard Events</div>
+
+                <p>
+                  Keyboard events occur when the user presses or releases
+                  a keyboard key.
+                </p>
+
+                <p>
+                  <b>keydown</b> → key is pressed<br>
+                  <b>keyup</b> → key is released
+                </p>
+
+              </div>
+
+
+              <!-- Form Events -->
+              <div class="demo">
+
+                <div class="label">Form Events</div>
+
+                <p>
+                  Form events are used to detect changes and actions performed
+                  on form elements.
+                </p>
+
+                <p>
+                  <b>input</b> → value changes while typing<br>
+                  <b>change</b> → value is changed<br>
+                  <b>submit</b> → form is submitted
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="two">
+
+              <!-- addEventListener -->
+              <div class="demo">
+
+                <div class="label">addEventListener()</div>
+
+                <p>
+                  <b>addEventListener()</b> connects an event to a function.
+                  It tells JavaScript which event to watch and what function
+                  should run when that event occurs.
+                </p>
+
+                <div class="code">
+                  button.addEventListener("click", function() {
+                  <br>
+                  &nbsp;&nbsp;console.log("Button clicked");
+                  <br>
+                  });
+                </div>
+
+              </div>
+
+
+              <!-- Event Object -->
+              <div class="demo">
+
+                <div class="label">Event Object</div>
+
+                <p>
+                  When an event occurs, JavaScript provides an
+                  <b>event object</b> containing information about that event.
+                </p>
+
+                <p>
+                  <b>event.target</b> → element that triggered the event<br>
+                  <b>event.key</b> → keyboard key that was pressed
+                </p>
+
+                <div class="code">
+                  button.addEventListener("click", function(event) {
+                  <br>
+                  &nbsp;&nbsp;console.log(event.target);
+                  <br>
+                  });
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="two">
+
+              <!-- preventDefault -->
+              <div class="demo">
+
+                <div class="label">preventDefault()</div>
+
+                <p>
+                  <b>preventDefault()</b> prevents the browser's default action
+                  associated with an event.
+                </p>
+
+                <p>
+                  For example, it can stop a form from submitting normally
+                  or prevent a link from immediately navigating.
+                </p>
+
+                <div class="code">
+                  form.addEventListener("submit", function(event) {
+                  <br>
+                  &nbsp;&nbsp;event.preventDefault();
+                  <br>
+                  });
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Summary -->
+            <div class="definition">
+
+              <b>Remember:</b>
+
+              <br><br>
+
+              <b>Mouse:</b> click, dblclick, mouseover, mouseout
+
+              <br>
+
+              <b>Keyboard:</b> keydown, keyup
+
+              <br>
+
+              <b>Forms:</b> input, change, submit
+
+              <br>
+
+              <b>Listener:</b> addEventListener()
+
+              <br>
+
+              <b>Event information:</b> event, event.target, event.key
+
+              <br>
+
+              <b>Default behavior:</b> preventDefault()
+
+            </div>
+
+          </article>
+
+        </section>
+
+        <!-- EXAMPLES PANEL -->
+        <section id="examplesPanel" class="theory-panel">
+
+          <!-- SLIDE 1: Car Cartoon Intro -->
+          <article class="slide active hero">
+            <div class="hero-content">
+              <div class="eyebrow">Example</div>
+              <h1 style="font-size:clamp(3rem,8vw,6rem)">Car Cartoon</h1>
+              <h2>CSS Position, z-index & Border</h2>
+              <div class="badge">Barbarian IT Academy</div>
+              <div class="tags" style="margin-top:20px">
+                <span>static</span><span>relative</span><span>absolute</span><span>fixed</span><span>sticky</span><span>z-index</span><span>border</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 2: Car Cartoon Colors -->
+          <article class="slide">
+            <div class="eyebrow">Example</div>
+            <h1 class="title">Car Cartoon of Different Colors</h1>
+            <div class="divider"></div>
+            <div class="definition">This is a fun example of a car cartoon created using CSS position, z-index, and
+              border properties. You can change the color of the car by clicking the buttons below.</div>
+          </article>
+
+          <!-- SLIDE 3: Face Cartoon -->
+          <article class="slide">
+            <div class="eyebrow">Example</div>
+            <h1 class="title">Face Cartoon</h1>
+            <div class="divider"></div>
+            <div class="definition">This is a fun example of a face cartoon created using CSS position, z-index, and
+              border properties. You can change the color of the face by clicking the buttons below.</div>
+          </article>
+
+          <!-- SLIDE 4: Header Task -->
+          <article class="slide">
+            <div class="eyebrow">Header Creation</div>
+            <h1 class="title">Header Creation</h1>
+            <div class="divider"></div>
+            <div class="definition">We Have created a simple header That has logo on left and navigation<br> links on right (navigation links must be side by side), everything is contained inside a 1024px container.<br> For the logo, we used barbarian logo. For the links, added 3 links barbarian site.</div>
+          </article>
+
+          <!-- SLIDE 5: Teaser Component -->
+          <article class="slide">
+            <div class="eyebrow">Teaser Componet</div>
+            <h1 class="title">Teaser Componet</h1>
+            <div class="divider"></div>
+            <div class="definition">This is an Example of Teaser Componet.</div>
+          </article>
+
+          <!-- SLIDE 6: Teaser Using Modifiers -->
+          <article class="slide">
+            <div class="eyebrow">Teaser Componet using Modifiers</div>
+            <h1 class="title">Teaser Componet using Modifiers</h1>
+            <div class="divider"></div>
+            <div class="definition">This is an Example of Teaser Componet Using Modifiers.</div>
+          </article>
+
+          <!-- SLIDE 7: Media Queries (Mobile-first) -->
+          <article class="slide">
+            <div class="eyebrow">11 · Responsive Design</div>
+            <h1 class="title">Media Queries(Mobile-first-approch)</h1>
+            <div class="divider"></div>
+            <div class="definition">
+              <b>Media queries</b> allow CSS styles to change based on the screen size.
+              They are commonly used to create responsive designs for mobile, tablet,
+              and desktop devices.
+            </div>
+            <div class="two">
+              <div class="demo">
+                <div class="label">Mobile First</div>
+                <p>
+                  Start with styles for mobile devices and use
+                  <b>min-width</b> media queries to add styles for larger screens.
+                </p>
+              </div>
+              <div class="demo">
+                <div class="label">Desktop First</div>
+                <p>
+                  Start with styles for desktop devices and use
+                  <b>max-width</b> media queries to adjust styles for smaller screens.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- SLIDE 8: Media Queries (Desktop-first) -->
+          <article class="slide">
+            <div class="eyebrow">Example</div>
+            <h1 class="title">Media queries (desktop-first-approch)</h1>
+            <div class="divider"></div>
+            <p><b>Media queries</b> allow CSS styles to change based on the screen size.
+              They are commonly used to create responsive designs for mobile, tablet,
+              and desktop devices.</p>
+          </article>
+
+        </section>
+
+        <!-- EXAMPLE PANEL (iframe practice viewer) -->
+        <section id="examplePanel">
+          <div class="example-head">
+            <div class="left">
+              <div class="dots"><i></i><i></i><i></i></div>
+              <strong id="examplePanelTitle">My HTML Practice</strong>
+            </div>
+            <span class="file" id="fileName">slides/slide1.html</span>
+          </div>
+          <iframe id="exampleFrame" title="My practice page"></iframe>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <button class="move" id="prev">← Prev</button>
+      <div>
+        <div id="counter">01 / 01</div>
+        <div class="bar">
+          <div id="fill" class="fill" style="width:100%"></div>
+        </div>
+      </div>
+      <button class="move next" id="next">Next →</button>
+      <div class="hint">Use ← → arrow keys</div>
+    </footer>
+
+  </div>
+  <script src="Mywebapp.js"></script>
+</body>
+</html>

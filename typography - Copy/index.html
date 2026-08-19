@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Barbarian IT Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Fira+Code:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --red: #e63946;
+    --gold: #ffd700;
+    --dark: #0d0d0d;
+    --panel: #151515;
+    --card: #202020;
+    --line: #303030;
+    --text: #f1f1f1;
+    --muted: #8a8a8a;
+    --blue: #7ed6ff;
+    --green: #52c46c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; overflow: hidden; background: var(--dark); color: var(--text); font-family: Poppins, Arial, sans-serif; }
+
+  #app {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 58px 1fr 56px;
+    height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    grid-column: 1 / -1;
+    background: #101010;
+    border-bottom: 2px solid var(--red);
+    box-shadow: 0 2px 28px #e6394626;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 26px;
+    z-index: 4;
+  }
+  .brand { color: var(--red); font-size: 1rem; letter-spacing: 3px; font-weight: 900; text-transform: uppercase; }
+  .brand span { color: var(--gold); }
+  .header-title { color: var(--muted); font-size: .67rem; letter-spacing: 3px; text-transform: uppercase; }
+  .header-title b { color: var(--gold); }
+  #countTop { color: white; background: linear-gradient(135deg, var(--red), #ae1723); border-radius: 18px; padding: 5px 15px; font: 700 .7rem 'Fira Code'; letter-spacing: 1px; }
+
+  /* COURSE SWITCHER */
+  .course-switcher {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .course-btn {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font: 600 .6rem Poppins;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .2s;
+    text-transform: uppercase;
+  }
+  .course-btn:hover { border-color: var(--red); color: var(--red); }
+  .course-btn.active { background: var(--red); border-color: var(--red); color: white; }
+
+  /* SIDEBAR */
+  aside { background: var(--panel); border-right: 1px solid var(--line); overflow: hidden; display: flex; flex-direction: column; }
+  .side-head { padding: 17px 17px 12px; border-bottom: 1px solid var(--line); }
+  .side-head h2 { color: var(--gold); text-transform: uppercase; font-size: .62rem; letter-spacing: 3px; }
+  .side-head p { color: var(--muted); font-size: .62rem; margin-top: 3px; }
+  #nav { overflow-y: auto; padding: 6px 0; }
+  #nav::-webkit-scrollbar { width: 4px; }
+  #nav::-webkit-scrollbar-thumb { background: var(--red); }
+  .nav-item { border-left: 3px solid transparent; border-bottom: 1px solid #222; display: flex; gap: 11px; align-items: center; padding: 10px 14px; cursor: pointer; transition: .2s; }
+  .nav-item:hover { background: #212121; }
+  .nav-item.active { background: #e6394615; border-left-color: var(--red); }
+  .number { color: var(--red); font: 700 .6rem 'Fira Code'; width: 22px; }
+  .nav-name { color: var(--muted); font-size: .73rem; }
+  .nav-item.active .nav-name { color: var(--gold); font-weight: 600; }
+
+  /* MAIN AREA */
+  main { min-width: 0; position: relative; display: flex; flex-direction: column; overflow: hidden; }
+  #tool { height: 41px; flex: none; background: #111; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; padding: 0 18px; }
+  #tool-title { font-size: .65rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+  #tool-title b { color: var(--gold); }
+  #exampleButton { border: 1px solid var(--red); color: var(--red); background: transparent; border-radius: 4px; cursor: pointer; font: 600 .68rem Poppins; letter-spacing: 1px; padding: 6px 14px; text-transform: uppercase; transition: .2s; }
+  #exampleButton:hover, #exampleButton.open { color: #fff; background: var(--red); box-shadow: 0 0 18px #e6394655; }
+
+  /* WORKSPACE */
+  #workspace { display: flex; min-height: 0; flex: 1; overflow: hidden; }
+
+  /* THEORY PANELS */
+  .theory-panel { flex: 1; min-width: 0; overflow-y: auto; overflow-x: hidden; background: radial-gradient(ellipse at 80% 10%, #e6394612, transparent 35%), var(--dark); transition: flex .35s; display: none; }
+  .theory-panel.active-course { display: block; }
+  .theory-panel.split { display: none; }
+  .theory-panel::-webkit-scrollbar { width: 5px; }
+  .theory-panel::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
+
+  #examplePanel { width: 0; overflow: hidden; background: #080808; border-left: 0 solid var(--red); transition: width .35s, border .35s; display: flex; flex-direction: column; }
+  #examplePanel.open { width: 100%; border-left: 2px solid var(--red); }
+  .example-head { height: 40px; flex: none; padding: 0 13px; display: flex; align-items: center; justify-content: space-between; background: #181818; border-bottom: 1px solid var(--line); }
+  .dots { display: flex; gap: 5px; }
+  .dots i { height: 8px; width: 8px; border-radius: 50%; display: block; }
+  .dots i:nth-child(1) { background: var(--red); }
+  .dots i:nth-child(2) { background: var(--gold); }
+  .dots i:nth-child(3) { background: var(--green); }
+  .example-head .left { display: flex; align-items: center; }
+  .example-head strong { font-size: .62rem; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; margin-left: 9px; }
+  .file { font: .58rem 'Fira Code'; color: var(--muted); }
+  #exampleFrame { flex: 1; width: 100%; border: 0; background: #fff; }
+
+  /* FOOTER */
+  footer { grid-column: 1 / -1; background: #111; border-top: 1px solid var(--line); display: flex; justify-content: center; align-items: center; gap: 20px; position: relative; }
+  .move { font: 600 .72rem Poppins; letter-spacing: 1.5px; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: 7px 20px; cursor: pointer; transition: .2s; text-transform: uppercase; }
+  .move:hover:not(:disabled) { background: var(--red); border-color: var(--red); color: white; }
+  .move.next { background: var(--red); border-color: var(--red); color: white; box-shadow: 0 0 15px #e6394644; }
+  .move:disabled { opacity: .25; cursor: default; }
+  #counter { font: 700 .69rem 'Fira Code'; color: var(--gold); min-width: 80px; text-align: center; }
+  .bar { width: 80px; height: 2px; background: #333; margin-top: 3px; }
+  .fill { height: 100%; background: linear-gradient(90deg, var(--red), var(--gold)); transition: .3s; }
+  .hint { position: absolute; right: 25px; color: var(--muted); font-size: .58rem; letter-spacing: 1px; }
+
+  /* SLIDES */
+  .slide { display: none; padding: 42px 54px 55px; animation: slideIn .42s ease; }
+  .slide.active { display: block; }
+  .slide.hero.active { display: flex; min-height: calc(100vh - 160px); align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; padding: 20px; }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* HERO */
+  .hero-content { position: relative; z-index: 1; }
+  .hero h1 { font-size: clamp(3.2rem, 9vw, 7rem); font-weight: 900; line-height: .9; color: var(--red); text-shadow: 0 0 50px #e6394650; letter-spacing: 4px; }
+  .hero h2 { color: var(--gold); font-size: clamp(.8rem, 2vw, 1.1rem); letter-spacing: 6px; text-transform: uppercase; margin-top: 22px; }
+  .badge { display: inline-block; color: white; background: linear-gradient(135deg, var(--red), #ad1822); padding: 7px 18px; border-radius: 20px; font-size: .65rem; letter-spacing: 2px; margin-top: 23px; }
+  .tags { margin-top: 25px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .tags span { border: 1px solid #3a3a3a; background: #171717; padding: 4px 10px; font: .65rem 'Fira Code'; color: var(--blue); border-radius: 4px; }
+
+  /* CSS TYPO HERO BG */
+  #cssPanel .hero::before {
+    content: 'font-family: Poppins;  font-size: 32px;  font-weight: 900;  letter-spacing: 4px;  text-transform: uppercase;  line-height: 1.6;  color: #e63946;  text-shadow: 0 0 20px red;';
+    position: absolute; inset: 20px; color: #ffffff08; font: 1rem/3 'Fira Code'; word-break: break-all; pointer-events: none;
+  }
+  /* EXPRESS HERO BG */
+  #expressPanel .hero::before {
+    content: 'const app = require("express")(); app.listen(3000); app.get("/", (req,res) => res.send("Hello World"));';
+    position: absolute; inset: 20px; color: #ffffff06; font: 1rem/3 'Fira Code'; word-break: break-all; pointer-events: none;
+  }
+
+  /* SLIDE COMPONENTS */
+  .eyebrow { color: var(--gold); font: 600 .65rem 'Fira Code'; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+  .title { color: var(--red); font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1; font-weight: 900; letter-spacing: -1px; }
+  .divider { height: 3px; width: 70px; background: linear-gradient(90deg, var(--red), var(--gold)); margin: 21px 0; border-radius: 4px; }
+  .definition { background: linear-gradient(135deg, #222, #181818); border: 1px solid #303030; border-radius: 10px; padding: 16px 19px; color: #cfcfcf; font-size: .87rem; line-height: 1.7; max-width: 1000px; }
+  .definition b { color: var(--gold); }
+  .card { background: var(--card); border: 1px solid #303030; border-radius: 10px; padding: 20px; margin-top: 18px; }
+  .label { font: .62rem 'Fira Code'; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
+  .code { margin-top: 18px; border-left: 3px solid var(--red); background: #090909; padding: 14px 17px; white-space: pre-wrap; color: #ddd; font: .76rem/1.7 'Fira Code'; border-radius: 5px; position: relative; }
+  .copy-btn { position: absolute; top: 8px; right: 8px; background: #222; border: 1px solid #444; color: var(--muted); font: .6rem 'Fira Code'; padding: 3px 9px; border-radius: 3px; cursor: pointer; transition: .2s; }
+  .copy-btn:hover { background: var(--red); color: white; border-color: var(--red); }
+  .prop { color: var(--gold); }
+  .value, .val { color: var(--blue); }
+  .str { color: #a8e6a1; }
+  .comment, .cmt { color: #555; }
+  .kw { color: #c792ea; }
+  .fn { color: #82aaff; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; margin-top: 18px; }
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+  .demo { background: #1e1e1e; border: 1px solid #303030; border-radius: 9px; padding: 17px; }
+  .demo p { color: #ccc; font-size: .86rem; line-height: 1.65; }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: .82rem; }
+  th { background: #1a1a1a; color: var(--gold); padding: 10px 14px; text-align: left; border-bottom: 2px solid var(--red); font: 600 .7rem 'Fira Code'; letter-spacing: 1px; }
+  td { padding: 9px 14px; border-bottom: 1px solid #252525; color: #ccc; }
+  tr:hover td { background: #1a1a1a; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font: .6rem 'Fira Code'; }
+  .tag.green { background: #1a3a1a; color: var(--green); border: 1px solid #2a5a2a; }
+  .tag.red { background: #3a1a1a; color: var(--red); border: 1px solid #5a2a2a; }
+  .tag.blue { background: #1a2a3a; color: var(--blue); border: 1px solid #2a4a6a; }
+
+  /* LIVE DEMO */
+  .live-demo { background: #0a0a0a; border: 1px solid var(--red); border-radius: 10px; padding: 20px; margin-top: 18px; }
+  .live-demo h4 { color: var(--gold); font-size: .7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+  .demo-btn { background: var(--red); color: white; border: none; padding: 8px 18px; border-radius: 4px; cursor: pointer; font: 600 .75rem Poppins; margin: 4px; transition: .2s; }
+  .demo-btn:hover { background: #c0303a; }
+  .demo-output { background: #111; border: 1px solid #333; border-radius: 6px; padding: 12px 16px; margin-top: 12px; font: .78rem 'Fira Code'; color: var(--green); min-height: 40px; }
+
+  @media (max-width: 850px) {
+    #app { grid-template-columns: 185px 1fr; }
+    .slide { padding: 30px; }
+    .two, .three { grid-template-columns: 1fr; }
+    .header-title, .hint { display: none; }
+    .file { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand">Barbarian <span>IT</span> Academy</div>
+    <div class="course-switcher">
+      <button class="course-btn active" id="btnCSS" onclick="switchCourse('css')">CSS Typography</button>
+      <button class="course-btn" id="btnExpress" onclick="switchCourse('express')">Express.js</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="header-title"><b id="topTitle">Opening</b></div>
+      <div id="countTop">01 / 15</div>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="side-head">
+      <h2 id="sideTitle">Topics</h2>
+      <p id="sideDesc">Presentation + your practice work</p>
+    </div>
+    <div id="nav"></div>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div id="tool">
+      <div id="tool-title">Theory Slide: <b id="toolTitle">Opening</b></div>
+      <button id="exampleButton">⊕ Open My Example</button>
+    </div>
+    <div id="workspace">
+
+      <!-- CSS TYPOGRAPHY PANEL -->
+      <section id="cssPanel" class="theory-panel active-course">
+
+        <!-- SLIDE 1: OPENING -->
+        <article class="slide active hero">
+          <div class="hero-content">
+            <h1>CSS<br>TYPOGRAPHY</h1>
+            <h2>Styling the Voice of the Web</h2>
+            <div class="badge">Barbarian IT Academy</div>
+            <div class="tags">
+              <span>font-family</span><span>font-size</span><span>font-weight</span><span>text-shadow</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- SLIDE 2 -->
+        <article class="slide">
+          <div class="eyebrow">01 · Foundation</div>
+          <h1 class="title">What is CSS Typography?</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>CSS Typography</b> is the styling of text on a web page. It controls the font, size, thickness, spacing, alignment, color, and more — making text readable and visually attractive.</div>
+          <div class="two">
+            <div class="demo"><div class="label">Before — browser default</div><p>This is plain text with no visual personality. It is readable, but it does not create a strong design.</p></div>
+            <div class="demo"><div class="label" style="color:var(--gold)">After — styled with CSS</div><p style="font-family:'Playfair Display';font-size:1.25rem;color:var(--gold);letter-spacing:1px">Typography turns words into an experience with a clear visual voice.</p></div>
+          </div>
+          <div class="code"><span class="prop">font-family</span>: <span class="value">'Poppins', sans-serif</span>;
+<span class="prop">font-size</span>: <span class="value">18px</span>;
+<span class="prop">color</span>: <span class="value">#ffd700</span>;</div>
+        </article>
+
+        <!-- SLIDE 3 -->
+        <article class="slide">
+          <div class="eyebrow">02 · Typeface</div>
+          <h1 class="title">Font Family</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>font-family</b> chooses the typeface for an element. Use fallback fonts so the browser can use another font if your first choice is unavailable.</div>
+          <div class="card">
+            <div class="label">Same sentence, different font families</div>
+            <p style="font-family:Georgia,serif;font-size:1.6rem;color:var(--gold);margin:12px 0">Serif — The quick brown fox</p>
+            <p style="font-family:Poppins,sans-serif;font-size:1.6rem;color:var(--blue);margin:12px 0">Sans-serif — The quick brown fox</p>
+            <p style="font-family:'Fira Code',monospace;font-size:1.3rem;color:#a8e6a1;margin:12px 0">Monospace — The quick brown fox</p>
+            <p style="font-family:cursive;font-size:1.7rem;color:var(--red);margin:12px 0">Cursive — The quick brown fox</p>
+          </div>
+          <div class="code"><span class="prop">font-family</span>: <span class="value">Arial, sans-serif</span>;</div>
+        </article>
+
+        <!-- SLIDE 4 -->
+        <article class="slide">
+          <div class="eyebrow">03 · Scale</div>
+          <h1 class="title">Font Size</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>font-size</b> controls how big text appears. Common units are <b>px</b>, <b>rem</b>, <b>em</b>, and <b>%</b>.</div>
+          <div class="card">
+            <div style="color:#777;font-size:12px;margin:8px 0">Typography — 12px</div>
+            <div style="color:#999;font-size:18px;margin:8px 0">Typography — 18px</div>
+            <div style="color:#bbb;font-size:28px;margin:8px 0">Typography — 28px</div>
+            <div style="color:var(--gold);font-size:38px;margin:8px 0">Typography — 38px</div>
+            <div style="color:var(--red);font-size:55px;font-weight:900;line-height:1.2;margin:8px 0">Typography — 55px</div>
+          </div>
+          <div class="code"><span class="prop">font-size</span>: <span class="value">32px</span>;</div>
+        </article>
+
+        <!-- SLIDE 5 -->
+        <article class="slide">
+          <div class="eyebrow">04 · Thickness</div>
+          <h1 class="title">Font Weight</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>font-weight</b> controls how thin or bold text is. Values range from <b>100</b> (thin) to <b>900</b> (black).</div>
+          <div class="three">
+            <div class="demo" style="text-align:center"><div style="font-size:1.55rem;font-weight:300;margin-bottom:8px">Barbarian</div><div class="label">300 · Light</div></div>
+            <div class="demo" style="text-align:center"><div style="font-size:1.55rem;font-weight:600;color:var(--gold);margin-bottom:8px">Barbarian</div><div class="label">600 · Semi-bold</div></div>
+            <div class="demo" style="text-align:center"><div style="font-size:1.55rem;font-weight:900;color:var(--red);margin-bottom:8px">Barbarian</div><div class="label">900 · Black</div></div>
+          </div>
+          <div class="code"><span class="prop">font-weight</span>: <span class="value">700</span>; <span class="comment">/* bold */</span></div>
+        </article>
+
+        <!-- SLIDE 6 -->
+        <article class="slide">
+          <div class="eyebrow">05 · Slant</div>
+          <h1 class="title">Font Style</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>font-style</b> displays text as normal, italic, or oblique. Italic normally uses a dedicated italic version of the font.</div>
+          <div class="card">
+            <p style="font-size:1.5rem;margin:10px 0">Normal: The quick brown fox jumps.</p>
+            <p style="font-size:1.5rem;font-style:italic;color:var(--gold);margin:10px 0">Italic: The quick brown fox jumps.</p>
+            <p style="font-size:1.5rem;font-style:oblique;color:var(--red);margin:10px 0">Oblique: The quick brown fox jumps.</p>
+          </div>
+          <div class="code"><span class="prop">font-style</span>: <span class="value">italic</span>;</div>
+        </article>
+
+        <!-- SLIDE 7 -->
+        <article class="slide">
+          <div class="eyebrow">06 · Lines</div>
+          <h1 class="title">Text Decoration</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>text-decoration</b> adds visual lines to text such as underline, overline, and line-through.</div>
+          <div class="card">
+            <p style="font-size:1.4rem;text-decoration:underline;color:var(--gold);margin:14px 0">Underlined text</p>
+            <p style="font-size:1.4rem;text-decoration:overline;color:var(--blue);margin:14px 0">Overlined text</p>
+            <p style="font-size:1.4rem;text-decoration:line-through;color:var(--red);margin:14px 0">Line-through text</p>
+            <p style="font-size:1.4rem;text-decoration:underline wavy var(--red);margin:14px 0">Wavy underline</p>
+          </div>
+          <div class="code"><span class="prop">text-decoration</span>: <span class="value">underline wavy red</span>;</div>
+        </article>
+
+        <!-- SLIDE 8 -->
+        <article class="slide">
+          <div class="eyebrow">07 · Case</div>
+          <h1 class="title">Text Transform</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>text-transform</b> changes capitalization through CSS without changing the HTML text itself.</div>
+          <div class="card">
+            <p style="font-size:1.35rem;margin:13px 0">none: barbarian it academy</p>
+            <p style="font-size:1.35rem;text-transform:uppercase;color:var(--red);margin:13px 0">uppercase: barbarian it academy</p>
+            <p style="font-size:1.35rem;text-transform:lowercase;color:var(--gold);margin:13px 0">lowercase: BARBARIAN IT ACADEMY</p>
+            <p style="font-size:1.35rem;text-transform:capitalize;color:var(--blue);margin:13px 0">capitalize: barbarian it academy</p>
+          </div>
+          <div class="code"><span class="prop">text-transform</span>: <span class="value">uppercase</span>;</div>
+        </article>
+
+        <!-- SLIDE 9 -->
+        <article class="slide">
+          <div class="eyebrow">08 · Vertical Rhythm</div>
+          <h1 class="title">Line Height</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>line-height</b> controls the vertical space between text lines. It is important for comfortable reading.</div>
+          <div class="three">
+            <div class="demo"><div class="label">line-height: 1</div><p style="line-height:1">Typography controls how text looks on the web. It affects reading and design.</p></div>
+            <div class="demo"><div class="label">line-height: 1.6</div><p style="line-height:1.6;color:var(--gold)">Typography controls how text looks on the web. It affects reading and design.</p></div>
+            <div class="demo"><div class="label">line-height: 2.2</div><p style="line-height:2.2;color:var(--red)">Typography controls how text looks on the web. It affects reading and design.</p></div>
+          </div>
+          <div class="code"><span class="prop">line-height</span>: <span class="value">1.6</span>;</div>
+        </article>
+
+        <!-- SLIDE 10 -->
+        <article class="slide">
+          <div class="eyebrow">09 · Horizontal Rhythm</div>
+          <h1 class="title">Letter & Word Spacing</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>letter-spacing</b> changes the gap between characters. <b>word-spacing</b> changes the gap between words.</div>
+          <div class="card">
+            <p style="font-size:1.45rem;margin:14px 0">Barbarian IT Academy — default</p>
+            <p style="font-size:1.45rem;letter-spacing:5px;color:var(--gold);margin:14px 0">Barbarian IT Academy — letter-spacing: 5px</p>
+            <p style="font-size:1.45rem;word-spacing:20px;color:var(--blue);margin:14px 0">Barbarian IT Academy — word-spacing: 20px</p>
+          </div>
+          <div class="code"><span class="prop">letter-spacing</span>: <span class="value">4px</span>;
+<span class="prop">word-spacing</span>: <span class="value">20px</span>;</div>
+        </article>
+
+        <!-- SLIDE 11 -->
+        <article class="slide">
+          <div class="eyebrow">10 · Position</div>
+          <h1 class="title">Text Align</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>text-align</b> positions inline text inside its container: left, center, right, or justify.</div>
+          <div class="card">
+            <p style="text-align:left;margin:12px 0">Left aligned text</p>
+            <p style="text-align:center;color:var(--gold);margin:12px 0">Center aligned text</p>
+            <p style="text-align:right;color:var(--red);margin:12px 0">Right aligned text</p>
+            <p style="text-align:justify;color:var(--blue);margin:12px 0">Justified text spreads spaces so both left and right edges are aligned in the container.</p>
+          </div>
+          <div class="code"><span class="prop">text-align</span>: <span class="value">center</span>;</div>
+        </article>
+
+        <!-- SLIDE 12 -->
+        <article class="slide">
+          <div class="eyebrow">11 · Depth</div>
+          <h1 class="title">Text Shadow</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>text-shadow</b> adds a shadow behind text. Format: horizontal offset, vertical offset, blur, and color.</div>
+          <div class="two">
+            <div class="demo" style="text-align:center"><p style="font-size:2rem;font-weight:800;color:white;text-shadow:3px 3px 5px #000">Shadow</p><div class="label" style="margin-top:8px">3px 3px 5px black</div></div>
+            <div class="demo" style="text-align:center"><p style="font-size:2rem;font-weight:800;color:white;text-shadow:0 0 20px var(--red)">Glow</p><div class="label" style="margin-top:8px">0 0 20px red</div></div>
+          </div>
+          <div class="code"><span class="prop">text-shadow</span>: <span class="value">0 0 20px #e63946</span>;</div>
+        </article>
+
+        <!-- SLIDE 13 -->
+        <article class="slide">
+          <div class="eyebrow">12 · Appearance</div>
+          <h1 class="title">Color</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>color</b> sets the text color. CSS supports named colors, hexadecimal values, rgb(), rgba(), and hsl().</div>
+          <div class="three">
+            <div class="demo" style="text-align:center;color:var(--red);font-size:1.5rem;font-weight:700">#e63946<br><span style="font-size:.7rem;color:var(--muted)">Red</span></div>
+            <div class="demo" style="text-align:center;color:var(--gold);font-size:1.5rem;font-weight:700">#ffd700<br><span style="font-size:.7rem;color:var(--muted)">Gold</span></div>
+            <div class="demo" style="text-align:center;color:var(--blue);font-size:1.5rem;font-weight:700">rgb(126,214,255)<br><span style="font-size:.7rem;color:var(--muted)">Blue</span></div>
+          </div>
+          <div class="code"><span class="prop">color</span>: <span class="value">#ffd700</span>;</div>
+        </article>
+
+        <!-- SLIDE 14 -->
+        <article class="slide">
+          <div class="eyebrow">13 · Custom Asset</div>
+          <h1 class="title">@font-face</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>@font-face</b> lets your project load a custom font file stored inside your own folder.</div>
+          <div class="card">
+            <div class="label">Simple custom-font setup</div>
+            <p style="color:#ccc;font-size:.86rem;line-height:1.8;margin-top:10px">
+              1. Place <b style="color:var(--gold)">Poppins-Regular.ttf</b> inside your <b style="color:var(--gold)">fonts</b> folder.<br>
+              2. Register it with <b style="color:var(--gold)">@font-face</b>.<br>
+              3. Use the font name in <b style="color:var(--gold)">font-family</b>.
+            </p>
+          </div>
+          <div class="code"><span class="prop">@font-face</span> {
+  <span class="prop">font-family</span>: <span class="value">"MyFont"</span>;
+  <span class="prop">src</span>: <span class="value">url("./fonts/Poppins-Regular.ttf")</span>;
+}
+
+<span class="prop">h1</span> { <span class="prop">font-family</span>: <span class="value">"MyFont"</span>; }</div>
+        </article>
+
+        <!-- SLIDE 15 -->
+        <article class="slide">
+          <div class="eyebrow">14 · Text Flow</div>
+          <h1 class="title" style="font-size:clamp(1.7rem,3.5vw,3rem)">White-space & Overflow</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>white-space</b>, <b>text-overflow</b>, <b>overflow-wrap</b>, and <b>text-indent</b> control how text wraps, breaks, or is displayed when there is not enough room.</div>
+          <div class="two">
+            <div class="demo"><div class="label">text-overflow: ellipsis</div><p style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:8px">This is a long sentence which will be cut with dots when it has no room.</p></div>
+            <div class="demo"><div class="label">overflow-wrap: break-word</div><p style="overflow-wrap:break-word;margin-top:8px">Superlongwordwithnospacesthatwillbreakinsteadofoverflowing.</p></div>
+            <div class="demo"><div class="label">white-space: pre-wrap</div><p style="white-space:pre-wrap;margin-top:8px">First line
+  Indented second line</p></div>
+            <div class="demo"><div class="label">text-indent: 40px</div><p style="text-indent:40px;margin-top:8px">This paragraph begins with an indent just like a paragraph in a printed book.</p></div>
+          </div>
+          <div class="code"><span class="prop">white-space</span>: <span class="value">nowrap</span>;
+<span class="prop">text-overflow</span>: <span class="value">ellipsis</span>;
+<span class="prop">overflow-wrap</span>: <span class="value">break-word</span>;
+<span class="prop">text-indent</span>: <span class="value">40px</span>;</div>
+        </article>
+
+        <!-- SLIDE 16: THANK YOU -->
+        <article class="slide hero">
+          <div class="hero-content">
+            <div class="eyebrow">Complete</div>
+            <h1 style="font-size:clamp(3rem,8vw,6rem)">THANK<br>YOU</h1>
+            <h2>CSS Typography Practice</h2>
+            <div class="badge">Barbarian IT Academy</div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- EXPRESS.JS PANEL -->
+      <section id="expressPanel" class="theory-panel">
+
+        <!-- SLIDE 1: HERO -->
+        <article class="slide active hero">
+          <div class="hero-content">
+            <h1>EXPRESS<br>.JS</h1>
+            <h2>Backend Web Framework for Node.js</h2>
+            <div class="badge">Barbarian IT Academy</div>
+            <div class="tags">
+              <span>app.get()</span><span>app.listen()</span><span>res.send()</span><span>middleware</span><span>routing</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- SLIDE 2 -->
+        <article class="slide">
+          <div class="eyebrow">01 · Introduction</div>
+          <h1 class="title">What is Express.js?</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>Express.js</b> is a fast, minimal, and flexible <b>Node.js web framework</b>. It provides a robust set of features for building web and mobile applications. Express makes it easy to create servers, define routes, handle HTTP requests and responses, and use middleware.</div>
+          <div class="two">
+            <div class="demo">
+              <div class="label">Why Express?</div>
+              <p>✅ Minimal and unopinionated<br>✅ Fast routing system<br>✅ Huge middleware ecosystem<br>✅ Easy to learn and use<br>✅ Powers millions of apps</p>
+            </div>
+            <div class="demo">
+              <div class="label">Install Express</div>
+              <p style="font-family:'Fira Code';color:var(--green);font-size:.85rem;margin-top:6px">npm init -y<br>npm install express</p>
+            </div>
+          </div>
+          <div class="code" id="code2"><button class="copy-btn" onclick="copyCode('code2')">Copy</button><span class="cmt">// Your first Express server</span>
+<span class="kw">const</span> <span class="prop">express</span> = <span class="fn">require</span>(<span class="str">'express'</span>);
+<span class="kw">const</span> <span class="prop">app</span> = <span class="fn">express</span>();
+
+<span class="prop">app</span>.<span class="fn">listen</span>(<span class="val">3000</span>, () => <span class="prop">console</span>.<span class="fn">log</span>(<span class="str">'Server running!'</span>));
+</div>
+        </article>
+
+        <!-- SLIDE 3 -->
+        <article class="slide">
+          <div class="eyebrow">02 · Basics</div>
+          <h1 class="title">Express Basics</h1>
+          <div class="divider"></div>
+          <div class="definition">An Express server needs three things: <b>require express</b>, <b>create the app</b>, and <b>listen on a port</b>. Routes define what happens when a user visits a URL.</div>
+          <div class="card">
+            <div class="label" style="color:var(--gold)">⚡ Your Practiced Code</div>
+            <p style="color:#ccc;font-size:.82rem;margin-top:8px">This is the exact code you wrote — a server on port 3000 with a GET route.</p>
+          </div>
+          <div class="code" id="code3"><button class="copy-btn" onclick="copyCode('code3')">Copy</button><span class="kw">const</span> <span class="prop">app</span> = <span class="fn">require</span>(<span class="str">'express'</span>)();
+
+<span class="kw">const</span> <span class="prop">PORT</span> = <span class="val">3000</span>;
+<span class="prop">app</span>.<span class="fn">listen</span>(<span class="prop">PORT</span>, () => <span class="prop">console</span>.<span class="fn">log</span>(<span class="str">`Server is running on port ${PORT}`</span>));
+
+<span class="prop">app</span>.<span class="fn">get</span>(<span class="str">'/getRequest'</span>, (<span class="prop">req</span>, <span class="prop">res</span>) => {
+    <span class="prop">res</span>.<span class="fn">send</span>(<span class="str">'Hello this is a GET Method'</span>);
+});
+</div>
+          <div class="three" style="margin-top:18px">
+            <div class="demo"><div class="label">app.get()</div><p>Handles HTTP GET requests at a specific route path.</p></div>
+            <div class="demo"><div class="label">req</div><p>The request object — contains URL, headers, body, params.</p></div>
+            <div class="demo"><div class="label">res.send()</div><p>Sends a response back to the client (text, HTML, JSON).</p></div>
+          </div>
+        </article>
+
+        <!-- SLIDE 4 -->
+        <article class="slide">
+          <div class="eyebrow">03 · Networking</div>
+          <h1 class="title">Localhost & 127.0.0.1</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>localhost</b> is a hostname that refers to your own computer. <b>127.0.0.1</b> is the IP address of localhost — the loopback address. They are functionally identical for development.</div>
+          <table>
+            <tr><th>Feature</th><th>localhost</th><th>127.0.0.1</th></tr>
+            <tr><td>Type</td><td><span class="tag blue">Hostname</span></td><td><span class="tag green">IP Address</span></td></tr>
+            <tr><td>Resolved by</td><td>DNS / hosts file</td><td>Directly by OS</td></tr>
+            <tr><td>Speed</td><td>Slightly slower (DNS lookup)</td><td>Faster (direct)</td></tr>
+            <tr><td>Usage</td><td>Human-friendly</td><td>Explicit / scripts</td></tr>
+            <tr><td>Example</td><td>http://localhost:3000</td><td>http://127.0.0.1:3000</td></tr>
+          </table>
+          <div class="code" id="code4"><button class="copy-btn" onclick="copyCode('code4')">Copy</button><span class="cmt">// Both of these reach the same server:</span>
+<span class="cmt">// http://localhost:3000/getRequest</span>
+<span class="cmt">// http://127.0.0.1:3000/getRequest</span>
+
+<span class="prop">app</span>.<span class="fn">listen</span>(<span class="val">3000</span>, () => {
+    <span class="prop">console</span>.<span class="fn">log</span>(<span class="str">'Visit: http://localhost:3000'</span>);
+});
+</div>
+        </article>
+
+        <!-- SLIDE 5 -->
+        <article class="slide">
+          <div class="eyebrow">04 · Multi-Server</div>
+          <h1 class="title">Running Two Servers</h1>
+          <div class="divider"></div>
+          <div class="definition">You can run <b>multiple Express servers</b> on different ports at the same time. Each port is a separate "door" into your machine. This is useful for microservices or separating frontend and backend.</div>
+          <div class="two">
+            <div class="code" id="code5a"><button class="copy-btn" onclick="copyCode('code5a')">Copy</button><span class="cmt">// server1.js — Port 3000</span>
+<span class="kw">const</span> <span class="prop">app1</span> = <span class="fn">require</span>(<span class="str">'express'</span>)();
+
+<span class="prop">app1</span>.<span class="fn">get</span>(<span class="str">'/'</span>, (<span class="prop">req</span>, <span class="prop">res</span>) => {
+    <span class="prop">res</span>.<span class="fn">send</span>(<span class="str">'Server 1 — Port 3000'</span>);
+});
+
+<span class="prop">app1</span>.<span class="fn">listen</span>(<span class="val">3000</span>, () =>
+    <span class="prop">console</span>.<span class="fn">log</span>(<span class="str">'Server 1 on :3000'</span>)
+);
+</div>
+            <div class="code" id="code5b"><button class="copy-btn" onclick="copyCode('code5b')">Copy</button><span class="cmt">// server2.js — Port 3001</span>
+<span class="kw">const</span> <span class="prop">app2</span> = <span class="fn">require</span>(<span class="str">'express'</span>)();
+
+<span class="prop">app2</span>.<span class="fn">get</span>(<span class="str">'/'</span>, (<span class="prop">req</span>, <span class="prop">res</span>) => {
+    <span class="prop">res</span>.<span class="fn">send</span>(<span class="str">'Server 2 — Port 3001'</span>);
+});
+
+<span class="prop">app2</span>.<span class="fn">listen</span>(<span class="val">3001</span>, () =>
+    <span class="prop">console</span>.<span class="fn">log</span>(<span class="str">'Server 2 on :3001'</span>)
+);
+</div>
+          </div>
+          <div class="demo" style="margin-top:18px"><div class="label">Run both at once (two terminals)</div><p style="font-family:'Fira Code';color:var(--green);margin-top:8px">node server1.js    <span style="color:var(--muted)"># Terminal 1</span><br>node server2.js    <span style="color:var(--muted)"># Terminal 2</span></p></div>
+        </article>
+
+        <!-- SLIDE 6 -->
+        <article class="slide">
+          <div class="eyebrow">05 · Browser API</div>
+          <h1 class="title">Location API</h1>
+          <div class="divider"></div>
+          <div class="definition">The <b>window.location</b> object gives you information about the current URL in the browser. It is useful for reading the current page URL, redirecting users, or extracting parts of the URL.</div>
+          <div class="live-demo">
+            <h4>▶ Live Demo — Click to inspect</h4>
+            <div>
+              <button class="demo-btn" onclick="showLoc('href')">location.href</button>
+              <button class="demo-btn" onclick="showLoc('origin')">location.origin</button>
+              <button class="demo-btn" onclick="showLoc('host')">location.host</button>
+              <button class="demo-btn" onclick="showLoc('hostname')">location.hostname</button>
+              <button class="demo-btn" onclick="showLoc('port')">location.port</button>
+              <button class="demo-btn" onclick="showLoc('protocol')">location.protocol</button>
+              <button class="demo-btn" onclick="showLoc('pathname')">location.pathname</button>
+            </div>
+            <div class="demo-output" id="locOutput">Click a button above to see the value ↑</div>
+          </div>
+          <div class="code" id="code6"><button class="copy-btn" onclick="copyCode('code6')">Copy</button><span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span class="fn">href</span>);      <span class="cmt">// full URL</span>
+<span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span class="fn">origin</span>);    <span class="cmt">// protocol + host</span>
+<span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span class="fn">host</span>);      <span class="cmt">// hostname + port</span>
+<span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span class="fn">hostname</span>);  <span class="cmt">// just hostname</span>
+<span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span class="fn">port</span>);      <span class="cmt">// port number</span>
+<span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span class="fn">protocol</span>);  <span class="cmt">// http: or https:</span>
+<span class="prop">console</span>.<span class="fn">log</span>(<span class="prop">location</span>.<span class="fn">pathname</span>);  <span class="cmt">// /path/to/page</span>
+</div>
+        </article>
+
+        <!-- SLIDE 7 -->
+        <article class="slide">
+          <div class="eyebrow">06 · Embedding</div>
+          <h1 class="title">Iframes in Express</h1>
+          <div class="divider"></div>
+          <div class="definition">An <b>iframe</b> (inline frame) embeds another HTML page inside your current page. You can load <b>localhost:3001</b> inside a page served by <b>localhost:3000</b> — as long as the target server allows it.</div>
+          <div class="two">
+            <div class="demo">
+              <div class="label">Parent Page (localhost:3000)</div>
+              <p style="margin-top:8px;font-size:.82rem">Serves the main HTML page that contains the <iframe> tag pointing to port 3001.</p>
+            </div>
+            <div class="demo">
+              <div class="label">Child Page (localhost:3001)</div>
+              <p style="margin-top:8px;font-size:.82rem">A separate Express server whose content is loaded inside the iframe on port 3000.</p>
+            </div>
+          </div>
+          <div class="code" id="code7"><button class="copy-btn" onclick="copyCode('code7')">Copy</button><span class="cmt"><!-- Parent page on localhost:3000 --></span>
+<span class="prop"><iframe </span>
+  <span class="fn">src</span>=<span class="str">"http://localhost:3001"</span>
+  <span class="fn">width</span>=<span class="str">"100%"</span>
+  <span class="fn">height</span>=<span class="str">"400px"</span>
+  <span class="fn">frameborder</span>=<span class="str">"0"</span>
+<span class="prop">></iframe></span>
+
+<span class="cmt">// Express server on port 3001 (child)</span>
+<span class="kw">const</span> <span class="prop">app</span> = <span class="fn">require</span>(<span class="str">'express'</span>)();
+<span class="prop">app</span>.<span class="fn">get</span>(<span class="str">'/'</span>, (<span class="prop">req</span>, <span class="prop">res</span>) =>
+    <span class="prop">res</span>.<span class="fn">send</span>(<span class="str">'<h1>I am the child page!</h1>'</span>)
+);
+<span class="prop">app</span>.<span class="fn">listen</span>(<span class="val">3001</span>);
+</div>
+        </article>
+
+        <!-- SLIDE 8 -->
+        <article class="slide">
+          <div class="eyebrow">07 · Security</div>
+          <h1 class="title">Browser Security</h1>
+          <div class="divider"></div>
+          <div class="definition">Browsers enforce the <b>Same-Origin Policy (SOP)</b> — a page can only freely access resources from the same origin (protocol + hostname + port). This prevents malicious sites from reading your data. Iframes from different origins are restricted.</div>
+          <div class="three">
+            <div class="demo">
+              <div class="label" style="color:var(--green)">Same Origin ✅</div>
+              <p style="font-family:'Fira Code';font-size:.75rem;margin-top:8px;color:var(--green)">localhost:3000 → localhost:3000</p>
+              <p style="font-size:.8rem;margin-top:8px">Same protocol, host, and port. Full access allowed.</p>
+            </div>
+            <div class="demo">
+              <div class="label" style="color:var(--red)">Cross Origin ❌</div>
+              <p style="font-family:'Fira Code';font-size:.75rem;margin-top:8px;color:var(--red)">localhost:3000 → localhost:3001</p>
+              <p style="font-size:.8rem;margin-top:8px">Different port = different origin. Restricted by browser.</p>
+            </div>
+            <div class="demo">
+              <div class="label" style="color:var(--gold)">Clickjacking ⚠️</div>
+              <p style="font-size:.8rem;margin-top:8px">Attacker embeds your site in an invisible iframe to trick users into clicking hidden buttons.</p>
+            </div>
+          </div>
+          <div class="code" id="code8"><button class="copy-btn" onclick="copyCode('code8')">Copy</button><span class="cmt">// Origins compared:</span>
+<span class="cmt">// http://localhost:3000  ← protocol: http, host: localhost, port: 3000</span>
+<span class="cmt">// http://localhost:3001  ← DIFFERENT PORT = different origin</span>
+<span class="cmt">// https://localhost:3000 ← DIFFERENT PROTOCOL = different origin</span>
+</div>
+        </article>
+
+        <!-- SLIDE 9 -->
+        <article class="slide">
+          <div class="eyebrow">08 · Protection</div>
+          <h1 class="title">Preventing Iframes</h1>
+          <div class="divider"></div>
+          <div class="definition">You can stop other websites from embedding your Express app in an iframe using <b>X-Frame-Options</b> or <b>Content-Security-Policy</b> headers. This protects against clickjacking attacks.</div>
+          <div class="two">
+            <div class="demo">
+              <div class="label">X-Frame-Options values</div>
+              <p style="margin-top:8px;font-size:.82rem"><span class="tag red">DENY</span> — Nobody can embed this page<br><br><span class="tag blue">SAMEORIGIN</span> — Only same origin can embed<br><br><span class="tag green">ALLOW-FROM uri</span> — Only specific URL (deprecated)</p>
+            </div>
+            <div class="demo">
+              <div class="label">CSP frame-ancestors</div>
+              <p style="margin-top:8px;font-size:.82rem">Modern replacement for X-Frame-Options. More flexible — allows multiple origins to be whitelisted.</p>
+            </div>
+          </div>
+          <div class="code" id="code9"><button class="copy-btn" onclick="copyCode('code9')">Copy</button><span class="kw">const</span> <span class="prop">app</span> = <span class="fn">require</span>(<span class="str">'express'</span>)();
+
+<span class="cmt">// Option 1: X-Frame-Options — DENY</span>
+<span class="prop">app</span>.<span class="fn">use</span>((<span class="prop">req</span>, <span class="prop">res</span>, <span class="prop">next</span>) => {
+    <span class="prop">res</span>.<span class="fn">setHeader</span>(<span class="str">'X-Frame-Options'</span>, <span class="str">'DENY'</span>);
+    <span class="fn">next</span>();
+});
+
+<span class="cmt">// Option 2: CSP frame-ancestors (modern)</span>
+<span class="prop">app</span>.<span class="fn">use</span>((<span class="prop">req</span>, <span class="prop">res</span>, <span class="prop">next</span>) => {
+    <span class="prop">res</span>.<span class="fn">setHeader</span>(
+        <span class="str">'Content-Security-Policy'</span>,
+        <span class="str">"frame-ancestors 'none'"</span>
+    );
+    <span class="fn">next</span>();
+});
+</div>
+        </article>
+
+        <!-- SLIDE 10 -->
+        <article class="slide">
+          <div class="eyebrow">09 · Middleware</div>
+          <h1 class="title">Helmet.js</h1>
+          <div class="divider"></div>
+          <div class="definition"><b>Helmet</b> is an Express middleware that automatically sets many security-related HTTP headers for you — including X-Frame-Options, CSP, HSTS, and more. It is the recommended way to secure Express apps.</div>
+          <div class="card">
+            <div class="label">What Helmet sets automatically</div>
+            <div class="two" style="margin-top:12px">
+              <div>
+                <p style="font-size:.82rem;color:#ccc;line-height:2">
+                  ✅ <span style="color:var(--gold)">X-Frame-Options</span>: SAMEORIGIN<br>
+                  ✅ <span style="color:var(--gold)">X-Content-Type-Options</span>: nosniff<br>
+                  ✅ <span style="color:var(--gold)">Strict-Transport-Security</span><br>
+                  ✅ <span style="color:var(--gold)">X-XSS-Protection</span>
+                </p>
+              </div>
+              <div>
+                <p style="font-size:.82rem;color:#ccc;line-height:2">
+                  ✅ <span style="color:var(--gold)">Content-Security-Policy</span><br>
+                  ✅ <span style="color:var(--gold)">Referrer-Policy</span><br>
+                  ✅ <span style="color:var(--gold)">Permissions-Policy</span><br>
+                  ✅ <span style="color:var(--gold)">Cross-Origin headers</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="code" id="code10"><button class="copy-btn" onclick="copyCode('code10')">Copy</button><span class="cmt">// Install: npm install helmet</span>
+
+<span class="kw">const</span> <span class="prop">express</span> = <span class="fn">require</span>(<span class="str">'express'</span>);
+<span class="kw">const</span> <span class="prop">helmet</span> = <span class="fn">require</span>(<span class="str">'helmet'</span>);
+
+<span class="kw">const</span> <span class="prop">app</span> = <span class="fn">express</span>();
+
+<span class="cmt">// One line adds all security headers!</span>
+<span class="prop">app</span>.<span class="fn">use</span>(<span class="fn">helmet</span>());
+
+<span class="prop">app</span>.<span class="fn">get</span>(<span class="str">'/'</span>, (<span class="prop">req</span>, <span class="prop">res</span>) => {
+    <span class="prop">res</span>.<span class="fn">send</span>(<span class="str">'Secured with Helmet!'</span>);
+});
+
+<span class="prop">app</span>.<span class="fn">listen</span>(<span class="val">3000</span>);
+</div>
+        </article>
+
+        <!-- SLIDE 11: THANK YOU -->
+        <article class="slide hero">
+          <div class="hero-content">
+            <div class="eyebrow">Complete</div>
+            <h1 style="font-size:clamp(3rem,8vw,6rem)">THANK<br>YOU</h1>
+            <h2>Express.js Practice — Barbarian IT</h2>
+            <div class="badge">Barbarian IT Academy</div>
+            <div class="tags" style="margin-top:20px">
+              <span>app.get()</span><span>localhost</span><span>iframes</span><span>X-Frame-Options</span><span>helmet</span>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- EXAMPLE PANEL -->
+      <section id="examplePanel">
+        <div class="example-head">
+          <div class="left">
+            <div class="dots"><i></i><i></i><i></i></div>
+            <strong id="examplePanelTitle">My HTML Practice</strong>
+          </div>
+          <span class="file" id="fileName">slides/slide1.html</span>
+        </div>
+        <iframe id="exampleFrame" title="My practice page"></iframe>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <button class="move" id="prev">← Prev</button>
+    <div>
+      <div id="counter">01 / 15</div>
+      <div class="bar"><div id="fill" class="fill" style="width:6.67%"></div></div>
+    </div>
+    <button class="move next" id="next">Next →</button>
+    <div class="hint">Use ← → arrow keys</div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+
+  var courses = {
+    css: {
+      label: 'CSS Typography',
+      sideDesc: 'Presentation + your practice work',
+      exampleTitle: 'My HTML Practice',
+      topics: [
+        ["01", "Opening",               "slides/slide1.html"],
+        ["02", "What is CSS Typography?","slides/slide2.html"],
+        ["03", "Font Family",           "slides/slide3.html"],
+        ["04", "Font Size",             "slides/slide4.html"],
+        ["05", "Font Weight",           "slides/slide5.html"],
+        ["06", "Font Style",            "slides/slide6.html"],
+        ["07", "Text Decoration",       "slides/slide7.html"],
+        ["08", "Text Transform",        "slides/slide8.html"],
+        ["09", "Line Height",           "slides/slide9.html"],
+        ["10", "Letter & Word Spacing", "slides/slide10.html"],
+        ["11", "Text Align",            "slides/slide11.html"],
+        ["12", "Text Shadow",           "slides/slide12.html"],
+        ["13", "Color",                 "slides/slide13.html"],
+        ["14", "@font-face",            "slides/slide14.html"],
+        ["15", "White-space & Overflow","slides/slide15.html"],
+        ["16", "Thank You",             "slides/slide16.html"]
+      ],
+      panelId: 'cssPanel'
+    },
+    express: {
+      label: 'Express.js',
+      sideDesc: 'Express.js + your practiced code',
+      exampleTitle: 'My Express Practice',
+      topics: [
+        ["01", "Opening",              ],
+        ["02", "What is Express.js?", ],
+        ["03", "Express Basics",       ],
+        ["04", "Localhost & 127.0.0.1",],
+        ["05", "Two Servers",          "express/index1.js,express/index2.js"],
+        ["06", "Location API",         "slides/express/location-api.html"],
+        ["07", "Iframes in Express",   "slides/express/index1.html"],
+        ["08", "Browser Security",     "slides/express/index1.html"],
+        ["09", "Preventing Iframes",   "slides/express/prevent-iframes.html"],
+        ["10", "Helmet.js",            "slides/express/helmet.html"],
+        ["11", "Thank You",            "slides/express/thank-you.html"]
+      ],
+      panelId: 'expressPanel'
+    }
+  };
+
+  var activeCourse = 'css';
+  var current = 0;
+  var exampleOpen = false;
+
+  var navEl           = document.getElementById('nav');
+  var topTitle        = document.getElementById('topTitle');
+  var toolTitle       = document.getElementById('toolTitle');
+  var counter         = document.getElementById('counter');
+  var countTop        = document.getElementById('countTop');
+  var fillEl          = document.getElementById('fill');
+  var examplePanel    = document.getElementById('examplePanel');
+  var frame           = document.getElementById('exampleFrame');
+  var fileLabel       = document.getElementById('fileName');
+  var exBtn           = document.getElementById('exampleButton');
+  var prevBtn         = document.getElementById('prev');
+  var nextBtn         = document.getElementById('next');
+  var sideDesc        = document.getElementById('sideDesc');
+  var examplePanelTitle = document.getElementById('examplePanelTitle');
+
+  function getActivePanel() {
+    return document.getElementById(courses[activeCourse].panelId);
+  }
+
+  function getSlides() {
+    return getActivePanel().querySelectorAll('.slide');
+  }
+
+  function buildNav() {
+    navEl.innerHTML = '';
+    var topics = courses[activeCourse].topics;
+    for (var i = 0; i < topics.length; i++) {
+      (function(idx) {
+        var item = document.createElement('div');
+        item.className = 'nav-item' + (idx === current ? ' active' : '');
+        item.innerHTML = '<span class="number">' + topics[idx][0] + '</span><span class="nav-name">' + topics[idx][1] + '</span>';
+        item.addEventListener('click', function() { goTo(idx); });
+        navEl.appendChild(item);
+      })(i);
+    }
+  }
+
+  function goTo(index) {
+    var slides = getSlides();
+    var topics = courses[activeCourse].topics;
+    if (index < 0 || index >= topics.length) return;
+
+    slides.forEach(function(s) { s.classList.remove('active'); });
+    slides[index].classList.add('active');
+
+    var navItems = navEl.querySelectorAll('.nav-item');
+    navItems.forEach(function(n) { n.classList.remove('active'); });
+    if (navItems[index]) {
+      navItems[index].classList.add('active');
+      navItems[index].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+
+    current = index;
+    getActivePanel().scrollTop = 0;
+
+    if (exampleOpen) {
+      frame.src = topics[current][2];
+      fileLabel.textContent = topics[current][2];
+    }
+    updateUI();
+  }
+
+  function updateUI() {
+    var topics = courses[activeCourse].topics;
+    var total = topics.length;
+    var num = current + 1;
+    var pad = num < 10 ? '0' + num : '' + num;
+    topTitle.textContent  = topics[current][1];
+    toolTitle.textContent = topics[current][1];
+    counter.textContent   = pad + ' / ' + total;
+    countTop.textContent  = pad + ' / ' + total;
+    fillEl.style.width    = (num / total * 100) + '%';
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+  }
+
+  window.switchCourse = function(courseKey) {
+    if (courseKey === activeCourse) return;
+
+    // Close example panel if open
+    if (exampleOpen) {
+      exampleOpen = false;
+      examplePanel.classList.remove('open');
+      exBtn.classList.remove('open');
+      exBtn.textContent = '⊕ Open My Example';
+      setTimeout(function() { frame.src = ''; }, 360);
+    }
+
+    // Hide old panel
+    document.getElementById(courses[activeCourse].panelId).classList.remove('active-course');
+    document.getElementById(courses[activeCourse].panelId).classList.remove('split');
+
+    // Switch
+    activeCourse = courseKey;
+    current = 0;
+
+    // Show new panel
+    var newPanel = document.getElementById(courses[activeCourse].panelId);
+    newPanel.classList.add('active-course');
+
+    // Reset slides in new panel
+    var slides = newPanel.querySelectorAll('.slide');
+    slides.forEach(function(s) { s.classList.remove('active'); });
+    if (slides[0]) slides[0].classList.add('active');
+
+    // Update sidebar
+    sideDesc.textContent = courses[activeCourse].sideDesc;
+    examplePanelTitle.textContent = courses[activeCourse].exampleTitle;
+
+    // Update course buttons
+    document.getElementById('btnCSS').classList.toggle('active', courseKey === 'css');
+    document.getElementById('btnExpress').classList.toggle('active', courseKey === 'express');
+
+    buildNav();
+    updateUI();
+  };
+
+  exBtn.addEventListener('click', function() {
+    exampleOpen = !exampleOpen;
+    var panel = getActivePanel();
+    panel.classList.toggle('split', exampleOpen);
+    examplePanel.classList.toggle('open', exampleOpen);
+    exBtn.classList.toggle('open', exampleOpen);
+    if (exampleOpen) {
+      exBtn.textContent = '× Close My Example';
+      frame.src = courses[activeCourse].topics[current][2];
+      fileLabel.textContent = courses[activeCourse].topics[current][2];
+    } else {
+      exBtn.textContent = '⊕ Open My Example';
+      setTimeout(function() { frame.src = ''; }, 360);
+    }
+  });
+
+  prevBtn.addEventListener('click', function() { goTo(current - 1); });
+  nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+
+  // Init
+  buildNav();
+  updateUI();
+})();
+
+function showLoc(prop) {
+  var out = document.getElementById('locOutput');
+  out.textContent = 'location.' + prop + ' = "' + location[prop] + '"';
+}
+
+function copyCode(id) {
+  var el = document.getElementById(id);
+  var text = el.innerText.replace('Copy', '').trim();
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = el.querySelector('.copy-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+  });
+}
+</script>
+</body>
+</html>
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JSON Practice</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 15px 5px 20px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #output {
+            background: #222;
+            color: rgb(154, 145, 145);
+            padding: 20px;
+            border-radius: 8px;
+
+            white-space: pre-wrap;
+            text-align: left;
+            line-height: 1.8;
+
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>JSON Practice</h1>
+
+        <p>
+            This example demonstrates JSON objects, arrays,
+            nested objects, JSON.stringify(), JSON.parse(),
+            and API-style JSON data.
+        </p>
+
+        <button onclick="runJSONPractice()">
+            Run JSON Practice
+        </button>
+
+        <button onclick="clearOutput()">
+            Clear
+        </button>
+
+        <div id="output">
+            Click "Run JSON Practice" to see the output.
+        </div>
+
+    </div>
+
+
+    <script src="json.js"></script>
+
+</body>
+
+</html>

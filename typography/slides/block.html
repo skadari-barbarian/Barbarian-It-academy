@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>block level Elements</title>
+        <link rel="stylesheet" href="block.css">
+    </head>
+    <body>
+        <header>
+            <h1>Block-level-elements</h1>
+            <p>This page contains about Block-level-elements </p>
+        </header>
+        <main>
+            <section>
+                <h2>div-tag</h2>
+                <p>this section is about div tag<br>
+                Div is a generic container used to group and organize other HTML elements.
+                </p>
+                <div>this is the div element</div>
+            </section>
+            <section>
+                <h2>paragraph-tag</h2>
+                <p>this section is about paragraph
+                The paragraph element represents a block of text.
+                </p>
+            </section>
+            <section>
+                <h2>article-tag</h2>
+                <p>this section is about article tag</p>
+                <article><p>Represents an independent piece of content such as a blog post or news article</p>
+                    <h3>Block-elements Article</h3>
+                    <p>Block-level elements occupy the entire width available. <br>
+They always begin on a new line. <br>
+Multiple block elements are displayed one below another.<br> 
+They are mainly used to structure the layout of a webpage<br>
+</p>
+                </article>
+            </section>
+<section>
+    <h2>aside-tag</h2>
+    <p>Represents content related to the main content, such as a sidebar</p>
+    <aside>we will have different block elements
+        <li><a href="#">Related Article 1</a></li>
+    </aside>
+</section>
+<section>
+    <h2>table tags</h2>
+    <p>this are used to create tables</p>
+    <table>
+        <caption>Block-level elements</caption>
+        <thead>
+            <tr>
+                <th>sl.no</th>
+                <th>tag name</th>
+                <th>purpose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Heading </td>
+                <td>Represents introductory content </td>
+            </tr>
+             <tr>
+                <td>2</td>
+                <td>paragraph</td>
+                <td>The paragraph element represents a block of text </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>article</td>
+                <td>Represents an independent piece of content such as a blog post or news article </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section>
+    <h2>list-tags</h2>
+    <p>this section is all about lists
+        The <li> tag defines a single item within an ordered , unordered list in HTML 
+    </p>
+    <ol>
+        <li>heading</li>
+        <li>Paragrap</li>
+        <li>div</li>
+    </ol>
+    <ul>
+        <li>footer</li>
+        <li>navigation</li>
+        <li>list</li>
+    </ul>
+</section>
+<section>
+    <h2>form tag</h2>
+    <p>The <form> tag defines an HTML form that collects user input and sends it to a server or processes it on the client side</p>
+    <form>
+         Name:
+    <input type="text" id="name" placeholder="Name"><br><br>
+
+    Phone:
+    <input type="tel" id="phone" placeholder="Phone Number"><br><br>
+
+    Email:
+    <input type="email" id="email" placeholder="Email"><br><br>
+
+   <button type="button" onclick="validateForm()">Submit</button>
+</section>
+<section>
+    <h2>figure</h2>
+    <p> Represents self-contained content with an optional caption</p>
+    <figure>
+        <img src="https://mma.prnewswire.com/media/2367335/Barbarian_Logo.jpg" alt="Barbarian_Logo" width="180px" height="90px">
+        <figcaption>Barbarian_Logo</figcaption>
+    </figure>
+</section>
+<section>
+    <h2>nav-tag</h2>
+    <p>tag is used to define<br> major navigation sections of a webpage, helping users, search engines, and assistive technologies identify and access key links.</p>
+    <nav>
+        <a href="https://www.w3schools.com/htmL/html_blocks.asp">block-level elements</a><br><br>
+        <a href="https://www.w3schools.com/htmL/html_div.asp">div tag</a>
+    </nav>
+</section>
+<section>
+    <h2>details tag</h2>
+    <p> tag is used to create a disclosure widget that allows users to
+         toggle visibility of additional content.</p>
+         <details>
+            <summary>block-level</summary>
+            <p>Characteristics<br>
+Starts on a new line. <br>
+Takes up the full width by default. <br>
+Can contain both block-level and inline elements (depending on the element). <br>
+Used for creating sections, headings, paragraphs, lists, tables, forms, and other structural parts of a webpage. <br>
+Examples:<br>
+1.Heading<br>                                             
+2.Paragraph<br>                                                                              7.Footer 
+3.Div     <br>                                                                                        8.LIST            
+4.Section <br>                                                                                   9.Navigation 
+5.Article  <br> 
+6. Header<br>                                                                                    10.Table
+</p>
+         </details>
+</section>
+        </main>
+        <footer>
+    <p>&copy; 2026 Block-Level Elements Demo</p>
+        </footer>
+<script src="block.js">
+
+</script>
+    </body>
+</html>

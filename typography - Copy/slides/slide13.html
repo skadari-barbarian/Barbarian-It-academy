@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Color Property</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+    margin-bottom:15px;
+}
+
+.definition{
+    text-align:center;
+    color:#555;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    text-align:center;
+}
+
+.card h2{
+    color:#0077cc;
+    margin-bottom:20px;
+}
+
+.demo{
+    font-size:28px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+/* Color Examples */
+.named{
+    color:red;
+}
+
+.hex{
+    color:#3498db;
+}
+
+.rgb{
+    color:rgb(46, 204, 113);
+}
+
+.rgba{
+    color:rgba(231, 76, 60, 0.7);
+}
+
+.hsl{
+    color:hsl(280, 80%, 50%);
+}
+
+.note{
+    margin-top:40px;
+    background:#eef7ff;
+    padding:20px;
+    border-left:5px solid #0077cc;
+    border-radius:6px;
+}
+
+code{
+    color:#d63384;
+    font-size:17px;
+}
+
+ul{
+    margin-top:10px;
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>CSS Color Property</h1>
+
+<p class="definition">
+<b>color</b> is used to change the text color of an HTML element.
+CSS supports different ways to define colors.
+</p>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Named Color</h2>
+        <p class="demo named">Hello CSS</p>
+        <small>color: red;</small>
+    </div>
+
+    <div class="card">
+        <h2>HEX Color</h2>
+        <p class="demo hex">Hello CSS</p>
+        <small>color: #3498db;</small>
+    </div>
+
+    <div class="card">
+        <h2>RGB Color</h2>
+        <p class="demo rgb">Hello CSS</p>
+        <small>color: rgb(46,204,113);</small>
+    </div>
+
+    <div class="card">
+        <h2>RGBA Color</h2>
+        <p class="demo rgba">Hello CSS</p>
+        <small>color: rgba(231,76,60,0.7);</small>
+    </div>
+
+    <div class="card">
+        <h2>HSL Color</h2>
+        <p class="demo hsl">Hello CSS</p>
+        <small>color: hsl(280,80%,50%);</small>
+    </div>
+
+</div>
+
+<div class="note">
+
+<h3>Syntax</h3>
+
+<p><code>color: blue;</code></p>
+<p><code>color: #3498db;</code></p>
+<p><code>color: rgb(255,0,0);</code></p>
+
+<br>
+
+<h3>Explanation</h3>
+
+<ul>
+    <li><b>Named Colors</b> → Uses predefined color names (red, blue, green).</li>
+    <li><b>HEX</b> → Uses hexadecimal values (e.g., <code>#3498db</code>).</li>
+    <li><b>RGB</b> → Uses Red, Green, and Blue values.</li>
+    <li><b>RGBA</b> → RGB with an Alpha value for transparency.</li>
+    <li><b>HSL</b> → Uses Hue, Saturation, and Lightness.</li>
+</ul>
+
+</div>
+
+</body>
+</html>

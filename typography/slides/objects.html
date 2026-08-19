@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        JS OBJECTS
+    </head>
+    <body>
+<div class="writing-block">
+
+  <h2>JavaScript Objects</h2>
+
+  <p>
+    An <b>object</b> is used to store information about one thing using
+    <b>key-value pairs</b>.
+  </p>
+
+  <h3>Basic Syntax</h3>
+
+  <pre>
+let student = {
+    name: "Srihitha",
+    age: 22,
+    course: "JavaScript",
+    marks: 90
+};
+  </pre>
+
+  <h3>Object Properties</h3>
+
+  <p>
+    Each property has a <b>key</b> and a <b>value</b>.
+  </p>
+
+  <pre>
+name   → "Srihitha"
+age    → 22
+course → "JavaScript"
+marks  → 90
+  </pre>
+
+  <h3>Accessing Object Values</h3>
+
+  <p>Using dot notation:</p>
+
+  <pre>
+console.log(student.name);
+console.log(student.age);
+  </pre>
+
+  <p>Using bracket notation:</p>
+
+  <pre>
+console.log(student["name"]);
+  </pre>
+
+  <h3>Changing a Property</h3>
+
+  <pre>
+student.age = 23;
+  </pre>
+
+  <h3>Adding a Property</h3>
+
+  <pre>
+student.city = "Hyderabad";
+  </pre>
+
+  <h3>Deleting a Property</h3>
+
+  <pre>
+delete student.city;
+  </pre>
+
+  <h3>Different Data Types</h3>
+
+  <pre>
+let person = {
+    name: "Srihitha",
+    age: 22,
+    isStudent: true,
+    skills: ["HTML", "CSS", "JavaScript"]
+};
+  </pre>
+
+  <p>
+    An object can contain strings, numbers, booleans, arrays, and other
+    objects.
+  </p>
+
+  <h3>Nested Objects</h3>
+
+  <pre>
+let student = {
+    name: "Srihitha",
+
+    address: {
+        city: "Hyderabad",
+        state: "Telangana"
+    }
+};
+
+console.log(student.address.city);
+  </pre>
+
+  <h3>Array Inside an Object</h3>
+
+  <pre>
+let student = {
+    name: "Srihitha",
+
+    skills: [
+        "HTML",
+        "CSS",
+        "JavaScript"
+    ]
+};
+
+console.log(student.skills[0]);
+  </pre>
+
+  <h3>Methods</h3>
+
+  <p>
+    A function stored inside an object is called a <b>method</b>.
+  </p>
+
+  <pre>
+let person = {
+
+    name: "Srihitha",
+
+    greet: function() {
+        console.log("Hello!");
+    }
+
+};
+
+person.greet();
+  </pre>
+
+  <h3>The <b>this</b> Keyword</h3>
+
+  <pre>
+let person = {
+
+    name: "Srihitha",
+
+    greet: function() {
+        console.log("Hello " + this.name);
+    }
+
+};
+
+person.greet();
+  </pre>
+
+  <p>
+    <b>this</b> refers to the current object.
+  </p>
+
+  <h3>Array of Objects</h3>
+
+  <pre>
+let students = [
+
+    {
+        name: "Srihitha",
+        marks: 90
+    },
+
+    {
+        name: "Rahul",
+        marks: 75
+    },
+
+    {
+        name: "Anu",
+        marks: 85
+    }
+
+];
+  </pre>
+
+  <p>Accessing an object:</p>
+
+  <pre>
+console.log(students[0].name);
+console.log(students[0].marks);
+  </pre>
+
+  <h3>Objects with Array Methods</h3>
+
+  <p>Using <b>map()</b>:</p>
+
+  <pre>
+let names = students.map(function(student) {
+    return student.name;
+});
+
+console.log(names);
+  </pre>
+
+  <p>Using <b>filter()</b>:</p>
+
+  <pre>
+let result = students.filter(function(student) {
+    return student.marks > 80;
+});
+
+console.log(result);
+  </pre>
+
+  <h3>Important Object Methods</h3>
+
+  <p><b>Object.keys()</b> — returns all keys.</p>
+
+  <pre>
+console.log(Object.keys(student));
+  </pre>
+
+  <p><b>Object.values()</b> — returns all values.</p>
+
+  <pre>
+console.log(Object.values(student));
+  </pre>
+
+  <p><b>Object.entries()</b> — returns key-value pairs.</p>
+
+  <pre>
+console.log(Object.entries(student));
+  </pre>
+
+  <h3>Important Points</h3>
+
+  <ul>
+    <li>Objects store data using key-value pairs.</li>
+    <li>Properties can be accessed using dot or bracket notation.</li>
+    <li>Properties can be added, changed, or deleted.</li>
+    <li>Objects can contain arrays and other objects.</li>
+    <li>A function inside an object is called a method.</li>
+    <li><b>this</b> refers to the current object.</li>
+    <li>Arrays can contain multiple objects.</li>
+    <li>Objects and arrays are commonly used together in JavaScript.</li>
+  </ul>
+
+</div>
+    </body>
+</html>

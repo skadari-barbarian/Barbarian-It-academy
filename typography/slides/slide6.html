@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Font Style & Text Alignment</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+    margin-bottom:15px;
+}
+
+.definition{
+    text-align:center;
+    color:#555;
+    font-size:18px;
+    margin-bottom:40px;
+}
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.card h2{
+    text-align:center;
+    color:#0077cc;
+    margin-bottom:20px;
+}
+
+.demo{
+    border:2px solid #3498db;
+    padding:15px;
+    margin-bottom:15px;
+    background:#fafafa;
+    font-size:18px;
+    line-height:1.6;
+}
+
+
+.normal{
+    font-style:normal;
+}
+
+.italic{
+    font-style:italic;
+}
+
+.oblique{
+    font-style:oblique;
+}
+
+/* Text Alignment */
+.left{
+    text-align:left;
+}
+
+.center{
+    text-align:center;
+}
+
+.right{
+    text-align:right;
+}
+
+.justify{
+    text-align:justify;
+}
+
+.note{
+    margin-top:40px;
+    background:#eef7ff;
+    padding:20px;
+    border-left:5px solid #0077cc;
+    border-radius:6px;
+}
+
+code{
+    color:#d63384;
+    font-size:17px;
+}
+
+ul{
+    margin-top:10px;
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+</style>
+
+  <link id="barbarian-font" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Barbarian Brand Overrides -->
+    <style id="barbarian-styles">
+      body {
+        background: #000000 !important;
+        color: #090202 !important;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      }
+      .container {
+        background: #121212 !important;
+        border: 1px solid #222222 !important;
+        color: #e52c2c !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Inter, sans-serif !important;
+      }
+      h1 { color: #ff4400 !important; }
+      h2 { color: #a51c1c !important; }
+      p, li, td { color: #5f1313 !important; }
+      a { color: #1a73e8 !important; }
+      code, pre, .code, .number, .file, .tag {
+        font-family: 'Fira Code', monospace !important;
+      }
+      .highlight, strong, b {
+        color: #ff4400 !important;
+      }
+      footer {
+        color: #777777 !important;
+      }
+    </style>
+
+</head>
+<body>
+
+<h1>CSS Font Style & Text Alignment</h1>
+
+<p class="definition">
+<b>font-style</b> changes the appearance of text (normal, italic, or oblique),
+while <b>text-align</b> controls the horizontal alignment of text.
+</p>
+
+<div class="container">
+
+    <!-- Font Style -->
+    <div class="card">
+
+        <h2>Font Style</h2>
+
+        <div class="demo normal">
+            <b>font-style: normal;</b><br><br>
+            CSS Typography makes web pages more readable.
+        </div>
+
+        <div class="demo italic">
+            <b>font-style: italic;</b><br><br>
+            CSS Typography makes web pages more readable.
+        </div>
+
+        <div class="demo oblique">
+            <b>font-style: oblique;</b><br><br>
+            CSS Typography makes web pages more readable.
+        </div>
+
+    </div>
+
+    <!-- Text Alignment -->
+    <div class="card">
+
+        <h2>Text Alignment</h2>
+
+        <div class="demo left">
+            <b>text-align: left;</b><br><br>
+            CSS Typography improves readability and presentation.
+        </div>
+
+        <div class="demo center">
+            <b>text-align: center;</b><br><br>
+            CSS Typography improves readability and presentation.
+        </div>
+
+        <div class="demo right">
+            <b>text-align: right;</b><br><br>
+            CSS Typography improves readability and presentation.
+        </div>
+
+        <div class="demo justify">
+            <b>text-align: justify;</b><br><br>
+            CSS Typography improves readability and presentation by evenly distributing text across the width of the container, creating a clean and professional appearance.
+        </div>
+
+    </div>
+
+</div>
+
+<div class="note">
+
+<h3>Syntax</h3>
+
+<p><code>font-style: italic;</code></p>
+
+<p><code>text-align: center;</code></p>
+
+<br>
+
+<h3>Explanation</h3>
+
+<ul>
+    <li><b>font-style: normal;</b> → Displays regular text.</li>
+    <li><b>font-style: italic;</b> → Displays slanted (italic) text.</li>
+    <li><b>font-style: oblique;</b> → Displays an artificially slanted version of the font.</li>
+    <li><b>text-align: left;</b> → Aligns text to the left.</li>
+    <li><b>text-align: center;</b> → Centers the text.</li>
+    <li><b>text-align: right;</b> → Aligns text to the right.</li>
+    <li><b>text-align: justify;</b> → Aligns text evenly along both left and right margins.</li>
+</ul>
+
+</div>
+
+</body>
+</html>

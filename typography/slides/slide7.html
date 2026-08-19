@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Text Decoration & Text Transform</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+    margin-bottom:15px;
+}
+
+.definition{
+    text-align:center;
+    color:#555;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.card h2{
+    text-align:center;
+    color:#0077cc;
+    margin-bottom:20px;
+}
+
+.card p{
+    margin:18px 0;
+    font-size:20px;
+}
+
+/* Text Decoration */
+.none{
+    text-decoration:none;
+}
+
+.underline{
+    text-decoration:underline;
+}
+
+.overline{
+    text-decoration:overline;
+}
+
+.line-through{
+    text-decoration:line-through;
+}
+
+.underline-red{
+    text-decoration:underline;
+    text-decoration-color:red;
+}
+
+/* Text Transform */
+.uppercase{
+    text-transform:uppercase;
+}
+
+.lowercase{
+    text-transform:lowercase;
+}
+
+.capitalize{
+    text-transform:capitalize;
+}
+
+.normal{
+    text-transform:none;
+}
+
+.note{
+    margin-top:40px;
+    background:#eef7ff;
+    padding:20px;
+    border-left:5px solid #0077cc;
+    border-radius:6px;
+}
+
+code{
+    color:#d63384;
+    font-size:17px;
+}
+</style>
+
+  <link id="barbarian-font" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Barbarian Brand Overrides -->
+    <style id="barbarian-styles">
+      body {
+        background: #000000 !important;
+        color: #120e0e !important;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      }
+      .container {
+        background: #121212 !important;
+        border: 1px solid #222222 !important;
+        color: #140e0e !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Inter, sans-serif !important;
+      }
+      h1 { color: #ff4400 !important; }
+      h2 { color: #0e0404 !important; }
+      p, li, td { color: #e02929 !important; }
+      a { color: #1a73e8 !important; }
+      code, pre, .code, .number, .file, .tag {
+        font-family: 'Fira Code', monospace !important;
+      }
+      .highlight, strong, b {
+        color: #ff4400 !important;
+      }
+      footer {
+        color: #777777 !important;
+      }
+    </style>
+
+</head>
+<body>
+
+<h1>CSS Text Decoration & Text Transform</h1>
+
+<p class="definition">
+<b>text-decoration</b> adds or removes decorative lines from text, while
+<b>text-transform</b> changes the letter case of text.
+</p>
+
+<div class="container">
+
+    <!-- Text Decoration -->
+    <div class="card">
+
+        <h2>Text Decoration</h2>
+
+        <p class="none">text-decoration: none;</p>
+
+        <p class="underline">text-decoration: underline;</p>
+
+        <p class="overline">text-decoration: overline;</p>
+
+        <p class="line-through">text-decoration: line-through;</p>
+
+        <p class="underline-red">Underline with Red Color</p>
+
+    </div>
+
+    <!-- Text Transform -->
+    <div class="card">
+
+        <h2>Text Transform</h2>
+
+        <p class="uppercase">
+            css typography is interesting
+        </p>
+
+        <p class="lowercase">
+            CSS TYPOGRAPHY IS INTERESTING
+        </p>
+
+        <p class="capitalize">
+            css typography is interesting
+        </p>
+
+        <p class="normal">
+            CSS Typography is Interesting
+        </p>
+
+    </div>
+
+</div>
+
+<div class="note">
+
+<h3>Syntax</h3>
+
+<p><code>text-decoration: underline;</code></p>
+
+<p><code>text-transform: uppercase;</code></p>
+
+<br>
+
+<h3>Explanation</h3>
+
+<ul>
+    <li><b>text-decoration: none;</b> → Removes decorations.</li>
+    <li><b>underline</b> → Adds a line below the text.</li>
+    <li><b>overline</b> → Adds a line above the text.</li>
+    <li><b>line-through</b> → Draws a line through the text.</li>
+    <li><b>uppercase</b> → Converts all letters to uppercase.</li>
+    <li><b>lowercase</b> → Converts all letters to lowercase.</li>
+    <li><b>capitalize</b> → Capitalizes the first letter of each word.</li>
+</ul>
+
+</div>
+
+</body>
+</html>

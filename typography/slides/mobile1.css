@@ -1,0 +1,19 @@
+.box {
+    background-color: green;
+    width: 200px;
+    height: 200px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .box {
+        background-color: red;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .box {
+        background-color: yellow;
+    }
+}

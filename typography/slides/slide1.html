@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to CSS Typography</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #bc5012, #9b6945);
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background: rgb(170, 111, 111);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #503a2c;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #0077cc;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+        }
+
+        ul {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: gray;
+            font-size: 15px;
+        }
+    </style>
+  <link id="barbarian-font" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Barbarian Brand Overrides -->
+    <style id="barbarian-styles">
+      body {
+        background: #000000 !important;
+        color: #ffffff !important;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      }
+      .container {
+        background: #121212 !important;
+        border: 1px solid #222222 !important;
+        color: #ffffff !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Inter, sans-serif !important;
+      }
+      h1 { color: #ff4400 !important; }
+      h2 { color: #ffffff !important; }
+      p, li, td { color: #cfcfcf !important; }
+      a { color: #1a73e8 !important; }
+      code, pre, .code, .number, .file, .tag {
+        font-family: 'Fira Code', monospace !important;
+      }
+      .highlight, strong, b {
+        color: #ff4400 !important;
+      }
+      footer {
+        color: #777777 !important;
+      }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Introduction to CSS Typography</h1>
+
+    <p>
+        <span class="highlight">CSS Typography</span> is the art of styling and arranging text on a web page.
+        It helps improve readability, appearance, and user experience by controlling fonts,
+        sizes, spacing, alignment, and other text-related properties.
+    </p>
+
+    <h2>Why is Typography Important?</h2>
+
+    <ul>
+        <li>✔ Makes content easy to read.</li>
+        <li>✔ Improves the visual appearance of a website.</li>
+        <li>✔ Creates a better user experience.</li>
+        <li>✔ Highlights important information.</li>
+        <li>✔ Gives websites a professional look.</li>
+    </ul>
+
+    <h2>Common CSS Typography Properties</h2>
+
+    <ul>
+        <li><strong>font-family</strong> – Changes the font style.</li>
+        <li><strong>font-size</strong> – Sets the size of text.</li>
+        <li><strong>font-weight</strong> – Makes text bold or light.</li>
+        <li><strong>font-style</strong> – Makes text italic or normal.</li>
+        <li><strong>line-height</strong> – Controls spacing between lines.</li>
+        <li><strong>letter-spacing</strong> – Adjusts space between letters.</li>
+        <li><strong>word-spacing</strong> – Adjusts space between words.</li>
+        <li><strong>text-align</strong> – Aligns text (left, center, right).</li>
+        <li><strong>text-transform</strong> – Changes text case.</li>
+        <li><strong>text-decoration</strong> – Adds underline, overline, etc.</li>
+    </ul>
+
+    <h2>Example</h2>
+
+    <p style="font-family: Georgia, serif;
+              font-size:22px;
+              font-style:italic;
+              font-weight:bold;
+              color:#0066cc;">
+        "Good typography makes reading effortless and attractive."
+    </p>
+
+    <footer>
+        CSS Typography | HTML & CSS Learning
+    </footer>
+
+</div>
+
+</body>
+</html>

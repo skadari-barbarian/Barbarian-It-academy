@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>White Space & Text Overflow</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+    margin-bottom:15px;
+}
+
+.definition{
+    text-align:center;
+    font-size:18px;
+    color:#555;
+    margin-bottom:40px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.card h2{
+    text-align:center;
+    color:#0077cc;
+    margin-bottom:20px;
+}
+
+.demo{
+    border:2px solid #3498db;
+    padding:12px;
+    margin-bottom:15px;
+    background:#fdfdfd;
+}
+
+/* White Space Examples */
+
+.normal{
+    white-space:normal;
+}
+
+.nowrap{
+    white-space:nowrap;
+}
+
+.pre{
+    white-space:pre;
+}
+
+/* Text Overflow Examples */
+
+.ellipsis{
+    width:250px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.clip{
+    width:250px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:clip;
+}
+
+.note{
+    margin-top:40px;
+    background:#eef7ff;
+    padding:20px;
+    border-left:5px solid #0077cc;
+    border-radius:6px;
+}
+
+code{
+    color:#d63384;
+    font-size:17px;
+}
+
+ul{
+    margin-top:10px;
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>CSS White Space & Text Overflow</h1>
+
+<p class="definition">
+<b>white-space</b> controls how spaces and line breaks are handled, while
+<b>text-overflow</b> specifies how hidden text is displayed when it overflows.
+</p>
+
+<div class="container">
+
+    <!-- White Space -->
+    <div class="card">
+
+        <h2>White Space</h2>
+
+        <div class="demo normal">
+            <b>normal</b><br><br>
+            CSS Typography automatically wraps text when it reaches the end of the container.
+        </div>
+
+        <div class="demo nowrap">
+            <b>nowrap</b><br><br>
+            CSS Typography automatically wraps text when it reaches the end of the container.
+        </div>
+
+        <div class="demo pre">
+<b>pre</b>
+
+CSS     Typography
+keeps      spaces
+and line breaks.
+        </div>
+
+    </div>
+
+    <!-- Text Overflow -->
+    <div class="card">
+
+        <h2>Text Overflow</h2>
+
+        <div class="demo ellipsis">
+            This is a very long sentence demonstrating the ellipsis effect in CSS.
+        </div>
+
+        <div class="demo clip">
+            This is a very long sentence demonstrating the clip effect in CSS.
+        </div>
+
+    </div>
+
+</div>
+
+<div class="note">
+
+<h3>Syntax</h3>
+
+<p><code>white-space: nowrap;</code></p>
+
+<p><code>text-overflow: ellipsis;</code></p>
+
+<br>
+
+<h3>Explanation</h3>
+
+<ul>
+<li><b>white-space: normal;</b> → Default. Text wraps automatically.</li>
+
+<li><b>white-space: nowrap;</b> → Prevents text from wrapping to the next line.</li>
+
+<li><b>white-space: pre;</b> → Preserves spaces and line breaks exactly as written.</li>
+
+<li><b>text-overflow: ellipsis;</b> → Displays <b>...</b> when text is hidden.</li>
+
+<li><b>text-overflow: clip;</b> → Cuts off the extra text without showing dots.</li>
+
+</ul>
+
+</div>
+
+</body>
+</html>

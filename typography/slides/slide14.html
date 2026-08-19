@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Face Practice</title>
+    <style>@font-face {
+    font-family: "MyFont";
+    src: url("./fonts/Poppins/Poppins-ExtraLight.ttf");
+}
+
+h1 {
+    
+    font-family: "MyFont";
+    color: black;
+    background-color: aliceblue;
+    text-shadow: 2px 2px 1px red;
+}
+
+p {
+    font-family: "MyFont";
+    color: black;
+    background-color: aliceblue;
+}</style>
+  <link id="barbarian-font" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Barbarian Brand Overrides -->
+    <style id="barbarian-styles">
+      body {
+        background: #000000 !important;
+        color: #ffffff !important;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      }
+      .container {
+        background: #121212 !important;
+        border: 1px solid #222222 !important;
+        color: #ffffff !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Inter, sans-serif !important;
+      }
+      h1 { color: #ff4400 !important; }
+      h2 { color: #ffffff !important; }
+      p, li, td { color: #c01111 !important; }
+      a { color: #1a73e8 !important; }
+      code, pre, .code, .number, .file, .tag {
+        font-family: 'Fira Code', monospace !important;
+      }
+      .highlight, strong, b {
+        color: #ff4400 !important;
+      }
+      footer {
+        color: #777777 !important;
+      }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Learning Font Face</h1>
+
+    <p>
+       ## @font-face in CSS 
+
+1. **`@font-face`** is a CSS rule used to load custom fonts into a webpage.
+2. It allows web developers to use fonts that are not installed on the user's computer.
+3. The font file is stored in the project or loaded from a server.
+4. The **`font-family`** property assigns a name to the custom font.
+5. The **`src`** property specifies the location of the font file.
+6. Common font formats include **WOFF, WOFF2, TTF,** and **OTF**.
+7. After defining the font, it can be applied using the **`font-family`** property.
+8. Using custom fonts improves the appearance and branding of a website.
+9. It ensures that the same font is displayed consistently on different devices and browsers.
+10. `@font-face` is widely used in modern web development to create attractive and professional-looking websites.
+
+    </p>
+
+</body>
+
+</html>

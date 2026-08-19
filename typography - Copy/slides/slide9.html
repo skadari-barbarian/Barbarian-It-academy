@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Line Height</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+    margin-bottom:15px;
+}
+
+.definition{
+    text-align:center;
+    color:#555;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.card h2{
+    text-align:center;
+    color:#0077cc;
+    margin-bottom:20px;
+}
+
+.card p{
+    font-size:18px;
+    text-align:justify;
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:6px;
+}
+
+/* Different Line Heights */
+.lh1{
+    line-height:1;
+}
+
+.lh15{
+    line-height:1.5;
+}
+
+.lh2{
+    line-height:2;
+}
+
+.lh3{
+    line-height:3;
+}
+
+.note{
+    margin-top:40px;
+    background:#eef7ff;
+    padding:20px;
+    border-left:5px solid #0077cc;
+    border-radius:6px;
+}
+
+code{
+    color:#d63384;
+    font-size:17px;
+}
+
+ul{
+    margin-top:10px;
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>CSS Line Height</h1>
+
+<p class="definition">
+<b>line-height</b> controls the vertical spacing between lines of text, making content easier to read.
+</p>
+
+<div class="container">
+
+    <div class="card">
+        <h2>line-height: 1</h2>
+
+        <p class="lh1">
+            CSS Typography improves the readability of web pages. It helps users read content comfortably by controlling the spacing between lines, letters, and words.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>line-height: 1.5</h2>
+
+        <p class="lh15">
+            CSS Typography improves the readability of web pages. It helps users read content comfortably by controlling the spacing between lines, letters, and words.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>line-height: 2</h2>
+
+        <p class="lh2">
+            CSS Typography improves the readability of web pages. It helps users read content comfortably by controlling the spacing between lines, letters, and words.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>line-height: 3</h2>
+
+        <p class="lh3">
+            CSS Typography improves the readability of web pages. It helps users read content comfortably by controlling the spacing between lines, letters, and words.
+        </p>
+    </div>
+
+</div>
+
+<div class="note">
+
+<h3>Syntax</h3>
+
+<p><code>line-height: 1.5;</code></p>
+
+<br>
+
+<h3>Explanation</h3>
+
+<ul>
+    <li><b>line-height</b> specifies the space between lines of text.</li>
+    <li>Smaller values make lines appear closer together.</li>
+    <li>Larger values increase spacing and improve readability.</li>
+    <li>A value between <b>1.5</b> and <b>2</b> is commonly used for paragraphs.</li>
+</ul>
+
+</div>
+
+</body>
+</html>

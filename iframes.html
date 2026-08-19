@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CSS Typography – Barbarian IT Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700&family=Fira+Code&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #e63946;
+    --gold: #ffd700;
+    --dark: #0d0d0d;
+    --dark2: #1a1a1a;
+    --dark3: #242424;
+    --text: #f0f0f0;
+    --muted: #888;
+  }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── SIDEBAR ── */
+  #app { display: flex; flex: 1; overflow: hidden; }
+
+  #sidebar {
+    width: 220px;
+    background: var(--dark2);
+    border-right: 2px solid var(--red);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+
+  #sidebar h2 {
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 14px 10px;
+    border-bottom: 1px solid #333;
+  }
+
+  .nav-item {
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .nav-item:hover { background: #222; color: var(--text); }
+  .nav-item.active { border-left-color: var(--red); color: var(--gold); background: #1f1f1f; font-weight: 600; }
+
+  /* ── MAIN ── */
+  #main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+  #slide-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px 50px;
+  }
+
+  /* ── BOTTOM NAV ── */
+  #bottom-nav {
+    background: var(--dark2);
+    border-top: 2px solid var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 20px;
+  }
+
+  #bottom-nav button {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+  }
+  #bottom-nav button:hover { background: #c1121f; }
+  #bottom-nav button:disabled { background: #444; cursor: default; }
+
+  #slide-counter { color: var(--gold); font-size: 0.85rem; min-width: 80px; text-align: center; }
+
+  /* ── SLIDE STYLES ── */
+  .slide { display: none; animation: fadeIn 0.4s ease; }
+  .slide.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* shared helpers */
+  .slide-title {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--red);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+  .slide-subtitle {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .code-box {
+    background: #111;
+    border-left: 3px solid var(--red);
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.82rem;
+    color: #e0e0e0;
+    margin: 14px 0;
+    white-space: pre;
+    overflow-x: auto;
+  }
+  .code-box .prop { color: var(--gold); }
+  .code-box .val  { color: #7ec8e3; }
+  .demo-box {
+    background: var(--dark3);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 24px;
+    margin: 14px 0;
+  }
+  .label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .def-box {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.7;
+  }
+  .def-box strong { color: var(--gold); }
+
+  /* ── SLIDE 1 – OPENING ── */
+  #s1 {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+  #s1 .bg-code {
+    position: absolute; inset: 0;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    color: #ffffff08;
+    overflow: hidden;
+    pointer-events: none;
+    padding: 20px;
+    line-height: 2;
+    word-break: break-all;
+  }
+  #s1 .hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    color: var(--red);
+    letter-spacing: 4px;
+    line-height: 1;
+    position: relative;
+  }
+  #s1 .hero-sub {
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-top: 16px;
+    position: relative;
+  }
+  #s1 .badge {
+    margin-top: 30px;
+    background: var(--red);
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  /* ── SLIDE 2 – BEFORE/AFTER ── */
+  .before-box { font-size: 1rem; color: #aaa; line-height: 1.6; }
+  .after-box {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    line-height: 1.8;
+    letter-spacing: 1px;
+  }
+  .vs-badge {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; font-weight: 900; color: var(--red);
+  }
+
+  /* ── SLIDE 3 – FONT FAMILY ── */
+  .ff-row { display: flex; flex-direction: column; gap: 12px; }
+  .ff-item { display: flex; align-items: center; gap: 16px; }
+  .ff-tag { width: 100px; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; flex-shrink: 0; }
+  .ff-demo { font-size: 1.6rem; }
+
+  /* ── SLIDE 4 – FONT SIZE ── */
+  .size-row { display: flex; flex-direction: column; gap: 4px; }
+  .size-item { display: flex; align-items: baseline; gap: 14px; }
+  .size-label { width: 70px; font-size: 0.7rem; color: var(--muted); flex-shrink: 0; }
+
+  /* ── SLIDE 5 – FONT WEIGHT ── */
+  .weight-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+  .weight-card { background: var(--dark3); border: 1px solid #333; border-radius: 8px; padding: 16px 20px; flex: 1; min-width: 120px; text-align: center; }
+  .weight-card .w-label { font-size: 0.65rem; color: var(--muted); margin-top: 6px; }
+
+  /* ── SLIDE 6 – FONT STYLE ── */
+  /* ── SLIDE 7 – TEXT DECORATION ── */
+  .deco-list { display: flex; flex-direction: column; gap: 14px; }
+  .deco-item { display: flex; align-items: center; gap: 20px; }
+  .deco-tag { width: 220px; font-size: 0.7rem; color: var(--muted); font-family: 'Fira Code', monospace; flex-shrink: 0; }
+
+  /* ── SLIDE 8 – TEXT TRANSFORM ── */
+  .tt-list { display: flex; flex-direction: column; gap: 14px; }
+  .tt-item { display: flex; align-items: center; gap: 20px; }
+  .tt-tag { width: 200px; font-size: 0.7rem; color: var(--muted); font-family: 'Fira Code', monospace; flex-shrink: 0; }
+
+  /* ── SLIDE 9 – LINE HEIGHT ── */
+  .lh-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .lh-card { background: var(--dark3); border: 1px solid #333; border-radius: 8px; padding: 16px; }
+  .lh-card .lh-label { font-size: 0.65rem; color: var(--gold); margin-bottom: 8px; font-family: 'Fira Code', monospace; }
+
+  /* ── SLIDE 10 – LETTER/WORD SPACING ── */
+  /* ── SLIDE 11 – TEXT ALIGN ── */
+  .align-list { display: flex; flex-direction: column; gap: 12px; }
+  .align-item { background: var(--dark3); border: 1px solid #333; border-radius: 6px; padding: 12px 16px; }
+  .align-tag { font-size: 0.65rem; color: var(--gold); font-family: 'Fira Code', monospace; margin-bottom: 6px; }
+
+  /* ── SLIDE 12 – TEXT SHADOW ── */
+  .shadow-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .shadow-card { background: var(--dark3); border: 1px solid #333; border-radius: 8px; padding: 20px; text-align: center; }
+  .shadow-card .s-label { font-size: 0.65rem; color: var(--muted); margin-top: 8px; font-family: 'Fira Code', monospace; }
+
+  /* ── SLIDE 13 – COLOR ── */
+  .color-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .color-card { background: var(--dark3); border: 1px solid #333; border-radius: 8px; padding: 16px; text-align: center; }
+  .color-card .c-label { font-size: 0.65rem; color: var(--muted); margin-top: 6px; font-family: 'Fira Code', monospace; }
+
+  /* ── SLIDE 14 – @font-face ── */
+  /* ── SLIDE 15 – white-space / text-overflow / overflow-wrap / text-indent ── */
+  .ws-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .ws-card { background: var(--dark3); border: 1px solid #333; border-radius: 8px; padding: 16px; }
+  .ws-card .ws-label { font-size: 0.65rem; color: var(--gold); font-family: 'Fira Code', monospace; margin-bottom: 8px; }
+  .overflow-demo { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #ccc; font-size: 0.9rem; }
+  .wrap-demo { overflow-wrap: break-word; word-break: break-all; color: #ccc; font-size: 0.9rem; }
+  .indent-demo { text-indent: 40px; color: #ccc; font-size: 0.9rem; line-height: 1.7; }
+  .nowrap-demo { white-space: nowrap; color: #ccc; font-size: 0.9rem; overflow: hidden; }
+  .prewrap-demo { white-space: pre-wrap; color: #ccc; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <!-- SIDEBAR -->
+  <nav id="sidebar">
+    <h2>📖 Topics</h2>
+    <div class="nav-item active" data-slide="0">01 · Opening</div>
+    <div class="nav-item" data-slide="1">02 · What is CSS Typography?</div>
+    <div class="nav-item" data-slide="2">03 · Font Family</div>
+    <div class="nav-item" data-slide="3">04 · Font Size</div>
+    <div class="nav-item" data-slide="4">05 · Font Weight</div>
+    <div class="nav-item" data-slide="5">06 · Font Style</div>
+    <div class="nav-item" data-slide="6">07 · Text Decoration</div>
+    <div class="nav-item" data-slide="7">08 · Text Transform</div>
+    <div class="nav-item" data-slide="8">09 · Line Height</div>
+    <div class="nav-item" data-slide="9">10 · Letter & Word Spacing</div>
+    <div class="nav-item" data-slide="10">11 · Text Align</div>
+    <div class="nav-item" data-slide="11">12 · Text Shadow</div>
+    <div class="nav-item" data-slide="12">13 · Color</div>
+    <div class="nav-item" data-slide="13">14 · @font-face</div>
+    <div class="nav-item" data-slide="14">15 · White-space & Overflow</div>
+  </nav>
+
+  <!-- MAIN -->
+  <div id="main">
+    <div id="slide-area">
+
+      <!-- ══ SLIDE 1 ══ -->
+      <div class="slide active" id="slide-0">
+        <div id="s1">
+          <div class="bg-code">font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; line-height: 1.2; color: #e63946; text-shadow: 2px 2px 8px rgba(230,57,70,0.5); font-style: italic; text-decoration: underline; word-spacing: 4px; @font-face { font-family: "MyFont"; src: url("./fonts/Poppins-Regular.ttf"); } overflow-wrap: break-word; white-space: nowrap; text-overflow: ellipsis; text-indent: 2em; font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 900;</div>
+          <div class="hero-title">CSS TYPOGRAPHY</div>
+          <div class="hero-sub">Styling the Voice of the Web</div>
+          <div class="badge">Barbarian IT Academy</div>
+        </div>
+      </div>
+
+      <!-- ══ SLIDE 2 ══ -->
+      <div class="slide" id="slide-1">
+        <div class="slide-title">What is CSS Typography?</div>
+        <div class="slide-subtitle">Definition & Visual Comparison</div>
+        <div class="def-box">
+          <strong>CSS Typography</strong> is the art of styling text on the web using CSS properties. It controls how text <strong>looks</strong>, <strong>feels</strong>, and <strong>reads</strong> — including font choice, size, weight, spacing, alignment, and decoration.
+        </div>
+        <div class="grid2" style="align-items:center;">
+          <div class="demo-box">
+            <div class="label">❌ Before — No CSS</div>
+            <div class="before-box">This is a heading. This is a paragraph of text with no styling applied. It uses the browser's default font and size.</div>
+          </div>
+          <div class="vs-badge">VS</div>
+          <div class="demo-box" style="border-color: var(--gold);">
+            <div class="label" style="color:var(--gold)">✅ After — With CSS</div>
+            <div class="after-box">This is a heading. This paragraph is styled with a custom font, size, weight, and color for a premium feel.</div>
+          </div>
+        </div>
+        <div class="code-box"><span class="prop">font-family</span>: <span class="val">'Playfair Display', serif</span>;
+<span class="prop">font-size</span>: <span class="val">1.4rem</span>;
+<span class="prop">color</span>: <span class="val">#ffd700</span>;
+<span class="prop">letter-spacing</span>: <span class="val">1px</span>;</div>
+      </div>
+
+      <!-- ══ SLIDE 3 ══ -->
+      <div class="slide" id="slide-2">
+        <div class="slide-title">Font Family</div>
+        <div class="slide-subtitle">Choosing the right typeface</div>
+        <div class="def-box"><strong>font-family</strong> sets the typeface for text. You can specify multiple fonts as a fallback list. Always end with a generic family like <strong>serif</strong>, <strong>sans-serif</strong>, or <strong>monospace</strong>.</div>
+        <div class="demo-box">
+          <div class="ff-row">
+            <div class="ff-item">
+              <div class="ff-tag">Serif</div>
+              <div class="ff-demo" style="font-family:'Playfair Display',serif; color:var(--gold)">The quick brown fox</div>
+            </div>
+            <div class="ff-item">
+              <div class="ff-tag">Sans-serif</div>
+              <div class="ff-demo" style="font-family:'Poppins',sans-serif; color:#7ec8e3">The quick brown fox</div>
+            </div>
+            <div class="ff-item">
+              <div class="ff-tag">Monospace</div>
+              <div class="ff-demo" style="font-family:'Fira Code',monospace; color:#a8ff78">The quick brown fox</div>
+            </div>
+            <div class="ff-item">
+              <div class="ff-tag">Cursive</div>
+              <div class="ff-demo" style="font-family:cursive; color:var(--red)">The quick brown fox</div>
+            </div>
+          </div>
+        </div>
+        <div class="code-box"><span class="prop">font-family</span>: <span class="val">Arial, sans-serif</span>;
+<span class="prop">font-family</span>: <span class="val">'Playfair Display', serif</span>;
+<span class="prop">font-family</span>: <span class="val">'Fira Code', monospace</span>;</div>
+      </div>
+
+      <!-- ══ SLIDE 4 ══ -->
+      <div class="slide" id="slide-3">
+        <div class="slide-title">Font Size</div>
+        <div class="slide-subtitle">Controlling text scale</div>
+        <div class="def-box"><strong>font-size</strong> sets how large or small text appears. You can use <strong>px</strong> (pixels), <strong>rem</strong> (relative to root), <strong>em</strong> (relative to parent), or <strong>%</strong>.</div>
+        <div class="demo-box">
+          <div class="size-row">
+            <div class="size-item"><div class="size-label">12px</div><div style="font-size:12px;color:#ccc">Typography</div></div>
+            <div class="size-item"><div class="size-label">16px</div><div style="font-size:16px;color:#ccc">Typography</div></div>
+            <div class="size-item"><div class="size-label">24px</div><div style="font-size:24px;color:#ccc">Typography</div></div>
+            <div class="size-item"><div class="size-label">32px</div><div style="font-size:32px;color:var(--gold)">Typography</div></div>
+            <div class="size-item"><div class="size-label">48px</div><div style="font-size:48px;color:var(--red);font-weight:700">Typography</div></div>
+            <div class="size-item"><div class="size-label">64px</div><div style="font-size:64px;color:#fff;font-weight:900;line-height:1">Typography</div></div>
+          </div>
+        </div>
+        <div class="code-box"><span class="prop">font-size</span>: <span class="val">32px</span>;
+<span class="prop">font-size</span>: <span class="val">2rem</span>;
+<span class="prop">font-size</span>: <span class="val">1.5em</span>;</div>
+      </div>
+
+      <!-- ══ SLIDE 5 ══ -->
+      <div class="slide" id="slide-4">
+        <div class="slide-title">Font Weight</div>
+        <div class="slide-subtitle">From thin to ultra-bold</div>
+        <div class="def-box"><strong>font-weight</strong> controls the thickness of text. Values range from <strong>100</strong> (thin) to <strong>900</strong> (black). You can also use keywords like <strong>normal</strong> (400) and <strong>bold</strong> (700).</div>
+        <div class="demo-box">
+          <div class="weight-grid">
+            <div class="weight-card"><div style="font-weight:100;font-size:1.4rem;color:#ccc">Barbarian</div><div class="w-label">100 – Thin</div></div>
+            <div class="weight-card"><div style="font-weight:300;font-size:1.4rem;color:#ccc">Barbarian</div><div class="w-label">300 – Light</div></div>
+            <div class="weight-card"><div style="font-weight:400;font-size:1.4rem;color:#ccc">Barbarian</div><div class="w-label">400 – Normal</div></div>
+            <div class="weight-card"><div style="font-weight:600;font-size:1.4rem;color:var(--gold)">Barbarian</div><div class="w-label">600 – Semi Bold</div></div>
+            <div class="weight-card"><div style="font-weight:700;font-size:1.4rem;color:var(--gold)">Barbarian</div><div class="w-label">700 – Bold</div></div>
+            <div class="weight-card"><div style="font-weight:900;font-size:1.4rem;color:var(--red)">Barbarian</div><div class="w-label">900 – Black</div></div>
+          </div>
+        </div>
+        <div class="code-box"><span class="prop">font-weight</span>: <span class="val">400</span>;   <span style="color:#555">/* normal */</span>
+<span class="prop">font-weight</span>: <span class="val">700</span>;   <span style="color:#555">/* bold */</span>
+<span class="prop">font-weight</span>: <span class="val">900</span>;   <span style="color:#555">/* black */</span></div>
+      </div>
+
+      <!-- ══ SLIDE 6 ══ -->
+      <div class="slide" id="slide-5">
+        <div class="slide-title">Font Style</div>
+        <div class="slide-subtitle">Normal vs Italic vs Oblique</div>
+        <div class="def-box"><strong>font-style</strong> controls whether text is displayed in a normal, italic, or oblique style. <strong>Italic</strong> uses a specially designed slanted version of the font. <strong>Oblique</strong> simply slants the normal font.</div>
+        <div class="demo-box">
+          <div style="display:flex;flex-direction:column;gap:18px;">
+            <div>
+              <div class="label">font-style: normal</div>
+              <div style="font-style:normal;font-size:1.6rem;color:#ccc">The quick brown fox jumps over the lazy dog.</div>
+            </div>
+            <div>
+              <div class="label">font-style: italic</div>
+              <div style="font-style:italic;font-size:1.6rem;color:var(--gold)">The quick brown fox jumps over the lazy dog.</div>
+            </div>
+            <div>
+              <div class="label">font-style: oblique</div>
+              <div style="font-style:oblique;font-size:1.6rem;color:var(--red)">The quick brown fox jumps over the lazy dog.</div>
+            </div>
+          </div>
+        </div>
+        <div class="code-box"><span class="prop">font-style</span>: <span class="val">normal</span>;
+<span class="prop">font-style</span>: <span class="val">italic</span>;
+<span class="prop">font-style</span>: <span class="val">oblique</span>;</div>
+      </div>
+
+      <!-- ══ SLIDE 7 ══ -->
+      <div class="slide" id="slide-6">
+        <div class="slide-title">Text Decoration</div>
+        <div class="slide-subtitle">Lines on text</div>
+        <div class="def-box"><strong>text-decoration</strong> adds lines to text — underline, overline, or line-through. You can also control the <strong>color</strong>, <strong>style</strong> (solid, dashed, wavy), and <strong>thickness</strong>.</div>
+        <div class="demo-box">
+          <div class="deco-list">
+            <div class="deco-item">
+              <div class="deco-tag">text-decoration: none</div>
+              <div style="text-decoration:none;font-size:1.3rem;color:#ccc">Barbarian IT Academy</div>
+            </div>
+            <div class="deco-item">
+              <div class="deco-tag">text-decoration: underline</div>
+              <div style="text-decoration:underline;font-size:1.3rem;color:var(--gold)">Barbarian IT Academy</div>
+            </div>
+            <div class="deco-item">
+              <div class="deco-tag">text-decoration: overline</div>
+              <div style="text-decoration:overline;font-size:1.3rem;color:#7ec8e3">Barbarian IT Academy</div>
+            </div>
+            <div class="deco-item">
+              <div class="deco-tag">text-decoration: line-through</div>
+              <div style="text-decoration:line-through;font-size:1.3rem;color:var(--red)">Barbarian IT Academy</div>
+            </div>
+            <div class="deco-item">
+              <div class="deco-tag">underline wavy red</div>
+              <div style="text-decoration:underline wavy red;font-size:1.3rem;color:#ccc">Barbarian IT Academy</div>
+            </div>
+          </div>
+        </div>
+        <div class="code-box"><span class="prop">text-decoration</span>: <span class="val">underline</span>;
+<span class="prop">text-decoration</span>: <span class="val">underline wavy red</span>;
+<span class="prop">text-decoration</span>: <span class="val">line-through</span>;</div>
+      </div>
+
+      <!-- ══ SLIDE 8 ══ -->
+      <div class="slide" id="slide-7">
+        <div class="slide-title">Text Transform</div>
+        <div class="slide-subtitle">Changing text case with CSS</div>
+        <div class="def-box"><strong>text-transform</strong> changes the capitalization of text without editing the HTML. Useful for headings, buttons, and labels.</div>
+        <div class="demo-box">
+          <div class="tt-list">
+            <div class="tt-item">
+              <div class="tt-tag">text-transform: none</div>
+              <div style="text-transform:none;font-size:1.3rem;color:#ccc">barbarian it academy</div>
+            </div>
+            <div class="tt-item">
+              <div class="tt-tag">text-transform: uppercase</div>
+              <div style="text-transform:uppercase;font-size:1.3rem;color:var(--red);font-weight:700">barbarian it academy</div>
+            </div>
+            <div class="tt-item">
+              <div class="tt-tag">text-transform: lowercase</div>
+              <div style="text-transform:lowercase;font-size:1.3rem;color:var(--gold)">BARBARIAN IT ACADEMY</div>
+            </div>
+            <div class="tt-item">
+              <div class="tt-tag">text-transform: capitalize</div>
+              <div style="text-transform:capitalize;font-size:1.3rem;color:#7ec8e3">barbarian it academy</div>
+            </div>
+          </div>
+        </div>
+        <div class="code-box"><span class="prop">text-transform</span>: <span class="val">uppercase</span>;
+<span class="prop">text-transform</span>: <span class="val">lowercase</span>;
+<span class="prop">text-transform</span>: <span class="val">capitalize</span>;</div>
+      </div>
+
+      <!-- ══ SLIDE 9 ══ -->
+      <div class="slide" id="slide-8">
+        <div class="slide-title">Line Height</div>
+        <div class="slide-subtitle">Controlling vertical spacing between lines</div>
+        <div class="def-box"><strong>line-height</strong> sets the space between lines of text. A value of <strong>1</strong> means no extra space. Values like <strong>1.5</strong> or <strong>2</strong> add breathing room and improve readability.</div>
+        <div class="lh-grid">
+          <div class="lh-card">
+            <div class="lh-label">line-height: 1</div>
+            <div style="line-height:1;color:#ccc;font-size:0.9rem">CSS Typography is the art of styling text on the web. It controls how text looks and reads.</div>
+          </div>
+          <div class="lh-card">
+            <div class="lh-label">line-height: 1.6</div>
+            <div style="line-height:1.6;color:var(--gold);font-size:0.9rem">CSS Typography is the art of styling text on the web. It controls how text looks and reads.</div>
+          </div>
+          <div class="lh-card">
+            <div class="lh-label">line-height: 2.2</div>
+            <div style="line-height:2.2;color:var(--red);font-size:0.9rem">CSS Typography is the art of styling text on the web. It controls how text looks and reads.</div>
+          </div>
+        </div>
+        <div class="code-box"><span class="prop">line-height</span>: <span class="val">1</span>;
+<span class="prop">line-height</span>: <span class="val">1.6</span>;
+<span class="prop">line-height</span>: <span class="val">2.2</span>;</div>
+      </div>
+
+      <!-- ══ SLIDE 10 ══ -->
+      <div class="slide" id="slide-9">
+        <div class="slide-title">Letter & Word Spacing</div>
+        <div class="slide-subtitle">Fine-tuning character and word gaps</div>
+        <div class="def-box">
+          <strong>letter-spacing</strong> adds space between individual characters.<br/>
+          <strong>word-spacing</strong> adds space between words.
+        </div>
+        <div class="demo-box">
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div>
+              <div class="label">letter-spacing: 0px (default)</div>
+              <div style="letter-spacing:0px;font-size:1.4rem;color:#ccc">Barbarian IT Academy</div>
+            </div>
+            <div>
+              <div class="label">letter-spacing: 4px</div>
+              <div style="letter-spacing:4px;font-size:1.4rem;color:var(--gold)">Barbarian IT Academy</div>
+            </div>
+            <div>
+              <div class="label">letter-spacing: 10px</div>
+              <div style="letter-spacing:10px;font-size:1.4rem;color:var(--red);font-weight:700">Barbarian IT Academy</div>
+            </div>
+            <div>
+              <div class="label">word-spacing: 20px</div>
+              <div style="word-spacing:20px;font-size:1.4rem;color:#7ec8e3">Barbarian IT Academy</div>
+            </div>
+          </div>
+        </div>
+        <div class="code-box"><span class="prop">letter-spacing</span>: <span class="val">4px</span>;
+<span class="prop">word-spacing</span>: <span class="val">20px</span>;</div>
+      </div>
+
+      <!-- ══ SLIDE 11 ══ -->
+      <div class="slide" id="slide-10">
+        <div class="slide-title">Text Align</div>
+        <div class="slide-subtitle">Horizontal alignment of text</div>
+        <div class="def-box"><strong>text-align</strong> controls how text is aligned horizontally inside its container. Options: <strong>left</strong>, <strong>center</strong>, <strong>right</strong>, <strong>justify</strong>.</div>
+        <div class="align-list">
+          <div class="align-item">
+            <div class="align-tag">text-align: left</div>
+            <div style="text-align:left;color:#ccc;font-size:1rem">The quick brown fox jumps over the lazy dog. CSS Typography is powerful.</div>
+          </div>
+          <div class="align-item">
+            <div class="align-tag">text-align: center</div>
+            <div style="text-align:center;color:var(--gold);font-size:1rem">The quick brown fox jumps over the lazy dog. CSS Typography is powerful.</div>
+          </div>
+          <div class="align-item">
+            <div class="align-tag">text-align: right</div>
+            <div style="text-align:right;color:var(--red);font-size:1rem">The quick brown fox jumps over the lazy dog. CSS Typography is powerful.</div>
+          </div>
+          <div class="align-item">
+            <div class="align-tag">text-align: justify</div>
+            <div style="text-align:justify;color:#7ec8e3;font-size:1rem">The quick brown fox jumps over the lazy dog. CSS Typography is powerful and gives you full control over how text is displayed on the web.</div>
+          </div>
+        </div>
+        <div class="code-box"><span class="prop">text-align</span>: <span class="val">left</span>;
+<span class="prop">text-align</span>: <span class="val">center</span>;
+<span class="prop">text-align</span>: <span class="val">justify</span>;</div>
+      </div>
+
+      <!-- ══ SLIDE 12 ══ -->
+      <div class="slide" id="slide-11">
+        <div class="slide-title">Text Shadow</div>
+        <div class="slide-subtitle">Adding depth and glow to text</div>
+        <div class="def-box"><strong>text-shadow</strong> adds a shadow behind text. Syntax: <strong>x-offset y-offset blur-radius color</strong>. You can stack multiple shadows separated by commas.</div>
+        <div class="shadow-grid">
+          <div class="shadow-card">
+            <div style="font-size:2rem;font-weight:700;text-shadow:2px 2px 4px rgba(0,0,0,0.8);color:#fff">Barbarian</div>
+            <div class="s-label">2px 2px 4px black</div>
+          </div>
+          <div class="shadow-card">
+            <div style="font-size:2rem;font-weight:700;text-shadow:0 0 20px #e63946;color:#fff">Barbarian</div>
+            <div class="s-label">0 0 20px red (glow)</div>
+          </div>
+          <div class="shadow-card">
+            <div style="font-size:2rem;font-weight:700;text-shadow:3px 3px 0 #ffd700;color:#e63946">Barbarian</div>
+            <div class="s-label">3px 3px 0 gold (hard)</div>
+          </div>
+          <div class="shadow-card">
+            <div style="font-size:2rem;font-weight:700;text-shadow:0 0 10px #7ec8e3, 0 0 30px #7ec8e3;color:#fff">Barbarian</div>
+            <div class="s-label">double blue glow</div>
+          </div>
+        </div>
+        <div class="code-box"><span class="prop">text-shadow</span>: <span class="val">2px 2px 4px rgba(0,0,0,0.8)</span>;
+<span class="prop">text-shadow</span>: <span class="val">0 0 20px #e63946</span>;
+<span class="prop">text-shadow</span>: <span class="val">3px 3px 0 #ffd700</span>;</div>
+      </div>
+
+      <!-- ══ SLIDE 13 ══ -->
+      <div class="slide" id="slide-12">
+        <div class="slide-title">Color</div>
+        <div class="slide-subtitle">Styling text color in CSS</div>
+        <div class="def-box"><strong>color</strong> sets the foreground color of text. You can use <strong>named colors</strong>, <strong>hex</strong> (#ff0000), <strong>rgb()</strong>, <strong>rgba()</strong> (with transparency), or <strong>hsl()</strong>.</div>
+        <div class="color-grid">
+          <div class="color-card"><div style="color:red;font-size:1.4rem;font-weight:700">Barbarian</div><div class="c-label">color: red</div></div>
+          <div class="color-card"><div style="color:#ffd700;font-size:1.4rem;font-weight:700">Barbarian</div><div class="c-label">color: #ffd700</div></div>
+          <div class="color-card"><div style="color:rgb(126,200,227);font-size:1.4rem;font-weight:700">Barbarian</div><div class="c-label">color: rgb(126,200,227)</div></div>
+          <div class="color-card"><div style="color:rgba(230,57,70,0.5);font-size:1.4rem;font-weight:700">Barbarian</div><div class="c-label">rgba(230,57,70,0.5)</div></div>
+          <div class="color-card"><div style="color:hsl(45,100%,50%);font-size:1.4rem;font-weight:700">Barbarian</div><div class="c-label">hsl(45,100%,50%)</div></div>
+          <div class="color-card"><div style="background:linear-gradient(90deg,#e63946,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:1.4rem;font-weight:700">Barbarian</div><div class="c-label">gradient text</div></div>
+        </div>
+        <div class="code-box"><span class="prop">color</span>: <span class="val">#ffd700</span>;
+<span class="prop">color</span>: <span class="val">rgba(230, 57, 70, 0.5)</span>;
+<span class="prop">color</span>: <span class="val">hsl(45, 100%, 50%)</span>;</div>
+      </div>
+
+      <!-- ══ SLIDE 14 ══ -->
+      <div class="slide" id="slide-13">
+        <div class="slide-title">@font-face</div>
+        <div class="slide-subtitle">Loading custom fonts from your own files</div>
+        <div class="def-box"><strong>@font-face</strong> lets you load a custom font file (like a <strong>.ttf</strong> or <strong>.woff2</strong>) from your own project folder, so you don't need Google Fonts or any internet connection.</div>
+        <div class="demo-box">
+          <div class="label">How it works</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="background:var(--red);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0">1</div>
+              <div style="color:#ccc">Download a font file (e.g. <span style="color:var(--gold)">Poppins-Regular.ttf</span>) and place it in a <span style="color:var(--gold)">/fonts</span> folder.</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="background:var(--red);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0">2</div>
+              <div style="color:#ccc">Use <span style="color:var(--gold)">@font-face</span> in your CSS to register the font with a name.</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="background:var(--red);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0">3</div>
+              <div style="color:#ccc">Use that name in <span style="color:var(--gold)">font-family</span> just like any other font.</div>
+            </div>
+          </div>
+        </div>
+        <div class="code-box"><span style="color:#888">/* Step 1 & 2: Register the font */</span>
+<span class="prop">@font-face</span> {
+  <span class="prop">font-family</span>: <span class="val">"MyFont"</span>;
+  <span class="prop">src</span>: <span class="val">url("./fonts/Poppins-Regular.ttf")</span>;
+}
+
+<span style="color:#888">/* Step 3: Use it */</span>
+<span class="prop">h1</span> {
+  <span class="prop">font-family</span>: <span class="val">"MyFont"</span>;
+}</div>
+      </div>
+
+      <!-- ══ SLIDE 15 ══ -->
+      <div class="slide" id="slide-14">
+        <div class="slide-title">White-space, Text-overflow, Overflow-wrap & Text-indent</div>
+        <div class="slide-subtitle">Controlling text flow and overflow</div>
+        <div class="ws-grid">
+          <div class="ws-card">
+            <div class="ws-label">white-space: nowrap</div>
+            <div class="def-box" style="margin-bottom:8px;font-size:0.8rem">Prevents text from wrapping to the next line.</div>
+            <div class="nowrap-demo">This is a very long line of text that will NOT wrap to the next line at all.</div>
+          </div>
+          <div class="ws-card">
+            <div class="ws-label">white-space: pre-wrap</div>
+            <div class="def-box" style="margin-bottom:8px;font-size:0.8rem">Preserves spaces & line breaks, wraps when needed.</div>
+            <div class="prewrap-demo">Line one
+Line two
+  Indented line three</div>
+          </div>
+          <div class="ws-card">
+            <div class="ws-label">text-overflow: ellipsis</div>
+            <div class="def-box" style="margin-bottom:8px;font-size:0.8rem">Shows "..." when text overflows its container. Needs <code style="color:var(--gold)">overflow:hidden</code> & <code style="color:var(--gold)">white-space:nowrap</code>.</div>
+            <div style="width:100%;background:#111;padding:8px;border-radius:4px;">
+              <div class="overflow-demo">This is a very long sentence that will be cut off with an ellipsis at the end.</div>
+            </div>
+          </div>
+          <div class="ws-card">
+            <div class="ws-label">overflow-wrap: break-word</div>
+            <div class="def-box" style="margin-bottom:8px;font-size:0.8rem">Breaks long words to prevent overflow.</div>
+            <div style="width:100%;background:#111;padding:8px;border-radius:4px;max-width:200px;">
+              <div class="wrap-demo">Superlongwordwithnospacesthatwouldnormallyoverflow</div>
+            </div>
+          </div>
+        </div>
+        <div class="ws-card" style="margin-top:16px;">
+          <div class="ws-label">text-indent: 40px</div>
+          <div class="def-box" style="margin-bottom:8px;font-size:0.8rem">Indents the first line of a paragraph, like a book.</div>
+          <div class="indent-demo">This paragraph has its first line indented by 40px. It looks like a traditional book paragraph where the first line starts a little further in from the left edge.</div>
+        </div>
+        <div class="code-box"><span class="prop">white-space</span>: <span class="val">nowrap</span>;
+<span class="prop">text-overflow</span>: <span class="val">ellipsis</span>;   <span style="color:#555">/* needs overflow:hidden + white-space:nowrap */</span>
+<span class="prop">overflow-wrap</span>: <span class="val">break-word</span>;
+<span class="prop">text-indent</span>: <span class="val">40px</span>;</div>
+      </div>
+
+    </div><!-- /slide-area -->
+
+    <!-- BOTTOM NAV -->
+    <div id="bottom-nav">
+      <button id="btn-prev" disabled>← Prev</button>
+      <span id="slide-counter">1 / 15</span>
+      <button id="btn-next">Next →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const navItems = document.querySelectorAll('.nav-item');
+  const counter = document.getElementById('slide-counter');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  let current = 0;
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    navItems[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    navItems[current].classList.add('active');
+    navItems[current].scrollIntoView({ block: 'nearest' });
+    document.getElementById('slide-area').scrollTop = 0;
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+    btnPrev.disabled = current === 0;
+    btnNext.disabled = current === slides.length - 1;
+  }
+
+  btnPrev.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
+  btnNext.addEventListener('click', () => { if (current < slides.length - 1) goTo(current + 1); });
+
+  navItems.forEach((item, i) => {
+    item.addEventListener('click', () => goTo(i));
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { if (current < slides.length - 1) goTo(current + 1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { if (current > 0) goTo(current - 1); }
+  });
+</script>
+</body>
+</html>
+

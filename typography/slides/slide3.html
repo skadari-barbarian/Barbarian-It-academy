@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Typography - Font Family</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        font-family: Arial, sans-serif;
+        background:#f4f6f9;
+        padding:40px;
+    }
+
+    h1{
+        text-align:center;
+        color:#2c3e50;
+        margin-bottom:10px;
+    }
+
+    .definition{
+        text-align:center;
+        font-size:18px;
+        color:#555;
+        margin-bottom:40px;
+    }
+
+    .container{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+        gap:20px;
+    }
+
+    /* Different Font Families */
+    .arial{
+        font-family: Arial, sans-serif;
+    }
+
+    .times{
+        font-family: "Times New Roman", serif;
+    }
+
+    .georgia{
+        font-family: Georgia, serif;
+    }
+
+    .verdana{
+        font-family: Verdana, sans-serif;
+    }
+
+    .courier{
+        font-family: "Courier New", monospace;
+    }
+
+    .trebuchet{
+        font-family: "Trebuchet MS", sans-serif;
+    }
+
+    .note{
+        margin-top:35px;
+        background:#eef7ff;
+        padding:18px;
+        border-left:5px solid #0077cc;
+        font-size:17px;
+    }
+
+    code{
+        color:#d63384;
+        font-size:18px;
+    }
+</style>
+
+  <link id="barbarian-font" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Barbarian Brand Overrides -->
+    <style id="barbarian-styles">
+      body {
+        background: #000000 !important;
+        color: #ffffff !important;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      }
+      .container {
+        background: #121212 !important;
+        border: 1px solid #222222 !important;
+        color: #ffffff !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Inter, sans-serif !important;
+      }
+      h1 { color: #ff4400 !important; }
+      h2 { color: #ffffff !important; }
+      p, li, td { color: #cfcfcf !important; }
+      a { color: #1a73e8 !important; }
+      code, pre, .code, .number, .file, .tag {
+        font-family: 'Fira Code', monospace !important;
+      }
+      .highlight, strong, b {
+        color: #ff4400 !important;
+      }
+      footer {
+        color: #777777 !important;
+      }
+    </style>
+
+</head>
+<body>
+
+<h1>CSS Font Family</h1>
+
+<p class="definition">
+<b>Definition:</b> The <code>font-family</code> property specifies the font used to display text. It can use different font styles and also includes a fallback font if the first font is unavailable.
+</p>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Arial</h2>
+        <p class="arial">
+            The quick brown fox jumps over the lazy dog.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Times New Roman</h2>
+        <p class="times">
+            The quick brown fox jumps over the lazy dog.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Georgia</h2>
+        <p class="georgia">
+            The quick brown fox jumps over the lazy dog.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Verdana</h2>
+        <p class="verdana">
+            The quick brown fox jumps over the lazy dog.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Courier New</h2>
+        <p class="courier">
+            The quick brown fox jumps over the lazy dog.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Trebuchet MS</h2>
+        <p class="trebuchet">
+            The quick brown fox jumps over the lazy dog.
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>

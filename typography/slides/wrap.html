@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overflow Wrap & Text Indent</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+    margin-bottom:15px;
+}
+
+.definition{
+    text-align:center;
+    font-size:18px;
+    color:#555;
+    margin-bottom:40px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.card h2{
+    text-align:center;
+    color:#0077cc;
+    margin-bottom:20px;
+}
+
+.demo{
+    width:250px;
+    border:2px solid #3498db;
+    padding:12px;
+    margin:15px auto;
+    background:#fafafa;
+}
+
+/* Overflow Wrap */
+.normal{
+    overflow-wrap:normal;
+}
+
+.break-word{
+    overflow-wrap:break-word;
+}
+
+.anywhere{
+    overflow-wrap:anywhere;
+}
+
+/* Text Indent */
+.indent0{
+    text-indent:0;
+}
+
+.indent30{
+    text-indent:30px;
+}
+
+.indent60{
+    text-indent:60px;
+}
+
+.note{
+    margin-top:40px;
+    background:#eef7ff;
+    padding:20px;
+    border-left:5px solid #0077cc;
+    border-radius:6px;
+}
+
+code{
+    color:#d63384;
+    font-size:17px;
+}
+
+ul{
+    margin-top:10px;
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+</style>
+
+  <link id="barbarian-font" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Barbarian Brand Overrides -->
+    <style id="barbarian-styles">
+      body {
+        background: #000000 !important;
+        color: #ffffff !important;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      }
+      .container {
+        background: #121212 !important;
+        border: 1px solid #222222 !important;
+        color: #ffffff !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Inter, sans-serif !important;
+      }
+      h1 { color: #ff4400 !important; }
+      h2 { color: #ffffff !important; }
+      p, li, td { color: #cfcfcf !important; }
+      a { color: #1a73e8 !important; }
+      code, pre, .code, .number, .file, .tag {
+        font-family: 'Fira Code', monospace !important;
+      }
+      .highlight, strong, b {
+        color: #ff4400 !important;
+      }
+      footer {
+        color: #777777 !important;
+      }
+    </style>
+
+</head>
+<body>
+
+<h1>CSS Overflow Wrap & Text Indent</h1>
+
+<p class="definition">
+<b>overflow-wrap</b> controls how long words wrap within a container, while
+<b>text-indent</b> adds indentation to the first line of a paragraph.
+</p>
+
+<div class="container">
+
+    <!-- Overflow Wrap -->
+    <div class="card">
+
+        <h2>Overflow Wrap</h2>
+
+        <div class="demo normal">
+            <b>normal</b><br><br>
+            SupercalifragilisticexpialidociousVeryLongWordWithoutSpaces
+        </div>
+
+        <div class="demo break-word">
+            <b>break-word</b><br><br>
+            SupercalifragilisticexpialidociousVeryLongWordWithoutSpaces
+        </div>
+
+        <div class="demo anywhere">
+            <b>anywhere</b><br><br>
+            SupercalifragilisticexpialidociousVeryLongWordWithoutSpaces
+        </div>
+
+    </div>
+
+    <!-- Text Indent -->
+    <div class="card">
+
+        <h2>Text Indent</h2>
+
+        <div class="demo indent0">
+            CSS Typography improves readability by controlling fonts, spacing, alignment, and other text properties.
+        </div>
+
+        <div class="demo indent30">
+            CSS Typography improves readability by controlling fonts, spacing, alignment, and other text properties.
+        </div>
+
+        <div class="demo indent60">
+            CSS Typography improves readability by controlling fonts, spacing, alignment, and other text properties.
+        </div>
+
+    </div>
+
+</div>
+
+<div class="note">
+
+<h3>Syntax</h3>
+
+<p><code>overflow-wrap: break-word;</code></p>
+
+<p><code>text-indent: 30px;</code></p>
+
+<br>
+
+<h3>Explanation</h3>
+
+<ul>
+<li><b>overflow-wrap: normal;</b> → Long words may overflow outside the container.</li>
+
+<li><b>overflow-wrap: break-word;</b> → Breaks long words only when necessary.</li>
+
+<li><b>overflow-wrap: anywhere;</b> → Allows breaking at any point to prevent overflow.</li>
+
+<li><b>text-indent: 0;</b> → No indentation.</li>
+
+<li><b>text-indent: 30px;</b> → Indents the first line by 30 pixels.</li>
+
+<li><b>text-indent: 60px;</b> → Indents the first line by 60 pixels.</li>
+
+</ul>
+
+</div>
+
+</body>
+</html>

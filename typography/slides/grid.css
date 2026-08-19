@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=poppins:wght@400;500;600;800&family=VT323&family=Material+Icons&display=swap');
+body {
+  margin: 20px;
+  font-family: 'Poppins';
+  background: #d1ded1;
+}
+ul,li{
+    list-style: none;
+    padding: 0;   
+}
+h1,h2,h3{
+    color:black
+}
+p{
+   color: #050606;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:60px;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+header{
+    max-width: 1200px;
+    margin: 40px auto;
+    border-bottom: 1px solid #bbc7c7;
+}
+article.featured{
+    grid-column: 1 / span 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    border-bottom: 1px solid #bbc7c7;
+    padding-bottom: 40px;
+}
+article img, article.featured img {
+  width: 100%;
+  height: 300px;
+  border:4px solid #050606;
+  border-radius: 8px;
+}
+article p, article h3{
+    margin: 20px 10px
+}
+
+@media screen and (max-width: 980px) {
+    article{
+        grid-column: span 3;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+}

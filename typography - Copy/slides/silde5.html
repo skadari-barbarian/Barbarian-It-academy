@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS  Font Weight</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+    margin-bottom:15px;
+}
+
+.definition{
+    text-align:center;
+    color:#555;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+/* Card Design */
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.card h2{
+    text-align:center;
+    color:#0077cc;
+    margin-bottom:20px;
+}
+
+
+/* Font Weight */
+.weight100{font-weight:100;}
+.weight300{font-weight:300;}
+.weight400{font-weight:400;}
+.weight700{font-weight:700;}
+.weight900{font-weight:900;}
+
+.card p{
+    margin:15px 0;
+    line-height:1.6;
+}
+
+.note{
+    margin-top:35px;
+    background:#eef7ff;
+    padding:20px;
+    border-left:5px solid #0077cc;
+    border-radius:5px;
+}
+
+code{
+    color:#d63384;
+    font-size:17px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>CSS Font Weight</h1>
+
+<p class="definition">
+<b>font-size</b> changes the size of the text, while
+<b>font-weight</b> controls how thick or bold the text appears.
+</p>
+
+<div class="container">
+
+    <!-- Font Size -->
+    <div class="card">
+        <h2>Font Size</h2>
+
+        <p class="size12">font-size: 12px</p>
+        <p class="size18">font-size: 18px</p>
+        <p class="size24">font-size: 24px</p>
+        <p class="size32">font-size: 32px</p>
+        <p class="size40">font-size: 40px</p>
+
+    </div>
+
+</div>
+
+<div class="note">
+
+<h3>Syntax</h3>
+
+
+<p><code>font-weight: bold;</code></p>
+
+<br>
+
+<h3>Explanation</h3>
+
+<ul>
+
+    <li><b>font-weight</b> → Makes text thinner or bolder.</li>
+    <li><b>Common Values:</b> 100, 300, 400 (Normal), 700 (Bold), 900 (Extra Bold).</li>
+</ul>
+
+</div>
+
+</body>
+</html>

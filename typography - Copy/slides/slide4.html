@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Font Size </title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+    margin-bottom:15px;
+}
+
+.definition{
+    text-align:center;
+    color:#555;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+
+/* Font Size */
+.size12{font-size:12px;}
+.size18{font-size:18px;}
+.size24{font-size:24px;}
+.size32{font-size:32px;}
+.size40{font-size:40px;}
+
+.card p{
+    margin:15px 0;
+    line-height:1.6;
+}
+
+.note{
+    margin-top:35px;
+    background:#eef7ff;
+    padding:20px;
+    border-left:5px solid #0077cc;
+    border-radius:5px;
+}
+
+code{
+    color:#d63384;
+    font-size:17px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>CSS Font Size </h1>
+
+<p class="definition">
+<b>font-size</b> changes the size of the text, while
+</p>
+
+<div class="container">
+
+    <!-- Font Size -->
+    <div class="card">
+        <h2>Font Size</h2>
+
+        <p class="size12">font-size: 12px</p>
+        <p class="size18">font-size: 18px</p>
+        <p class="size24">font-size: 24px</p>
+        <p class="size32">font-size: 32px</p>
+        <p class="size40">font-size: 40px</p>
+
+    </div>
+
+</div>
+</div>
+
+</body>
+</html>

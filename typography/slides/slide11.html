@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Text Alignment</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+    margin-bottom:15px;
+}
+
+.definition{
+    text-align:center;
+    color:#555;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.card h2{
+    color:#0077cc;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.demo{
+    border:2px solid #3498db;
+    padding:15px;
+    border-radius:6px;
+    font-size:18px;
+    line-height:1.7;
+    background:#fafafa;
+}
+
+/* Text Alignment Examples */
+
+.left{
+    text-align:left;
+}
+
+.center{
+    text-align:center;
+}
+
+.right{
+    text-align:right;
+}
+
+.justify{
+    text-align:justify;
+}
+
+.note{
+    margin-top:40px;
+    background:#eef7ff;
+    padding:20px;
+    border-left:5px solid #0077cc;
+    border-radius:6px;
+}
+
+code{
+    color:#d63384;
+    font-size:17px;
+}
+
+ul{
+    margin-top:10px;
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+</style>
+
+  <link id="barbarian-font" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Barbarian Brand Overrides -->
+    <style id="barbarian-styles">
+      body {
+        background: #000000 !important;
+        color: #ad3e3e !important;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      }
+      .container {
+        background: #121212 !important;
+        border: 1px solid #222222 !important;
+        color: #d12727 !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Inter, sans-serif !important;
+      }
+      h1 { color: #ff4400 !important; }
+      h2 { color: #ffffff !important; }
+      p, li, td { color: #ce2626 !important; }
+      a { color: #1a73e8 !important; }
+      code, pre, .code, .number, .file, .tag {
+        font-family: 'Fira Code', monospace !important;
+      }
+      .highlight, strong, b {
+        color: #ff4400 !important;
+      }
+      footer {
+        color: #777777 !important;
+      }
+    </style>
+
+</head>
+<body>
+
+<h1>CSS Text Alignment</h1>
+
+<p class="definition">
+<b>text-align</b> specifies the horizontal alignment of text inside an element.
+</p>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Left Alignment</h2>
+        <div class="demo left">
+            CSS Typography improves readability by aligning text to the left. This is the default alignment for most web pages.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Center Alignment</h2>
+        <div class="demo center">
+            CSS Typography improves readability by aligning text to the center. It is commonly used for headings and titles.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Right Alignment</h2>
+        <div class="demo right">
+            CSS Typography improves readability by aligning text to the right. It is less common in standard web layouts.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Justify Alignment</h2>
+        <div class="demo justify">
+            CSS Typography improves readability by distributing text evenly across both the left and right margins, creating a clean and professional appearance often used in newspapers and articles.
+        </div>
+    </div>
+
+</div>
+
+<div class="note">
+
+<h3>Syntax</h3>
+
+<p><code>text-align: left;</code></p>
+<p><code>text-align: center;</code></p>
+<p><code>text-align: right;</code></p>
+<p><code>text-align: justify;</code></p>
+
+<br>
+
+<h3>Explanation</h3>
+
+<ul>
+    <li><b>left</b> → Aligns text to the left (default).</li>
+    <li><b>center</b> → Centers the text horizontally.</li>
+    <li><b>right</b> → Aligns text to the right.</li>
+    <li><b>justify</b> → Aligns text evenly on both left and right sides by adjusting spacing.</li>
+</ul>
+
+</div>
+
+</body>
+</html>

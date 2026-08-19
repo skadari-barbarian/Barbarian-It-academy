@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Typography Practice</title>
+
+   <style>
+    main{
+    background-color: rgb(214, 23, 19);
+}
+section{
+    background-color:rgb(13, 18, 18);
+}
+.subtitle{
+    color: rgb(192, 59, 70);
+}
+.font-family{
+font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.font-size{
+    font-size: larger;
+}
+.font-weight{
+    font-weight: bold;
+}
+.font-style {
+    font-style: italic;
+}
+.line-height{
+    line-height: 1px;
+}
+.letter-spacing{
+    letter-spacing: normal;
+}
+.word-spacing{
+    word-spacing: normal;
+}
+.text-align{
+    text-align: justify;
+}
+.text-decoration{
+    text-decoration: underline;
+}
+.text-transform{
+    text-transform: uppercase;
+}
+.text-indent{
+    text-indent: 40px;
+}
+.text-shadow{
+    text-shadow: 2px 2px 2px gray;
+}
+.white-space {
+    width: 300px;
+    border: 2px solid rgb(242, 104, 6);
+    white-space: normal;
+}
+.text-overflow {
+    width: 300px;
+    border: 2px solid rgb(231, 16, 16);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.overflow-wrap {
+    width: 200px;
+    border: 2px solid rgb(237, 10, 10);
+    overflow-wrap: break-word;
+}
+   </style>
+  <link id="barbarian-font" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Barbarian Brand Overrides -->
+    <style id="barbarian-styles">
+      body {
+        background: #000000 !important;
+        color: #ffffff !important;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      }
+      .container {
+        background: #121212 !important;
+        border: 1px solid #222222 !important;
+        color: #ffffff !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Inter, sans-serif !important;
+      }
+      h1 { color: #ff4400 !important; }
+      h2 { color: #ffffff !important; }
+      p, li, td { color: #cfcfcf !important; }
+      a { color: #1a73e8 !important; }
+      code, pre, .code, .number, .file, .tag {
+        font-family: 'Fira Code', monospace !important;
+      }
+      .highlight, strong, b {
+        color: #ff4400 !important;
+      }
+      footer {
+        color: #777777 !important;
+      }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>CSS Typography</h1>
+        <p class="subtitle">Learning how text styling works in CSS</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Font Family</h2>
+            <p class="font-family">
+                Typography begins with choosing the right font family.
+                Fonts help define the visual personality of a website.
+            </p>
+        </section>
+
+        <section>
+            <h2>Font Size</h2>
+            <p class="font-size">
+                Font size controls how large or small the text appears
+                on a webpage.
+            </p>
+        </section>
+
+        <section>
+            <h2>Font Weight</h2>
+            <p class="font-weight">
+                Font weight controls the thickness and importance of text.
+            </p>
+        </section>
+
+        <section>
+            <h2>Font Style</h2>
+            <p class="font-style">
+                Font style can make text italic or visually slanted.
+            </p>
+        </section>
+
+        <section>
+            <h2>Line Height</h2>
+            <p class="line-height">
+                Line height controls the  web typography
+            </p>
+        </section>
+
+        <section>
+            <h2>Letter Spacing</h2>
+            <p class="letter-spacing">
+                LETTER SPACING CONTROLS SPACE BETWEEN CHARACTERS
+            </p>
+        </section>
+
+        <section>
+            <h2>Word Spacing</h2>
+            <p class="word-spacing">
+                Word spacing controls the space between individual words.
+            </p>
+        </section>
+
+        <section>
+            <h2>Text Alignment</h2>
+            <p class="text-align">
+                Text alignment controls the horizontal position of text
+                inside its container.
+            </p>
+        </section>
+
+        <section>
+            <h2>Text Decoration</h2>
+            <a class="text-decoration">
+                Learn More About Typography
+            </a>
+        </section>
+
+        <section>
+            <h2>Text Transform</h2>
+            <p class="text-transform">
+                this text can be transformed using css
+            </p>
+        </section>
+
+        <section>
+            <h2>Text Indent</h2>
+            <p class="text-indent">
+                Text indent adds space before the first line of a paragraph.
+                This style is commonly seen in articles, books and long-form content.
+            </p>
+        </section>
+
+        <section>
+            <h2>Text Shadow</h2>
+            <h3 class="text-shadow">Typography Shadow Effect</h3>
+        </section>
+
+        <section>
+            <h2>White Space</h2>
+            <p class="white-space">
+                This is a long line of text used to understand how the white-space CSS property controls text wrapping inside a container.
+            </p>
+        </section>
+
+        <section>
+            <h2>Text Overflow</h2>
+            <p class="text-overflow">
+                This is a very long typography title that should be hidden when it exceeds the available container width.
+            </p>
+        </section>
+
+        <section>
+            <h2>Long Word Handling</h2>
+            <p class="overflow-wrap">
+                thisisaveryveryveryveryveryveryveryverylongwordusedfortypographypractice
+            </p>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

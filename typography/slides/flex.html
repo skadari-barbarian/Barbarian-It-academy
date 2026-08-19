@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox Practice</title>
+    <link rel="stylesheet" href="flex.css">
+</head>
+<link id="barbarian-font" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Barbarian Brand Overrides -->
+    <style id="barbarian-styles">
+      body {
+        background: #000000 !important;
+        color: #ffffff !important;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      }
+      .container {
+        background: #121212 !important;
+        border: 1px solid #222222 !important;
+        color: #ffffff !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Inter, sans-serif !important;
+      }
+      h1 { color: #ff4400 !important; }
+      h2 { color: #ffffff !important; }
+      p, li, td { color: #8f2020 !important; }
+      a { color: #1a73e8 !important; }
+      code, pre, .code, .number, .file, .tag {
+        font-family: 'Fira Code', monospace !important;
+      }
+      .highlight, strong, b {
+        color: #ff4400 !important;
+      }
+      footer {
+        color: #777777 !important;
+      }
+    </style>
+<body>
+
+<h1>CSS Flexbox Practice</h1>
+ <h3>1. display:flex</h3>
+<section>
+    <h2>1. display: flex</h2>
+    <div class="container display-flex">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</section>
+
+<h3>2. flex-direction</h3>
+<section>
+    <h2>2. flex-direction: column</h2>
+    <div class="container direction">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</section>
+
+<h3>3. justify-content</h3>
+<section>
+    <h2>3. justify-content: space-between</h2>
+    <div class="container justify">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</section>
+
+<h3>4. align-items</h3>
+<section>
+    <h2>4. align-items: center</h2>
+    <div class="container align">
+        <div class="box">1</div>
+        <div class="box tall">2</div>
+        <div class="box">3</div>
+    </div>
+</section>
+
+<h3>5. flex-wrap</h3>
+<section>
+    <h2>5. flex-wrap</h2>
+    <div class="container wrap">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+    </div>
+</section>
+
+
+<h3>6. gap</h3>
+<section>
+    <h2>6. gap (row and column)</h2>
+    <div class="container gap-demo">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+    </div>
+
+</section>
+<h3>7. flex-grow</h3>
+<section>
+    <h2>7. flex-grow</h2>
+    <div class="container grow">
+        <div class="box grow2">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</section>
+
+<h3>8. flex-shrink</h3>
+<section>
+    <h2>8. flex-shrink</h2>
+    <div class="container shrink">
+        <div class="box no-shrink">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</section>
+
+<h3>9. flex-basis</h3>
+<section>
+    <h2>9. flex-basis</h2>
+    <div class="container basis">
+        <div class="box basis-box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</section>
+
+<h3>10. flex</h3>
+<section>
+    <h2>10. flex</h2>
+    <div class="container flex">
+        <div class="box flex-item">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</section>
+
+<h3>11. order</h3>
+<section>
+    <h2>11. order</h2>
+    <div class="container order">
+        <div class="box order3">1</div>
+        <div class="box order1">2</div>
+        <div class="box order2">3</div>
+    </div>
+</section>
+
+<h3>12. align-self</h3>
+<section>
+    <h2>12. align-self</h2>
+    <div class="container self">
+        <div class="box">1</div>
+        <div class="box self-center">2</div>
+        <div class="box">3</div>
+    </div>
+</section>
+
+<h3>13. align-content</h3>
+<section>
+    <h2>13. align-content</h2>
+    <div class="container content">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+    </div>
+</section>
+
+<h3>14. flex-flow</h3>
+<section>
+    <h2>14. flex-flow</h2>
+    <div class="container flow">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+    </div>
+</section>
+
+</body>
+</html>

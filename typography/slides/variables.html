@@ -1,0 +1,166 @@
+<!-- JAVASCRIPT VARIABLES — PRACTICE SLIDE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="variable.css">
+</head>
+<body>
+<article class="slide variables-slide">
+
+  <div class="eyebrow">JavaScript · Variables</div>
+
+  <h1 class="title">Variables Practice</h1>
+
+  <div class="divider"></div>
+
+  <div class="definition">
+    Practice the three ways of declaring variables in JavaScript:
+    <b>var</b>, <b>let</b>, and <b>const</b>.
+    Observe how their values behave when we assign, update,
+    and access them.
+  </div>
+
+
+  <!-- THREE VARIABLE CARDS -->
+
+  <div class="variable-cards">
+
+    <!-- VAR -->
+
+    <div class="variable-card">
+
+      <div class="label">01 · var</div>
+
+      <p>
+        <b>var</b> allows the variable to be declared again
+        and its value can be changed.
+      </p>
+
+      <div class="variable-code">
+        var name = "Srihitha";
+        <br>
+        name = "JavaScript";
+        <br>
+        console.log(name);
+      </div>
+
+      <div class="variable-output">
+        Output: JavaScript
+      </div>
+
+    </div>
+
+
+    <!-- LET -->
+
+    <div class="variable-card">
+
+      <div class="label">02 · let</div>
+
+      <p>
+        <b>let</b> allows the value to be changed,
+        but the same variable cannot be declared again
+        in the same scope.
+      </p>
+
+      <div class="variable-code">
+        let age = 22;
+        <br>
+        age = 23;
+        <br>
+        console.log(age);
+      </div>
+
+      <div class="variable-output">
+        Output: 23
+      </div>
+
+    </div>
+
+
+    <!-- CONST -->
+
+    <div class="variable-card">
+
+      <div class="label">03 · const</div>
+
+      <p>
+        <b>const</b> cannot be reassigned after it
+        has been declared.
+      </p>
+
+      <div class="variable-code">
+        const country = "India";
+        <br>
+        console.log(country);
+      </div>
+
+      <div class="variable-output">
+        Output: India
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- COMPLETE PRACTICE -->
+
+  <div class="practice-box">
+
+    <div class="label">
+      Complete Practice Example
+    </div>
+
+    <div class="variable-code">
+
+      var studentName = "Srihitha";
+      <br>
+      var studentName = "Student";
+      <br><br>
+
+      let marks = 80;
+      <br>
+      marks = 90;
+      <br><br>
+
+      const course = "JavaScript";
+      <br><br>
+
+      console.log(studentName);
+      <br>
+      console.log(marks);
+      <br>
+      console.log(course);
+
+    </div>
+
+  </div>
+
+
+  <!-- SUMMARY -->
+
+  <div class="variable-summary">
+
+    <b>Quick Practice</b>
+
+    <br>
+
+    <b>var</b> → Can be redeclared and reassigned
+
+    <br>
+
+    <b>let</b> → Can be reassigned, but not redeclared
+    in the same scope
+
+    <br>
+
+    <b>const</b> → Cannot be reassigned or redeclared
+
+  </div>
+
+</article>
+</body>
+</html>

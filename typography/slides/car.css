@@ -1,0 +1,143 @@
+body {
+    margin:0;
+    background: #000000;
+    position:relative;
+    font-family: Inter, -apple-system, sans-serif;}
+.car{
+    width:500px;
+    height:250px;
+    position:relative;
+    margin:150px auto;
+}
+
+.body{
+    width:360px;
+    height:90px;
+    background:#e53935;
+    border:3px solid black;
+    border-radius:20px;
+    position:absolute;
+    bottom:40px;
+    left:70px;
+    z-index:2;
+}
+
+
+.roof{
+    width:180px;
+    height:70px;
+    background:#e53935;
+    border:3px solid black;
+    border-radius:25px 25px 0 0;
+    position:absolute;
+    bottom:125px;
+    left:145px;
+    z-index:3;
+}
+
+.window{
+    width:70px;
+    height:45px;
+    background:skyblue;
+    border:2px solid black;
+    position:absolute;
+    z-index:4;
+}
+
+.left-window{
+    left:160px;
+    bottom:135px;
+}
+
+.right-window{
+    left:245px;
+    bottom:135px;
+}
+.door{
+    width:90px;
+    height:80px;
+    border:2px solid black;
+    position:absolute;
+    left:205px;
+    bottom:45px;
+    z-index:4;
+}
+.handle{
+    width:15px;
+    height:5px;
+    background:black;
+    position:absolute;
+    left:270px;
+    bottom:90px;
+    z-index:5;
+}
+.headlight{
+    width:18px;
+    height:18px;
+    background:yellow;
+    border-radius:50%;
+    border:2px solid black;
+    position:absolute;
+    right:65px;
+    bottom:80px;
+    z-index:5;
+}
+
+.taillight{
+    width:18px;
+    height:18px;
+    background:red;
+    border-radius:50%;
+    border:2px solid black;
+    position:absolute;
+    left:65px;
+    bottom:80px;
+    z-index:5;
+}
+.front{
+    right:48px;
+}
+
+.back{
+    left:48px;
+}
+
+.wheel{
+    width:70px;
+    height:70px;
+    background:black;
+    border-radius:50%;
+    border:3px solid gray;
+    position:absolute;
+    bottom:0;
+    z-index:1;
+}
+
+.left-wheel{
+    left:100px;
+}
+
+.right-wheel{
+    right:100px;
+}
+.rim{
+    width:30px;
+    height:30px;
+    background:silver;
+    border-radius:50%;
+    border:2px solid white;
+    position:absolute;
+    top:17px;
+    left:17px;
+}
+button{
+    position:static;
+    bottom:50px;
+    left:100%;
+    padding:10px 20px;
+    font-size:16px;
+    background-color:#e53935;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
