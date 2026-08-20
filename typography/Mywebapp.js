@@ -83,6 +83,7 @@
           sideDesc: 'JavaScript practice',
           exampleTitle: 'My JS Practice',
           topics: [
+            ["01","js intro",],
             ["01", "JS Variables", "slides/variables.html"],
             ["02", "JavaScript task", "slides/examplepage.html"],
             ["03", "Sync and Async JS", "slides/javascript.html"],
