@@ -84,15 +84,15 @@
           exampleTitle: 'My JS Practice',
           topics: [
             ["01","js intro",],
-            ["01", "JS Variables", "slides/variables.html"],
-            ["02", "JavaScript task", "slides/examplepage.html"],
-            ["03", "Sync and Async JS", "slides/javascript.html"],
-            ["04", "Arrays in java script", "slides/arrays.js"],
-            ["05", "JS OBJECTS", "slides/objects.html"],
-            ["06", "JSon", "slides/json.html"],
-            ["07", "promises", "slides/promise.js"],
-            ["08", "events", "slides/events.html"],
-            ["09","IIFE","slides/iife.html"]
+            ["02", "JS Variables", "slides/variables.html"],
+            ["03", "JavaScript task", "slides/examplepage.html"],
+            ["04", "Sync and Async JS", "slides/javascript.html"],
+            ["05", "Arrays in java script", "slides/arrays.js"],
+            ["06", "JS OBJECTS", "slides/objects.html"],
+            ["07", "JSon", "slides/json.html"],
+            ["08", "promises", "slides/promise.js"],
+            ["09", "events", "slides/events.html"],
+            ["10","IIFE","slides/iife.html"]
           ],
           panelId: 'jsPanel'
         },
