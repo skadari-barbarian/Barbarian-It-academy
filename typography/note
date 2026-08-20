@@ -1,0 +1,31 @@
+/* THEORY PANELS */
+  .theory-panel { flex: 1; min-width: 0; overflow-y: auto; overflow-x: hidden; background: radial-gradient(ellipse at 80% 10%, #e6394612, transparent 35%), var(--dark); transition: flex .35s; display: none; }
+  .theory-panel.active-course { display: block; }
+  .theory-panel.split { display: none; }
+  .theory-panel::-webkit-scrollbar { width: 5px; }
+  .theory-panel::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
+
+  #examplePanel { width: 0; overflow: hidden; background: #080808; border-left: 0 solid var(--red); transition: width .35s, border .35s; display: flex; flex-direction: column; }
+  #examplePanel.open { width: 100%; border-left: 2px solid var(--red); }
+  .example-head { height: 40px; flex: none; padding: 0 13px; display: flex; align-items: center; justify-content: space-between; background: #181818; border-bottom: 1px solid var(--line); }
+  .dots { display: flex; gap: 5px; }
+  .dots i { height: 8px; width: 8px; border-radius: 50%; display: block; }
+  .dots i:nth-child(1) { background: var(--red); }
+  .dots i:nth-child(2) { background: var(--gold); }
+  .dots i:nth-child(3) { background: var(--green); }
+  .example-head .left { display: flex; align-items: center; }
+  .example-head strong { font-size: .62rem; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; margin-left: 9px; }
+  .file { font: .58rem 'Fira Code'; color: var(--muted); }
+  #exampleFrame { flex: 1; width: 100%; border: 0; background: #fff; }
+
+  ["01", "Opening",              ],
+        ["02", "What is Express.js?", ],
+        ["03", "Express Basics",       ],
+        ["04", "Localhost & 127.0.0.1",],
+        ["05", "Two Servers",          "slides/express/public1/index1.html"],
+        ["06", "Location API",         "slides/express/location-api.html"],
+        ["07", "Iframes in Express",   "slides/express/public1/index1.html"],
+        ["08", "Browser Security",     "slides/express/public1/index1.html"],
+        ["09", "Preventing Iframes",   "slides/express/prevent-iframes.html"],
+        ["10", "Helmet.js",            "slides/express/helmet.html"],
+        ["11", "Thank You",            "slides/express/thank-you.html"]
