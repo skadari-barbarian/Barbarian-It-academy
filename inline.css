@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(216, 230, 230);
+}
+h2{
+    color: rgb(121, 161, 47);
+}
+span{
+    color: blue;
+    background-color:white
+}
+mark{
+    background-color: burlywood;
+}

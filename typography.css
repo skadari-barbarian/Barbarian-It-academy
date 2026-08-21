@@ -1,0 +1,63 @@
+main{
+    background-color: antiquewhite;
+}
+section{
+    background-color:cyan;
+}
+.subtitle{
+    color: rgb(192, 59, 70);
+}
+.font-family{
+font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.font-size{
+    font-size: larger;
+}
+.font-weight{
+    font-weight: bold;
+}
+.font-style {
+    font-style: italic;
+}
+.line-height{
+    line-height: 1.5px;
+}
+.letter-spacing{
+    letter-spacing: normal;
+}
+.word-spacing{
+    word-spacing: normal;
+}
+.text-align{
+    text-align: justify;
+}
+.text-decoration{
+    text-decoration: underline;
+}
+.text-transform{
+    text-transform: uppercase;
+}
+.text-indent{
+    text-indent: 40px;
+}
+.text-shadow{
+    text-shadow: 2px 2px 2px gray;
+}
+.white-space {
+    width: 300px;
+    border: 2px solid black;
+    white-space: normal;
+}
+.text-overflow {
+    width: 300px;
+    border: 2px solid black;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.overflow-wrap {
+    width: 200px;
+    border: 2px solid black;
+    overflow-wrap: break-word;
+}

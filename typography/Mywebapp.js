@@ -10,7 +10,8 @@
             ["02","block-level Html","slides/block.html"],
             ["03","Inline-level Html","slides/inline.html"],
             ["04","Forms","slides/form.html"],
-            ["05","accessibility","slides/accessibility.html"]
+            ["05","accessibility","slides/accessibility.html"],
+            ["06","DOM",]
 
           ],
           panelId: 'htmlPanel'
